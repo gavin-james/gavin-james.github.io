@@ -28,15 +28,6 @@ export const zhNavbar = navbar([
           { text: 'java-JVM', icon: 'edit', link: 'base/01.md' }
         ]
       },
-      {
-        text: 'Spring生态',
-        icon: 'spring',
-        children: [
-          { text: 'Spring-Framework', icon: '', link: 'spring/01.md' }
-          // { text: 'SpringBoot', icon: 'edit', link: 'base/01' },
-          // { text: 'SpringCloud', icon: 'edit', link: 'base/01' }
-        ]
-      }
     ]
   },
   {
@@ -76,7 +67,7 @@ export const zhNavbar = navbar([
   },
   {
     text: '开发',
-    icon: 'code',
+    icon: 'shebeikaifa',
     prefix: '/develop/',
     children: [
       {
@@ -111,9 +102,9 @@ export const zhNavbar = navbar([
         text: '质量保障',
         prefix: "quality-assurance/",
         children: [
-          { text: '单元测试', link: 'structures.md' },
-          { text: '统一风格', link: 'structures.md' },
-          { text: '质量管理', link: 'structures.md' },
+          { text: '单元测试', link: 'unit-test.md' },
+          { text: '统一风格', link: 'code-style.md' },
+          { text: '质量管理', link: 'quality-control-sonarlint.md' },
           { text: '阿里巴巴 Java 开发手册', link: 'code-style-alibaba.md' },
           { text: 'Google Java 编程风格指南', link: 'structures.md' },
           { text: 'Twitter Java Style Guide', link: 'structures.md' },
@@ -163,9 +154,18 @@ export const zhNavbar = navbar([
   },
   {
     text: '框架',
-    icon: 'generic',
+    icon: 'manage',
     prefix: '/framework/',
     children: [
+      {
+        text: 'Spring生态',
+        icon: 'spring',
+        children: [
+          { text: 'Spring-Framework', icon: 'bxl-spring-boot', link: 'spring/01.md' },
+          { text: 'SpringBoot', icon: 'bxl-spring-boot', link: 'spring/01' },
+          { text: 'SpringCloud', icon: 'bxl-spring-boot', link: 'spring/01' }
+        ]
+      },
       {
         text: '管理',
         children: [
@@ -185,7 +185,7 @@ export const zhNavbar = navbar([
     ]
   }, {
     text: '架构',
-    icon: 'generic',
+    icon: 'jiagousheji',
     prefix: '/framework/',
     children: [
       {
@@ -208,7 +208,7 @@ export const zhNavbar = navbar([
   },
   {
     text: '工具',
-    icon: 'tool',
+    icon: 'tools',
     prefix: '/tool/',
     children: [
       {
@@ -231,11 +231,11 @@ export const zhNavbar = navbar([
   },
   {
     text: '前端',
-    icon: 'template',
+    icon: 'web3',
     prefix: '/front/',
     children: [
       {
-        text: '管理',
+        text: 'Html',
         children: [
           { text: 'Git', icon: 'edit', link: 'base/01.md' },
           { text: 'Maven', icon: 'edit', link: 'base/01.md' },
@@ -243,7 +243,39 @@ export const zhNavbar = navbar([
         ]
       },
       {
-        text: '部署',
+        text: 'JavaScript',
+        children: [
+          { text: 'Linux', icon: '', link: 'spring/01.md' },
+          { text: 'Docker', icon: '', link: 'docker/01.md' },
+          { text: 'Jenkins', icon: '', link: 'spring/01.md' },
+        ]
+      },
+      {
+        text: 'CSS',
+        children: [
+          { text: 'Linux', icon: '', link: 'spring/01.md' },
+          { text: 'Docker', icon: '', link: 'docker/01.md' },
+          { text: 'Jenkins', icon: '', link: 'spring/01.md' },
+        ]
+      },
+      {
+        text: 'React',
+        children: [
+          { text: 'Linux', icon: '', link: 'spring/01.md' },
+          { text: 'Docker', icon: '', link: 'docker/01.md' },
+          { text: 'Jenkins', icon: '', link: 'spring/01.md' },
+        ]
+      },
+      {
+        text: 'Vue',
+        children: [
+          { text: 'Linux', icon: '', link: 'spring/01.md' },
+          { text: 'Docker', icon: '', link: 'docker/01.md' },
+          { text: 'Jenkins', icon: '', link: 'spring/01.md' },
+        ]
+      },
+      {
+        text: 'UniApp',
         children: [
           { text: 'Linux', icon: '', link: 'spring/01.md' },
           { text: 'Docker', icon: '', link: 'docker/01.md' },

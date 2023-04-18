@@ -1,62 +1,102 @@
 import { sidebar } from 'vuepress-theme-hope'
 export const zhSidebar = sidebar({
-  '/develop/': [
-    {
-      text: '设计模式',
-      prefix: 'design/',
-      collapsible: true,
-      children: [
-        'thought',
-        'seven-principles',
-        'uml-class-diagram',
-        'summary',
-        {
-          text: "创建型模式",
-          collapsible: true,
-          children: [
-            'single',
-            'factory',
-            'prototype',
-            'builder'
-          ],
-        }, {
-          text: "结构型模式",
-          collapsible: true,
-          children: [
-            'adapter',
-            'bridge',
-            'decorator',
-            'composite',
-            'facade',
-            'flyweight',
-            'proxy',
-          ],
-        }, {
-          text: "行为型模式",
-          collapsible: true,
-          children: [
-            'template-method',
-            'command',
-            'visitor',
-            'iterator',
-            'observer',
-            'mediator',
-            'memento',
-            'interpreter',
-            'state',
-            'strategy',
-            'responsibility',
-          ],
-        },
-        'end'
-      ]
-    },
-    {
-      text: '算法和数据结构',
-      collapsible: true,
-      prefix: 'algorithms-structures/',
-      children: ['structures', 'algorithms']
-    }
+  '/develop/': [{
+    text: '质量保障',
+    prefix: 'quality-assurance/',
+    collapsible: true,
+    children: [
+      {
+        text: "单元测试",
+        collapsible: true,
+        children: [
+          'unit-test',
+          'unit-test-junit',
+          'unit-test-junit5',
+          'unit-test-mockito',
+          'unit-test-junit-idea',
+          'unit-test-springboot2',
+        ],
+      },
+      {
+        text: "统一风格",
+        collapsible: true,
+        children: [
+          'code-style',
+          'code-style-name',
+          'code-style-static',
+        ],
+      }, {
+        text: "代码质量",
+        collapsible: true,
+        children: [
+          'quality-control-sonarlint',
+        ],
+      }, {
+        text: "企业级规范",
+        collapsible: true,
+        children: [
+          'code-style-alibaba',
+          'code-style-google'
+        ],
+      },
+    ]
+  },
+  {
+    text: '设计模式',
+    prefix: 'design/',
+    collapsible: true,
+    children: [
+      'thought',
+      'seven-principles',
+      'uml-class-diagram',
+      'summary',
+      {
+        text: "创建型模式",
+        collapsible: true,
+        children: [
+          'single',
+          'factory',
+          'prototype',
+          'builder'
+        ],
+      }, {
+        text: "结构型模式",
+        collapsible: true,
+        children: [
+          'adapter',
+          'bridge',
+          'decorator',
+          'composite',
+          'facade',
+          'flyweight',
+          'proxy',
+        ],
+      }, {
+        text: "行为型模式",
+        collapsible: true,
+        children: [
+          'template-method',
+          'command',
+          'visitor',
+          'iterator',
+          'observer',
+          'mediator',
+          'memento',
+          'interpreter',
+          'state',
+          'strategy',
+          'responsibility',
+        ],
+      },
+      'end'
+    ]
+  },
+  {
+    text: '算法和数据结构',
+    collapsible: true,
+    prefix: 'algorithms-structures/',
+    children: ['structures', 'algorithms']
+  }
   ]
 })
 

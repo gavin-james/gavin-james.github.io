@@ -17,7 +17,7 @@ export default defineClientConfig({
   },
   setup: () => {
     useStyleTag(`\
-@import url("//at.alicdn.com/t/c/font_3921653_gppscgswama.css");
+@import url("//at.alicdn.com/t/c/font_3921653_dm12jkxmd1c.css");
 `);
   },
   rootComponents: [

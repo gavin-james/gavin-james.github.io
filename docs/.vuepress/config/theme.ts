@@ -10,7 +10,7 @@ export default hopeTheme({
     url: 'http://www.gavin-james.xyz'
   },
 
-  iconAssets: '//at.alicdn.com/t/c/font_3921653_gppscgswama.css',
+  iconAssets: '//at.alicdn.com/t/c/font_3921653_dm12jkxmd1c.css',
 
   logo: '/logo.svg',
 
@@ -129,44 +129,45 @@ export default hopeTheme({
     mdEnhance: {
       align: true,
       attrs: true,
+      card: true,
       chart: true,
       codetabs: true,
-      container: true,
       demo: true,
       echarts: true,
       figure: true,
       flowchart: true,
       gfm: true,
       imgLazyload: true,
+      imgMark: true,
       imgSize: true,
       include: true,
-      katex: true,
+      mathjax: true,
       mark: true,
       mermaid: true,
       playground: {
-        presets: ['ts', 'vue']
+        presets: ["ts", "vue"],
       },
       presentation: {
-        plugins: ['highlight', 'math', 'search', 'notes', 'zoom']
+        plugins: ["highlight", "math", "search", "notes", "zoom"],
       },
       stylize: [
         {
-          matcher: 'Recommended',
+          matcher: "Recommended",
           replacer: ({ tag }) => {
-            if (tag === 'em')
+            if (tag === "em")
               return {
-                tag: 'Badge',
-                attrs: { type: 'tip' },
-                content: 'Recommended'
-              }
-          }
-        }
+                tag: "Badge",
+                attrs: { type: "tip" },
+                content: "Recommended",
+              };
+          },
+        },
       ],
       sub: true,
       sup: true,
       tabs: true,
       vPre: true,
-      vuePlayground: true
+      vuePlayground: true,
     }
   }
 })

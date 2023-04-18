@@ -1,0 +1,13 @@
+// 重写原本样式
+.vp-card {
+  max-width: 318px;
+
+  & .vp-card-desc {
+    display: -webkit-box;
+    height: 3rem;
+    width: 254px;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+  }
+}

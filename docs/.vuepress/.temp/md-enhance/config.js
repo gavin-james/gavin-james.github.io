@@ -1,4 +1,5 @@
 import { defineClientConfig } from "@vuepress/client";
+import VPCard from "/Users/mac/Documents/front/gavin-james.github.io/node_modules/.pnpm/vuepress-plugin-md-enhance@2.0.0-beta.203_vuepress@2.0.0-beta.61/node_modules/vuepress-plugin-md-enhance/lib/client/components/VPCard.js";
 import ChartJS from "/Users/mac/Documents/front/gavin-james.github.io/node_modules/.pnpm/vuepress-plugin-md-enhance@2.0.0-beta.203_vuepress@2.0.0-beta.61/node_modules/vuepress-plugin-md-enhance/lib/client/components/ChartJS.js";
 import CodeTabs from "/Users/mac/Documents/front/gavin-james.github.io/node_modules/.pnpm/vuepress-plugin-md-enhance@2.0.0-beta.203_vuepress@2.0.0-beta.61/node_modules/vuepress-plugin-md-enhance/lib/client/components/CodeTabs.js";
 import { hasGlobalComponent } from "/Users/mac/Documents/front/gavin-james.github.io/node_modules/.pnpm/vuepress-shared@2.0.0-beta.203_vuepress@2.0.0-beta.61/node_modules/vuepress-shared/lib/client/index.js";
@@ -15,12 +16,12 @@ import Presentation from "/Users/mac/Documents/front/gavin-james.github.io/node_
 import Playground from "/Users/mac/Documents/front/gavin-james.github.io/node_modules/.pnpm/vuepress-plugin-md-enhance@2.0.0-beta.203_vuepress@2.0.0-beta.61/node_modules/vuepress-plugin-md-enhance/lib/client/components/Playground.js";
 import Tabs from "/Users/mac/Documents/front/gavin-james.github.io/node_modules/.pnpm/vuepress-plugin-md-enhance@2.0.0-beta.203_vuepress@2.0.0-beta.61/node_modules/vuepress-plugin-md-enhance/lib/client/components/Tabs.js";
 import "/Users/mac/Documents/front/gavin-james.github.io/node_modules/.pnpm/vuepress-plugin-md-enhance@2.0.0-beta.203_vuepress@2.0.0-beta.61/node_modules/vuepress-plugin-md-enhance/lib/client/styles/tasklist.scss";
-import "/Users/mac/Documents/front/gavin-james.github.io/node_modules/.pnpm/katex@0.16.6/node_modules/katex/dist/katex.min.css";
-import "/Users/mac/Documents/front/gavin-james.github.io/node_modules/.pnpm/vuepress-plugin-md-enhance@2.0.0-beta.203_vuepress@2.0.0-beta.61/node_modules/vuepress-plugin-md-enhance/lib/client/styles/katex.scss";
 import { defineAsyncComponent } from "vue";
+import "./mathjax.css";
 
 export default defineClientConfig({
   enhance: ({ app }) => {
+    app.component("VPCard", VPCard)
     app.component("ChartJS", ChartJS)
     app.component("CodeTabs", CodeTabs);
     if(!hasGlobalComponent("CodeGroup", app)) app.component("CodeGroup", CodeGroup);
