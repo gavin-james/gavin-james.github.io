@@ -1,0 +1,1 @@
+import{_ as t,W as a,X as c,Y as e,Z as s}from"./framework-6505ccb1.js";const o={},r=e("h1",{id:"静态样式检查详解",tabindex:"-1"},[e("a",{class:"header-anchor",href:"#静态样式检查详解","aria-hidden":"true"},"#"),s(" 静态样式检查详解")],-1),n=[r];function _(d,i){return a(),c("div",null,n)}const h=t(o,[["render",_],["__file","code-style-static.html.vue"]]);export{h as default};

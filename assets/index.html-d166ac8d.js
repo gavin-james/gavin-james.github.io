@@ -1,0 +1,1 @@
+import{_ as o,W as n,X as t,$ as c,C as r}from"./framework-6505ccb1.js";const a={};function _(s,d){const e=r("Mermaid");return n(),t("div",null,[c(e,{id:"mermaid-0",code:"eJwBAQD+/woACwAL"})])}const i=o(a,[["render",_],["__file","index.html.vue"]]);export{i as default};
