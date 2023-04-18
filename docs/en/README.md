@@ -4,7 +4,7 @@ layout: BlogHome
 icon: home
 title: 博客主页
 heroImage: /logo.svg
-heroText: Gavin Blog
+heroText: Gavin James
 heroFullScreen: true
 tagline: 如果一个人把生活兴趣全部建立在爱情那样暴风雨般的感情冲动上,那是会令人失望的。 —— 来自 Maria Curie
 projects:
