@@ -1,6 +1,6 @@
 <template><div><h1 id="浅谈单元测试" tabindex="-1"><a class="header-anchor" href="#浅谈单元测试" aria-hidden="true">#</a> 浅谈单元测试</h1>
 <blockquote>
-<p>单元测试（unit testing），是指对软件中的最小可测试单元进行检查和验证。这是基础，所以围绕着单元测试，我从网上搜集和总结了相关的概念，以助你完善体系。@pdai</p>
+<p>单元测试（unit testing），是指对软件中的最小可测试单元进行检查和验证。这是基础，所以围绕着单元测试，我从网上搜集和总结了相关的概念，以助你完善体系。</p>
 </blockquote>
 <h2 id="什么是单元测试" tabindex="-1"><a class="header-anchor" href="#什么是单元测试" aria-hidden="true">#</a> 什么是单元测试？</h2>
 <blockquote>

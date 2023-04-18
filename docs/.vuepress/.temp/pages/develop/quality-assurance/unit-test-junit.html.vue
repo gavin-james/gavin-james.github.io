@@ -1,6 +1,6 @@
 <template><div><h1 id="junit4-详解" tabindex="-1"><a class="header-anchor" href="#junit4-详解" aria-hidden="true">#</a> JUnit4 详解</h1>
 <blockquote>
-<p>JUint是Java编程语言的单元测试框架，用于编写和运行可重复的自动化测试。本文主要针对Junit4要点进行梳理总结。@pdai</p>
+<p>JUint是Java编程语言的单元测试框架，用于编写和运行可重复的自动化测试。本文主要针对Junit4要点进行梳理总结。</p>
 </blockquote>
 <h2 id="什么是junit" tabindex="-1"><a class="header-anchor" href="#什么是junit" aria-hidden="true">#</a> 什么是JUnit？</h2>
 <p>JUint是Java编程语言的单元测试框架，用于编写和运行可重复的自动化测试。</p>
@@ -17,7 +17,7 @@
 </ul>
 <h2 id="官方资料" tabindex="-1"><a class="header-anchor" href="#官方资料" aria-hidden="true">#</a> 官方资料</h2>
 <blockquote>
-<p>最好的资料依然在Junit官方网站，以下我帮你总结下Junit相关的官方网址。@pdai</p>
+<p>最好的资料依然在Junit官方网站，以下我帮你总结下Junit相关的官方网址。</p>
 </blockquote>
 <p><a href="https://junit.org/junit4/" target="_blank" rel="noopener noreferrer">官网地址<ExternalLinkIcon/></a></p>
 <p><a href="https://github.com/junit-team/junit4/wiki/Assertions" target="_blank" rel="noopener noreferrer">官方入门文档<ExternalLinkIcon/></a></p>
