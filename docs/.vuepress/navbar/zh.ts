@@ -17,15 +17,16 @@ export const zhNavbar = navbar([
     prefix: '/java/',
     children: [
       {
-        text: 'java基础',
+        text: 'Java',
         icon: 'language-java',
         children: [
-          { text: 'java-基础', icon: 'edit', link: 'base/01.md' },
-          { text: 'java-集合', icon: 'edit', link: 'base/01.md' },
-          { text: 'java-并发', icon: 'edit', link: 'base/01.md' },
-          { text: 'java-IO', icon: 'IO', link: 'base/01.md' },
-          { text: 'java-新特性', icon: 'edit', link: 'base/01.md' },
-          { text: 'java-JVM', icon: 'edit', link: 'base/01.md' }
+          { text: 'java-基础', icon: 'edit', link: 'basic/oop.md' },
+          { text: 'java-集合', icon: 'edit', link: 'collection/all.md' },
+          { text: 'java-并发', icon: 'edit', link: 'thread/overview.md' },
+          { text: 'java-IO', icon: 'IO', link: 'io/overview.md' },
+          { text: 'java-新特性', icon: 'edit', link: 'java/overview.md' },
+          { text: 'java-JVM', icon: 'edit', link: 'jvm/overview.md' },
+          { text: 'java-其他', icon: 'edit', link: 'others/awesome-java.md' }
         ]
       },
     ]

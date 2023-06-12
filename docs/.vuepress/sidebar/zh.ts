@@ -1,5 +1,99 @@
 import { sidebar } from 'vuepress-theme-hope'
+
 export const zhSidebar = sidebar({
+  '/java/':[{
+    text: 'Java基础',
+    prefix: 'basic/',
+    collapsible: true,
+    children: [
+      'oop',
+      'lan-basic',
+      'lan-sum',
+      'generic',
+      'annotation',
+      'exception',
+      'reflection',
+      'spi',
+    ]
+  },{
+    text: 'Java集合',
+    prefix: 'basic/',
+    collapsible: true,
+    children: [
+      'oop',
+      'lan-basic',
+      'lan-sum',
+      'generic',
+      'annotation',
+      'exception',
+      'reflection',
+      'spi',
+    ]
+  },{
+    text: 'Java多线程与并发',
+    prefix: 'basic/',
+    collapsible: true,
+    children: [
+      'oop',
+      'lan-basic',
+      'lan-sum',
+      'generic',
+      'annotation',
+      'exception',
+      'reflection',
+      'spi',
+    ]
+  },{
+    text: 'Java IO/NIO/AIO',
+    prefix: 'basic/',
+    collapsible: true,
+    children: [
+      'oop',
+      'lan-basic',
+      'lan-sum',
+      'generic',
+      'annotation',
+      'exception',
+      'reflection',
+      'spi',
+    ]
+  },{
+    text: 'Java 新特性',
+    prefix: 'basic/',
+    collapsible: true,
+    children: [
+      'oop',
+      'lan-basic',
+      'lan-sum',
+      'generic',
+      'annotation',
+      'exception',
+      'reflection',
+      'spi',
+    ]
+  },{
+    text: 'Java JVM',
+    prefix: 'basic/',
+    collapsible: true,
+    children: [
+      'oop',
+      'lan-basic',
+      'lan-sum',
+      'generic',
+      'annotation',
+      'exception',
+      'reflection',
+      'spi',
+    ]
+  },{
+    text: 'Java 其他',
+    prefix: 'others/',
+    collapsible: true,
+    children: [
+      'awesome-java',
+      'better-java',
+    ]
+  }],
   '/develop/': [{
     text: '质量保障',
     prefix: 'quality-assurance/',

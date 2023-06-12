@@ -19,8 +19,10 @@
 <div class="hint-container tip">
 <p class="hint-container-title">一键启用</p>
 <p>你可以设置在主题选项中设置 <code v-pre>plugins.mdEnhance.enableAll: true</code> 启用 <a href="https://vuepress-theme-hope.github.io/v2/md-enhance/zh/" target="_blank" rel="noopener noreferrer">md-enhance<ExternalLinkIcon/></a> 插件的所有功能。</p>
-<CodeTabs id="49" :data='[{"title":"TS"},{"title":"JS"}]' tab-id="language">
-<template #tab0="{ title, value, isActive }">
+<CodeTabs id="49" :data='[{"id":"TS"},{"id":"JS"}]' tab-id="language">
+<template #title0="{ value, isActive }">TS</template>
+<template #title1="{ value, isActive }">JS</template>
+<template #tab0="{ value, isActive }">
 <div class="language-typescript line-numbers-mode" data-ext="ts"><pre v-pre class="language-typescript"><code><span class="token keyword">import</span> <span class="token punctuation">{</span> hopeTheme <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">"vuepress-theme-hope"</span><span class="token punctuation">;</span>
 
 <span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
@@ -33,7 +35,7 @@
   <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
 <span class="token punctuation">}</span><span class="token punctuation">;</span>
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div></template>
-<template #tab1="{ title, value, isActive }">
+<template #tab1="{ value, isActive }">
 <div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="language-javascript"><code><span class="token keyword">const</span> <span class="token punctuation">{</span> hopeTheme <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"vuepress-theme-hope"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
 module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
@@ -113,14 +115,17 @@ module<span class="token punctuation">.</span>exports <span class="token operato
 <li><a href="https://vuepress-theme-hope.github.io/v2/zh/guide/markdown/container.html" target="_blank" rel="noopener noreferrer">查看详情<ExternalLinkIcon/></a></li>
 </ul>
 <h4 id="代码块" tabindex="-1"><a class="header-anchor" href="#代码块" aria-hidden="true">#</a> 代码块</h4>
-<CodeTabs id="105" :data='[{"title":"pnpm"},{"title":"yarn"},{"title":"npm"}]' :active="2">
-<template #tab0="{ title, value, isActive }">
+<CodeTabs id="105" :data='[{"id":"pnpm"},{"id":"yarn"},{"id":"npm"}]' :active="2">
+<template #title0="{ value, isActive }">pnpm</template>
+<template #title1="{ value, isActive }">yarn</template>
+<template #title2="{ value, isActive }">npm</template>
+<template #tab0="{ value, isActive }">
 <div class="language-bash line-numbers-mode" data-ext="sh"><pre v-pre class="language-bash"><code><span class="token function">pnpm</span> <span class="token function">add</span> <span class="token parameter variable">-D</span> vuepress-theme-hope
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div></template>
-<template #tab1="{ title, value, isActive }">
+<template #tab1="{ value, isActive }">
 <div class="language-bash line-numbers-mode" data-ext="sh"><pre v-pre class="language-bash"><code><span class="token function">yarn</span> <span class="token function">add</span> <span class="token parameter variable">-D</span> vuepress-theme-hope
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div></template>
-<template #tab2="{ title, value, isActive }">
+<template #tab2="{ value, isActive }">
 <div class="language-bash line-numbers-mode" data-ext="sh"><pre v-pre class="language-bash"><code><span class="token function">npm</span> i <span class="token parameter variable">-D</span> vuepress-theme-hope
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div></template>
 </CodeTabs>
@@ -190,26 +195,13 @@ module<span class="token punctuation">.</span>exports <span class="token operato
 <li><a href="https://vuepress-theme-hope.github.io/v2/zh/guide/markdown/tex.html" target="_blank" rel="noopener noreferrer">查看详情<ExternalLinkIcon/></a></li>
 </ul>
 <h4 id="导入文件" tabindex="-1"><a class="header-anchor" href="#导入文件" aria-hidden="true">#</a> 导入文件</h4>
-<ul>
-<li>
-<p><RouterLink to="/guide/markdown.html">Markdown 展示</RouterLink></p>
-</li>
-<li>
-<p><RouterLink to="/guide/page.html">页面展示</RouterLink></p>
-</li>
-<li>
-<p><RouterLink to="/guide/disable.html">禁用展示</RouterLink></p>
-</li>
-<li>
-<p><RouterLink to="/guide/encrypt.html">加密展示</RouterLink></p>
-</li>
-</ul>
+<!-- @include: filename{11-17} -->
 <ul>
 <li><a href="https://vuepress-theme-hope.github.io/v2/zh/guide/markdown/include.html" target="_blank" rel="noopener noreferrer">查看详情<ExternalLinkIcon/></a></li>
 </ul>
 <h4 id="代码演示" tabindex="-1"><a class="header-anchor" href="#代码演示" aria-hidden="true">#</a> 代码演示</h4>
 
-<CodeDemo id="code-demo-311" type="normal" title="%E4%B8%80%E4%B8%AA%E6%99%AE%E9%80%9A%20Demo" code="eJwljrGKAjEQhl9lbq5REJdrvZju4IorDhSrNEsysKvZZE2ygoiPopXgK4j4Olv4Fk7cZor5v3++OWCVGoszFNWXXHX0HyhGWFbUEPz6lkTBe+VEK0VsSwe1mSvcUdgrlM/Tub/dRJED2T/u/eX6IYqWcZzgOvJR43XXkEvTbceVBVnSyYeRws/hxHhaGvOzY+Kvjokc5UzbWm8UTmA0hrmEg3IApaWQOBuUg4vr38od82Cfjln4/vHd0N76MINAJkOMHF8ck1dC">
+<CodeDemo id="code-demo-288" type="normal" title="%E4%B8%80%E4%B8%AA%E6%99%AE%E9%80%9A%20Demo" code="eJwljrGKAjEQhl9lbq5REJdrvZju4IorDhSrNEsysKvZZE2ygoiPopXgK4j4Olv4Fk7cZor5v3++OWCVGoszFNWXXHX0HyhGWFbUEPz6lkTBe+VEK0VsSwe1mSvcUdgrlM/Tub/dRJED2T/u/eX6IYqWcZzgOvJR43XXkEvTbceVBVnSyYeRws/hxHhaGvOzY+Kvjokc5UzbWm8UTmA0hrmEg3IApaWQOBuUg4vr38od82Cfjln4/vHd0N76MINAJkOMHF8ck1dC">
 <div class="language-html line-numbers-mode" data-ext="html"><pre v-pre class="language-html"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h1</span><span class="token punctuation">></span></span>VuePress Theme Hope<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h1</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>very<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>非常<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>span</span><span class="token punctuation">></span></span>强大!<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span>
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div></div></div><div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="language-javascript"><code>document<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span><span class="token string">"#very"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">"click"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
@@ -229,7 +221,7 @@ module<span class="token punctuation">.</span>exports <span class="token operato
 </ul>
 <!-- markdownlint-enable MD033 -->
 <h4 id="幻灯片" tabindex="-1"><a class="header-anchor" href="#幻灯片" aria-hidden="true">#</a> 幻灯片</h4>
-<Presentation id="presentation-341" code="eJzjUlZWeLpz9/PG9c872xUMubie7Gh4smPVszmdz6a1P107/emkHoXol5P3PetbGquRUVJSUGylr59blJFfkKpXnFmSqqnwfFbLs3VbX0zYy8Wlq6vLhWqgEVBQ4eXCnc9nrwMaDmeChDHUGusBrU9ISMgq5krOzysuUUhUsFUwtAYJgZRjqAYaoqLC5aURU5KRWpIYb6ADZRhqAvXFFJfmxldn2hrUghQBAI9BXC0=" theme="auto"></Presentation><ul>
+<Presentation id="presentation-318" code="eJzjUlZWeLpz9/PG9c872xUMubie7Gh4smPVszmdz6a1P107/emkHoXol5P3PetbGquRUVJSUGylr59blJFfkKpXnFmSqqnwfFbLs3VbX0zYy8Wlq6vLhWqgEVBQ4eXCnc9nrwMaDmeChDHUGusBrU9ISMgq5krOzysuUUhUsFUwtAYJgZRjqAYaoqLC5aURU5KRWpIYb6ADZRhqAvXFFJfmxldn2hrUghQBAI9BXC0=" theme="auto"></Presentation><ul>
 <li><a href="https://vuepress-theme-hope.github.io/v2/zh/guide/markdown/presentation.html" target="_blank" rel="noopener noreferrer">查看详情<ExternalLinkIcon/></a></li>
 </ul>
 <hr class="footnotes-sep">
