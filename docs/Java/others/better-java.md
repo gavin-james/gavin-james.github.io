@@ -2,60 +2,6 @@
 
 Java 虽作为最流行的编程语言之一，但是似乎并没有什么人很享受用它。好吧，Java 确实是这样的一门编程语言，从最近发布不久的 Java 8 开始，为了更好的使用 Java，我决定收集一些库，实践和工具等相关资料。“更好” 是主观的，所以推荐使用我所说的建议的某些部分，而不是一下子全部按照这些建议来做。请尽情添加其他意见并提交 PR。
 
-这篇文章原始发布在 
-[我的博客](https://www.seancassidy.me/better-java.html).
-
-其他语言版本： [English](README.md), [简体中文](README.zh-cn.md)
-
-## 目录
-
-* [Style（风格）](#style)
-  * [Structs（结构）](#structs)
-    * [The Builder Pattern（构建器模式）](#the-builder-pattern)
-    * [Immutable Object Generation（不可变对象生成）](#immutable-object-generation)
-  * [Exceptions（异常）](#exceptions)
-  * [Dependency injection（依赖注入）](#dependency-injection)
-  * [Avoid Nulls（避免空值）](#avoid-nulls)
-  * [Immutable-by-default（默认不可变）](#immutable-by-default)
-  * [Avoid lots of Util classes（避免过多的工具类）](#avoid-lots-of-util-classes)
-  * [Formatting（格式）](#formatting)
-    * [Javadoc](#javadoc)
-  * [Streams（流）](#streams)
-* [Deploying（部署）](#deploying)
-  * [Frameworks（框架）](#frameworks)
-  * [Maven](#maven)
-    * [Dependency Convergence（依赖收敛）](#dependency-convergence)
-  * [Continuous Integration（持续集成）](#continuous-integration)
-  * [Maven repository（Maven 仓库）](#maven-repository)
-  * [Configuration management（配置管理）](#configuration-management)
-* [Libraries（库）](#libraries)
-  * [Missing Features（缺失的特性）](#missing-features)
-    * [Apache Commons](#apache-commons)
-    * [Guava](#guava)
-    * [Gson](#gson)
-    * [Java Tuples（Java 元组）](#java-tuples)
-    * [Javaslang](#javaslang)
-    * [Joda-Time](#joda-time)
-    * [Lombok](#lombok)
-    * [Play framework（Play 框架）](#play-framework)
-    * [SLF4J](#slf4j)
-    * [jOOQ](#jooq)
-  * [Testing（测试）](#testing)
-    * [jUnit 4](#junit-4)
-    * [jMock](#jmock)
-    * [AssertJ](#assertj)
-* [Tools（工具）](#tools)
-  * [IntelliJ IDEA](#intellij-idea)
-    * [Chronon](#chronon)
-  * [JRebel](#jrebel)
-  * [The Checker Framework（检查框架）](#the-checker-framework)
-  * [Code Quality（代码质量）](#code-quality)
-  * [Eclipse Memory Analyzer（Eclipse 内存分析）](#eclipse-memory-analyzer)
-* [Resources（资源）](#resources)
-  * [Books（书）](#books)
-  * [Podcasts（播客）](#podcasts)
-  * [Videos（视频）](#videos)
-
 ## Style
 
 Java 传统的代码风格是被用来编写非常复杂的企业级 JavaBean。新的代码风格看起来会更加整洁，更加正确，并且更加简单。
@@ -326,7 +272,7 @@ Maven 仍然是构建，打包和测试的标准。有很多不错的替代工�
 </dependencies>
 ```
 
-如果你想使用内部依赖，它应该被每一个单独项目的 **<dependencyManagement>** 部分来管理。否则那将会很难保持根 POM 的版本号是正常的。
+如果你想使用内部依赖，它应该被每一个单独项目的 `<dependencyManagement>`部分来管理。否则那将会很难保持根 POM 的版本号是正常的。
 
 #### Dependency Convergence
 

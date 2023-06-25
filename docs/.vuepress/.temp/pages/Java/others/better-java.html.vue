@@ -1,90 +1,5 @@
 <template><div><h1 id="better-java" tabindex="-1"><a class="header-anchor" href="#better-java" aria-hidden="true">#</a> Better Java</h1>
 <p>Java 虽作为最流行的编程语言之一，但是似乎并没有什么人很享受用它。好吧，Java 确实是这样的一门编程语言，从最近发布不久的 Java 8 开始，为了更好的使用 Java，我决定收集一些库，实践和工具等相关资料。“更好” 是主观的，所以推荐使用我所说的建议的某些部分，而不是一下子全部按照这些建议来做。请尽情添加其他意见并提交 PR。</p>
-<p>这篇文章原始发布在<br>
-<a href="https://www.seancassidy.me/better-java.html" target="_blank" rel="noopener noreferrer">我的博客<ExternalLinkIcon/></a>.</p>
-<p>其他语言版本： <RouterLink to="/java/others/">English</RouterLink>, <RouterLink to="/java/others/README.zh-cn.html">简体中文</RouterLink></p>
-<h2 id="目录" tabindex="-1"><a class="header-anchor" href="#目录" aria-hidden="true">#</a> 目录</h2>
-<ul>
-<li><a href="#style">Style（风格）</a>
-<ul>
-<li><a href="#structs">Structs（结构）</a>
-<ul>
-<li><a href="#the-builder-pattern">The Builder Pattern（构建器模式）</a></li>
-<li><a href="#immutable-object-generation">Immutable Object Generation（不可变对象生成）</a></li>
-</ul>
-</li>
-<li><a href="#exceptions">Exceptions（异常）</a></li>
-<li><a href="#dependency-injection">Dependency injection（依赖注入）</a></li>
-<li><a href="#avoid-nulls">Avoid Nulls（避免空值）</a></li>
-<li><a href="#immutable-by-default">Immutable-by-default（默认不可变）</a></li>
-<li><a href="#avoid-lots-of-util-classes">Avoid lots of Util classes（避免过多的工具类）</a></li>
-<li><a href="#formatting">Formatting（格式）</a>
-<ul>
-<li><a href="#javadoc">Javadoc</a></li>
-</ul>
-</li>
-<li><a href="#streams">Streams（流）</a></li>
-</ul>
-</li>
-<li><a href="#deploying">Deploying（部署）</a>
-<ul>
-<li><a href="#frameworks">Frameworks（框架）</a></li>
-<li><a href="#maven">Maven</a>
-<ul>
-<li><a href="#dependency-convergence">Dependency Convergence（依赖收敛）</a></li>
-</ul>
-</li>
-<li><a href="#continuous-integration">Continuous Integration（持续集成）</a></li>
-<li><a href="#maven-repository">Maven repository（Maven 仓库）</a></li>
-<li><a href="#configuration-management">Configuration management（配置管理）</a></li>
-</ul>
-</li>
-<li><a href="#libraries">Libraries（库）</a>
-<ul>
-<li><a href="#missing-features">Missing Features（缺失的特性）</a>
-<ul>
-<li><a href="#apache-commons">Apache Commons</a></li>
-<li><a href="#guava">Guava</a></li>
-<li><a href="#gson">Gson</a></li>
-<li><a href="#java-tuples">Java Tuples（Java 元组）</a></li>
-<li><a href="#javaslang">Javaslang</a></li>
-<li><a href="#joda-time">Joda-Time</a></li>
-<li><a href="#lombok">Lombok</a></li>
-<li><a href="#play-framework">Play framework（Play 框架）</a></li>
-<li><a href="#slf4j">SLF4J</a></li>
-<li><a href="#jooq">jOOQ</a></li>
-</ul>
-</li>
-<li><a href="#testing">Testing（测试）</a>
-<ul>
-<li><a href="#junit-4">jUnit 4</a></li>
-<li><a href="#jmock">jMock</a></li>
-<li><a href="#assertj">AssertJ</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#tools">Tools（工具）</a>
-<ul>
-<li><a href="#intellij-idea">IntelliJ IDEA</a>
-<ul>
-<li><a href="#chronon">Chronon</a></li>
-</ul>
-</li>
-<li><a href="#jrebel">JRebel</a></li>
-<li><a href="#the-checker-framework">The Checker Framework（检查框架）</a></li>
-<li><a href="#code-quality">Code Quality（代码质量）</a></li>
-<li><a href="#eclipse-memory-analyzer">Eclipse Memory Analyzer（Eclipse 内存分析）</a></li>
-</ul>
-</li>
-<li><a href="#resources">Resources（资源）</a>
-<ul>
-<li><a href="#books">Books（书）</a></li>
-<li><a href="#podcasts">Podcasts（播客）</a></li>
-<li><a href="#videos">Videos（视频）</a></li>
-</ul>
-</li>
-</ul>
 <h2 id="style" tabindex="-1"><a class="header-anchor" href="#style" aria-hidden="true">#</a> Style</h2>
 <p>Java 传统的代码风格是被用来编写非常复杂的企业级 JavaBean。新的代码风格看起来会更加整洁，更加正确，并且更加简单。</p>
 <h3 id="structs" tabindex="-1"><a class="header-anchor" href="#structs" aria-hidden="true">#</a> Structs</h3>
@@ -260,7 +175,7 @@
         <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>some-artifact<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependencies</span><span class="token punctuation">></span></span>
-</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>如果你想使用内部依赖，它应该被每一个单独项目的 <strong><dependencyManagement></strong> 部分来管理。否则那将会很难保持根 POM 的版本号是正常的。</p>
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>如果你想使用内部依赖，它应该被每一个单独项目的 <code v-pre>&lt;dependencyManagement&gt;</code>部分来管理。否则那将会很难保持根 POM 的版本号是正常的。</p>
 <h4 id="dependency-convergence" tabindex="-1"><a class="header-anchor" href="#dependency-convergence" aria-hidden="true">#</a> Dependency Convergence</h4>
 <p>Java 最好的一方面就是拥有大量的第三方库可以做任何事。基本上每一个 API 或者工具包都有一个 Java SDK，可以很方便的用 Maven 引入。</p>
 <p>并且这些第三方 Java 库本身依赖特定版本的其他的库。如果你引入足够多的库，你会发现有些库的版本是冲突的，像这样：</p>

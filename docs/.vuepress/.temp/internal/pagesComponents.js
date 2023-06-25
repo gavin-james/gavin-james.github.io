@@ -19,6 +19,8 @@ export const pagesComponents = {
   "v-50a4c495": defineAsyncComponent(() => import(/* webpackChunkName: "v-50a4c495" */"/Users/mac/Documents/code/front/gavin-james.github.io/docs/.vuepress/.temp/pages/en/slide.html.vue")),
   // path: /framework/
   "v-7d72c4ac": defineAsyncComponent(() => import(/* webpackChunkName: "v-7d72c4ac" */"/Users/mac/Documents/code/front/gavin-james.github.io/docs/.vuepress/.temp/pages/framework/index.html.vue")),
+  // path: /front/
+  "v-7e25fb5f": defineAsyncComponent(() => import(/* webpackChunkName: "v-7e25fb5f" */"/Users/mac/Documents/code/front/gavin-james.github.io/docs/.vuepress/.temp/pages/front/index.html.vue")),
   // path: /guide/
   "v-fffb8e28": defineAsyncComponent(() => import(/* webpackChunkName: "v-fffb8e28" */"/Users/mac/Documents/code/front/gavin-james.github.io/docs/.vuepress/.temp/pages/guide/index.html.vue")),
   // path: /guide/disable.html
@@ -29,8 +31,6 @@ export const pagesComponents = {
   "v-0978b044": defineAsyncComponent(() => import(/* webpackChunkName: "v-0978b044" */"/Users/mac/Documents/code/front/gavin-james.github.io/docs/.vuepress/.temp/pages/guide/markdown.html.vue")),
   // path: /guide/page.html
   "v-4eaf9f84": defineAsyncComponent(() => import(/* webpackChunkName: "v-4eaf9f84" */"/Users/mac/Documents/code/front/gavin-james.github.io/docs/.vuepress/.temp/pages/guide/page.html.vue")),
-  // path: /front/
-  "v-7e25fb5f": defineAsyncComponent(() => import(/* webpackChunkName: "v-7e25fb5f" */"/Users/mac/Documents/code/front/gavin-james.github.io/docs/.vuepress/.temp/pages/front/index.html.vue")),
   // path: /me/study.html
   "v-2250a72e": defineAsyncComponent(() => import(/* webpackChunkName: "v-2250a72e" */"/Users/mac/Documents/code/front/gavin-james.github.io/docs/.vuepress/.temp/pages/me/study.html.vue")),
   // path: /more/
@@ -141,14 +141,14 @@ export const pagesComponents = {
   "v-8ded9d8e": defineAsyncComponent(() => import(/* webpackChunkName: "v-8ded9d8e" */"/Users/mac/Documents/code/front/gavin-james.github.io/docs/.vuepress/.temp/pages/java/basic/reflection.html.vue")),
   // path: /java/basic/spi.html
   "v-7837ef62": defineAsyncComponent(() => import(/* webpackChunkName: "v-7837ef62" */"/Users/mac/Documents/code/front/gavin-james.github.io/docs/.vuepress/.temp/pages/java/basic/spi.html.vue")),
-  // path: /java/spring/01.html
-  "v-2720156a": defineAsyncComponent(() => import(/* webpackChunkName: "v-2720156a" */"/Users/mac/Documents/code/front/gavin-james.github.io/docs/.vuepress/.temp/pages/java/spring/01.html.vue")),
-  // path: /tool/docker/01.html
-  "v-7ec73772": defineAsyncComponent(() => import(/* webpackChunkName: "v-7ec73772" */"/Users/mac/Documents/code/front/gavin-james.github.io/docs/.vuepress/.temp/pages/tool/docker/01.html.vue")),
   // path: /java/others/awesome-java.html
   "v-5253f255": defineAsyncComponent(() => import(/* webpackChunkName: "v-5253f255" */"/Users/mac/Documents/code/front/gavin-james.github.io/docs/.vuepress/.temp/pages/java/others/awesome-java.html.vue")),
   // path: /java/others/better-java.html
   "v-a489f7dc": defineAsyncComponent(() => import(/* webpackChunkName: "v-a489f7dc" */"/Users/mac/Documents/code/front/gavin-james.github.io/docs/.vuepress/.temp/pages/java/others/better-java.html.vue")),
+  // path: /java/spring/01.html
+  "v-2720156a": defineAsyncComponent(() => import(/* webpackChunkName: "v-2720156a" */"/Users/mac/Documents/code/front/gavin-james.github.io/docs/.vuepress/.temp/pages/java/spring/01.html.vue")),
+  // path: /tool/docker/01.html
+  "v-7ec73772": defineAsyncComponent(() => import(/* webpackChunkName: "v-7ec73772" */"/Users/mac/Documents/code/front/gavin-james.github.io/docs/.vuepress/.temp/pages/tool/docker/01.html.vue")),
   // path: /404.html
   "v-3706649a": defineAsyncComponent(() => import(/* webpackChunkName: "v-3706649a" */"/Users/mac/Documents/code/front/gavin-james.github.io/docs/.vuepress/.temp/pages/404.html.vue")),
   // path: /me/
@@ -165,12 +165,12 @@ export const pagesComponents = {
   "v-ffb97496": defineAsyncComponent(() => import(/* webpackChunkName: "v-ffb97496" */"/Users/mac/Documents/code/front/gavin-james.github.io/docs/.vuepress/.temp/pages/java/basic/index.html.vue")),
   // path: /java/
   "v-14c69af4": defineAsyncComponent(() => import(/* webpackChunkName: "v-14c69af4" */"/Users/mac/Documents/code/front/gavin-james.github.io/docs/.vuepress/.temp/pages/java/index.html.vue")),
+  // path: /java/others/
+  "v-53c5f3b8": defineAsyncComponent(() => import(/* webpackChunkName: "v-53c5f3b8" */"/Users/mac/Documents/code/front/gavin-james.github.io/docs/.vuepress/.temp/pages/java/others/index.html.vue")),
   // path: /java/spring/
   "v-211a2a4e": defineAsyncComponent(() => import(/* webpackChunkName: "v-211a2a4e" */"/Users/mac/Documents/code/front/gavin-james.github.io/docs/.vuepress/.temp/pages/java/spring/index.html.vue")),
   // path: /tool/docker/
   "v-27762a11": defineAsyncComponent(() => import(/* webpackChunkName: "v-27762a11" */"/Users/mac/Documents/code/front/gavin-james.github.io/docs/.vuepress/.temp/pages/tool/docker/index.html.vue")),
-  // path: /java/others/
-  "v-53c5f3b8": defineAsyncComponent(() => import(/* webpackChunkName: "v-53c5f3b8" */"/Users/mac/Documents/code/front/gavin-james.github.io/docs/.vuepress/.temp/pages/java/others/index.html.vue")),
   // path: /category/
   "v-5bc93818": defineAsyncComponent(() => import(/* webpackChunkName: "v-5bc93818" */"/Users/mac/Documents/code/front/gavin-james.github.io/docs/.vuepress/.temp/pages/category/index.html.vue")),
   // path: /tag/
