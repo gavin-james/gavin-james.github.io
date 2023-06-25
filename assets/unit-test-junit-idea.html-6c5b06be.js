@@ -1,1 +1,0 @@
-import{_ as t,W as a,X as n,Y as e,Z as s}from"./framework-6505ccb1.js";const c={},i=e("h1",{id:"idea下单元测试详解",tabindex:"-1"},[e("a",{class:"header-anchor",href:"#idea下单元测试详解","aria-hidden":"true"},"#"),s(" IDEA下单元测试详解")],-1),r=[i];function d(o,_){return a(),n("div",null,r)}const l=t(c,[["render",d],["__file","unit-test-junit-idea.html.vue"]]);export{l as default};

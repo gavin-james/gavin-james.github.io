@@ -1,1 +1,0 @@
-import{_ as t,W as o,X as c,Y as e,Z as a}from"./framework-6505ccb1.js";const s={},i=e("h1",{id:"mockito-详解",tabindex:"-1"},[e("a",{class:"header-anchor",href:"#mockito-详解","aria-hidden":"true"},"#"),a(" Mockito 详解")],-1),n=[i];function r(_,d){return o(),c("div",null,n)}const l=t(s,[["render",r],["__file","unit-test-mockito.html.vue"]]);export{l as default};

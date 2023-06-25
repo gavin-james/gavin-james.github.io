@@ -1,1 +1,0 @@
-import{_ as t,W as a,X as c,Y as e,Z as o}from"./framework-6505ccb1.js";const s={},r=e("h1",{id:"统一命名规范详解",tabindex:"-1"},[e("a",{class:"header-anchor",href:"#统一命名规范详解","aria-hidden":"true"},"#"),o(" 统一命名规范详解")],-1),n=[r];function _(d,l){return a(),c("div",null,n)}const h=t(s,[["render",_],["__file","code-style-name.html.vue"]]);export{h as default};
