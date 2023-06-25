@@ -1,6 +1,6 @@
 <template><div><h1 id="better-java" tabindex="-1"><a class="header-anchor" href="#better-java" aria-hidden="true">#</a> Better Java</h1>
 <p>Java 虽作为最流行的编程语言之一，但是似乎并没有什么人很享受用它。好吧，Java 确实是这样的一门编程语言，从最近发布不久的 Java 8 开始，为了更好的使用 Java，我决定收集一些库，实践和工具等相关资料。“更好” 是主观的，所以推荐使用我所说的建议的某些部分，而不是一下子全部按照这些建议来做。请尽情添加其他意见并提交 PR。</p>
-<p>这篇文章原始发布在
+<p>这篇文章原始发布在<br>
 <a href="https://www.seancassidy.me/better-java.html" target="_blank" rel="noopener noreferrer">我的博客<ExternalLinkIcon/></a>.</p>
 <p>其他语言版本： <RouterLink to="/java/others/">English</RouterLink>, <RouterLink to="/java/others/README.zh-cn.html">简体中文</RouterLink></p>
 <h2 id="目录" tabindex="-1"><a class="header-anchor" href="#目录" aria-hidden="true">#</a> 目录</h2>
@@ -151,15 +151,15 @@
 <p>可以考虑下在众多的库中选择一个来帮你生成构建器，取代你亲手去写构建器的方式。</p>
 <h4 id="immutable-object-generation" tabindex="-1"><a class="header-anchor" href="#immutable-object-generation" aria-hidden="true">#</a> Immutable Object Generation</h4>
 <p>如果你要手动创建许多不可变对象，请考虑用注解处理器的方式从它们的接口自动生成。它使样板代码减少到最小化，减少产生 bug 的可能性，促进了对象的不可变性。看这 <a href="https://docs.google.com/presentation/d/14u_h-lMn7f1rXE1nDiLX0azS3IkgjGl5uxp5jGJ75RE/edit#slide=id.g2a5e9c4a8_00" target="_blank" rel="noopener noreferrer">presentation<ExternalLinkIcon/></a> 有常见的 Java 设计模式中一些问题的有趣的讨论。</p>
-<p>一些非常棒的代码生成库如 [immutables]
-(<a href="https://github.com/immutables/immutables" target="_blank" rel="noopener noreferrer">https://github.com/immutables/immutables<ExternalLinkIcon/></a>), 谷歌的
-<a href="https://github.com/google/auto/tree/master/value" target="_blank" rel="noopener noreferrer">auto-value<ExternalLinkIcon/></a> 和
+<p>一些非常棒的代码生成库如 [immutables]<br>
+(<a href="https://github.com/immutables/immutables" target="_blank" rel="noopener noreferrer">https://github.com/immutables/immutables<ExternalLinkIcon/></a>), 谷歌的<br>
+<a href="https://github.com/google/auto/tree/master/value" target="_blank" rel="noopener noreferrer">auto-value<ExternalLinkIcon/></a> 和<br>
 <a href="https://projectlombok.org/" target="_blank" rel="noopener noreferrer">Lombok<ExternalLinkIcon/></a></p>
 <h3 id="exceptions" tabindex="-1"><a class="header-anchor" href="#exceptions" aria-hidden="true">#</a> Exceptions</h3>
 <p>使用<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Exception.html" target="_blank" rel="noopener noreferrer">检查<ExternalLinkIcon/></a>异常的时候一定要注意，或者干脆别用。它会强制你去用 try/catch 代码块包裹住可能抛出异常的部分。比较好的方式就是使你自定义的异常继承自运行时异常来取而代之。这样，可以让你的用户使用他们喜欢的方式去处理异常，而不是每次抛出异常的时候都强制它们去处理/声明，这样会污染代码。</p>
 <p>一个比较漂亮的绝招是在你的方法异常声明中声明 RuntimeExceptions。这对编译器没有影响，但是可以通过文档告诉你的用户在这里可能会有异常抛出。</p>
 <h3 id="dependency-injection" tabindex="-1"><a class="header-anchor" href="#dependency-injection" aria-hidden="true">#</a> Dependency injection</h3>
-<p>在软件工程领域，而不仅是在 Java 领域，使用<a href="https://en.wikipedia.org/wiki/Dependency_injection" target="_blank" rel="noopener noreferrer">依赖注入<ExternalLinkIcon/></a>是编写可测试软件最好的方法之一。
+<p>在软件工程领域，而不仅是在 Java 领域，使用<a href="https://en.wikipedia.org/wiki/Dependency_injection" target="_blank" rel="noopener noreferrer">依赖注入<ExternalLinkIcon/></a>是编写可测试软件最好的方法之一。<br>
 由于 Java 强烈鼓励使用面向对象的设计，所以在 Java 中为了开发可测试软件，你不得不使用依赖注入。</p>
 <p>在 Java 中，通常使用<a href="http://projects.spring.io/spring-framework/" target="_blank" rel="noopener noreferrer">Spring 框架<ExternalLinkIcon/></a>来完成依赖注入。Spring 有基于代码的和基于 XML 配置文件的两种连接方式。如果你使用基于 XML 配置文件的方式，注意不要<a href="http://programmers.stackexchange.com/questions/92393/what-does-the-spring-framework-do-should-i-use-it-why-or-why-not" target="_blank" rel="noopener noreferrer">过度使用 Spring<ExternalLinkIcon/></a>，正是由于它使用的基于 XML 配置文件的格式。在 XML 配置文件中绝对不应该有逻辑或者控制结构。它应该仅仅被用来做依赖注入。</p>
 <p>使用 Google 和 Square 的 <a href="http://square.github.io/dagger/" target="_blank" rel="noopener noreferrer">Dagger<ExternalLinkIcon/></a> 或者 Google 的 <a href="https://github.com/google/guice" target="_blank" rel="noopener noreferrer">Guice<ExternalLinkIcon/></a> 库是 Spring 比较好的替代品。它们不使用像 Spring 那样的 XML 配置文件的格式，相反它们把注入逻辑以注解的方式写到代码中。</p>
@@ -206,7 +206,7 @@
 <span class="token punctuation">}</span>
 <span class="token comment">// fooWidget is guaranteed to be set here</span>
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>现在你可以确定 fooWidget 对象不会意外地被重新赋值了。<em>final</em> 关键词也可以在 if/else 和 try/catch 代码块中使用。当然，如果 <em>fooWidget</em> 对象本身不是不可变的，你可以很容易去修改它。</p>
-<p>使用集合的时候，任何可能的情况下尽量使用 Guava 的 <a href="http://docs.guava-libraries.googlecode.com/git/javadoc/com/google/common/collect/ImmutableMap.html" target="_blank" rel="noopener noreferrer">ImmutableMap<ExternalLinkIcon/></a>, <a href="http://docs.guava-libraries.googlecode.com/git/javadoc/com/google/common/collect/ImmutableList.html" target="_blank" rel="noopener noreferrer">ImmutableList<ExternalLinkIcon/></a>, 或者
+<p>使用集合的时候，任何可能的情况下尽量使用 Guava 的 <a href="http://docs.guava-libraries.googlecode.com/git/javadoc/com/google/common/collect/ImmutableMap.html" target="_blank" rel="noopener noreferrer">ImmutableMap<ExternalLinkIcon/></a>, <a href="http://docs.guava-libraries.googlecode.com/git/javadoc/com/google/common/collect/ImmutableList.html" target="_blank" rel="noopener noreferrer">ImmutableList<ExternalLinkIcon/></a>, 或者<br>
 <a href="http://docs.guava-libraries.googlecode.com/git/javadoc/com/google/common/collect/ImmutableSet.html" target="_blank" rel="noopener noreferrer">ImmutableSet<ExternalLinkIcon/></a> 类。这些类都有构建器，你可以很容易地动态构建集合，一旦你执行了 build 方法，集合就变成了不可变的。</p>
 <p>类应该声明不可变的字段（通过 <em>final</em> 实现）和不可变的集合使该类不可变。或者，可以对类本身使用 <em>final</em> 关键词，这样这个类就不会被继承也不会被修改了。</p>
 <h3 id="avoid-lots-of-util-classes" tabindex="-1"><a class="header-anchor" href="#avoid-lots-of-util-classes" aria-hidden="true">#</a> Avoid lots of Util classes</h3>
@@ -277,7 +277,7 @@ Widget library depends on Bar library v0.9
 <h3 id="continuous-integration" tabindex="-1"><a class="header-anchor" href="#continuous-integration" aria-hidden="true">#</a> Continuous Integration</h3>
 <p>很明显，你需要某种形式的持续集成服务器来帮你不断构建你的快照版本和基于 git 标签构建。</p>
 <p><a href="http://jenkins-ci.org/" target="_blank" rel="noopener noreferrer">Jenkins<ExternalLinkIcon/></a> 和 <a href="https://travis-ci.org/" target="_blank" rel="noopener noreferrer">Travis-CI<ExternalLinkIcon/></a> 就成了很自然的选择.</p>
-<p>代码覆盖率非常有用，<a href="http://cobertura.github.io/cobertura/" target="_blank" rel="noopener noreferrer">Cobertura<ExternalLinkIcon/></a> 就有 <a href="http://mojo.codehaus.org/cobertura-maven-plugin/usage.html" target="_blank" rel="noopener noreferrer">一个很好的 Maven 插件<ExternalLinkIcon/></a>
+<p>代码覆盖率非常有用，<a href="http://cobertura.github.io/cobertura/" target="_blank" rel="noopener noreferrer">Cobertura<ExternalLinkIcon/></a> 就有 <a href="http://mojo.codehaus.org/cobertura-maven-plugin/usage.html" target="_blank" rel="noopener noreferrer">一个很好的 Maven 插件<ExternalLinkIcon/></a><br>
 <a href="http://mojo.codehaus.org/cobertura-maven-plugin/usage.html" target="_blank" rel="noopener noreferrer">a good Maven plugin<ExternalLinkIcon/></a> 并且支持 CI。还有一些其他的支持 Java 的代码覆盖率工具，但是我只用过 Cobertura。</p>
 <h3 id="maven-repository" tabindex="-1"><a class="header-anchor" href="#maven-repository" aria-hidden="true">#</a> Maven repository</h3>
 <p>你需要一个地方存储你生成的 JAR 包，WAR 包或者 EAR 包，因此，你需要一个仓库。</p>
@@ -295,7 +295,7 @@ Widget library depends on Bar library v0.9
 <p><a href="http://commons.apache.org/" target="_blank" rel="noopener noreferrer">Apache Commons 项目<ExternalLinkIcon/></a> 拥有大量的有用的扩展库。</p>
 <p><strong>Commons Codec</strong> 对 Base64 和 16 进制字符串来说有很多有用的编/解码方法。不要再浪费时间重写这些东西了。</p>
 <p><strong>Commons Lang</strong> 有许多关于字符串的操作和创建，字符集和许多各种各样的实用的方法。</p>
-<p><strong>Commons IO</strong> 拥有所有你能想到的关于文件操作的方法。有
+<p><strong>Commons IO</strong> 拥有所有你能想到的关于文件操作的方法。有<br>
 <a href="http://commons.apache.org/proper/commons-io/javadocs/api-release/org/apache/commons/io/FileUtils.html#copyDirectory(java.io.File,%20java.io.File)" target="_blank" rel="noopener noreferrer">FileUtils.copyDirectory<ExternalLinkIcon/></a>，<a href="http://commons.apache.org/proper/commons-io/javadocs/api-release/org/apache/commons/io/FileUtils.html#writeStringToFile(java.io.File,%20java.lang.String)" target="_blank" rel="noopener noreferrer">FileUtils.writeStringToFile<ExternalLinkIcon/></a>，<a href="http://commons.apache.org/proper/commons-io/javadocs/api-release/org/apache/commons/io/IOUtils.html#readLines(java.io.InputStream)" target="_blank" rel="noopener noreferrer">IOUtils.readLines<ExternalLinkIcon/></a> 和更多实用的方法。</p>
 <h4 id="guava" tabindex="-1"><a class="header-anchor" href="#guava" aria-hidden="true">#</a> Guava</h4>
 <p><a href="https://github.com/google/guava" target="_blank" rel="noopener noreferrer">Guava<ExternalLinkIcon/></a> 是谷歌优秀的对 Java 标准库缺少的特性进行补充的扩展库。虽然这很难提炼总结出我有多喜欢这个库，但是我会尽力的。</p>
