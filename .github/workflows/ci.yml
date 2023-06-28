@@ -23,10 +23,10 @@ jobs:
       - name: 设置 pnpm.js 环境
         uses: pnpm/action-setup@v2
         with:
-          version: 7.2.1
+          version: latest
 
       - name: 安装依赖
-        run: pnpm install
+        run: pnpm i
 
       - name: 构建文档
         env:
