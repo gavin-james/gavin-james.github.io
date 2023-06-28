@@ -37,7 +37,7 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           # 这是文档部署到的分支名称
-          folder: docs/.vuepress/dist
+          folder: src/.vuepress/dist
 
       # - name: 推送至 Gitee
       #   uses: wearerequired/git-mirror-action@master

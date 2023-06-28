@@ -4,10 +4,10 @@
   "description": "A project of vuepress-theme-hope",
   "license": "MIT",
   "scripts": {
-    "dev": "vuepress dev docs",
-    "build": "vuepress build docs",
+    "dev": "vuepress dev src",
+    "build": "vuepress build src",
     "baiduPush": "bash baiduPush.sh",
-    "clean-dev": "vuepress dev docs --clean-cache",
+    "clean-dev": "vuepress dev src --clean-cache",
     "update-package": "pnpm dlx vp-update"
   },
   "devDependencies": {
