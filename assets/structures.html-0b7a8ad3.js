@@ -1,0 +1,1 @@
+import{_ as e}from"./plugin-vue_export-helper-c27b6911.js";import{o as t,c as r}from"./app-162150d6.js";const c={};function o(s,_){return t(),r("div")}const f=e(c,[["render",o],["__file","structures.html.vue"]]);export{f as default};
