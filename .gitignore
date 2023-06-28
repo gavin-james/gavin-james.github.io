@@ -78,3 +78,6 @@ Temporary Items
 .apdisk
 docs/.vuepress/dist
 urls.txt
+src/.vuepress/.cache/
+src/.vuepress/.temp/
+src/.vuepress/dist/

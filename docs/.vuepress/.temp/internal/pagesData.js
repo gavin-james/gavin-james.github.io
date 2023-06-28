@@ -7,18 +7,12 @@ export const pagesData = {
   "v-0e503981": () => import(/* webpackChunkName: "v-0e503981" */"/Users/mac/Documents/code/front/gavin-james.github.io/docs/.vuepress/.temp/pages/slide.html.js").then(({ data }) => data),
   // path: /about/
   "v-74bc627b": () => import(/* webpackChunkName: "v-74bc627b" */"/Users/mac/Documents/code/front/gavin-james.github.io/docs/.vuepress/.temp/pages/about/index.html.js").then(({ data }) => data),
-  // path: /en/
-  "v-2d0a870d": () => import(/* webpackChunkName: "v-2d0a870d" */"/Users/mac/Documents/code/front/gavin-james.github.io/docs/.vuepress/.temp/pages/en/index.html.js").then(({ data }) => data),
-  // path: /en/home.html
-  "v-7c2196ed": () => import(/* webpackChunkName: "v-7c2196ed" */"/Users/mac/Documents/code/front/gavin-james.github.io/docs/.vuepress/.temp/pages/en/home.html.js").then(({ data }) => data),
-  // path: /en/slide.html
-  "v-50a4c495": () => import(/* webpackChunkName: "v-50a4c495" */"/Users/mac/Documents/code/front/gavin-james.github.io/docs/.vuepress/.temp/pages/en/slide.html.js").then(({ data }) => data),
   // path: /database/
   "v-2e25198a": () => import(/* webpackChunkName: "v-2e25198a" */"/Users/mac/Documents/code/front/gavin-james.github.io/docs/.vuepress/.temp/pages/database/index.html.js").then(({ data }) => data),
-  // path: /front/
-  "v-7e25fb5f": () => import(/* webpackChunkName: "v-7e25fb5f" */"/Users/mac/Documents/code/front/gavin-james.github.io/docs/.vuepress/.temp/pages/front/index.html.js").then(({ data }) => data),
   // path: /framework/
   "v-7d72c4ac": () => import(/* webpackChunkName: "v-7d72c4ac" */"/Users/mac/Documents/code/front/gavin-james.github.io/docs/.vuepress/.temp/pages/framework/index.html.js").then(({ data }) => data),
+  // path: /front/
+  "v-7e25fb5f": () => import(/* webpackChunkName: "v-7e25fb5f" */"/Users/mac/Documents/code/front/gavin-james.github.io/docs/.vuepress/.temp/pages/front/index.html.js").then(({ data }) => data),
   // path: /guide/
   "v-fffb8e28": () => import(/* webpackChunkName: "v-fffb8e28" */"/Users/mac/Documents/code/front/gavin-james.github.io/docs/.vuepress/.temp/pages/guide/index.html.js").then(({ data }) => data),
   // path: /guide/disable.html
@@ -33,6 +27,12 @@ export const pagesData = {
   "v-2250a72e": () => import(/* webpackChunkName: "v-2250a72e" */"/Users/mac/Documents/code/front/gavin-james.github.io/docs/.vuepress/.temp/pages/me/study.html.js").then(({ data }) => data),
   // path: /more/
   "v-14f73021": () => import(/* webpackChunkName: "v-14f73021" */"/Users/mac/Documents/code/front/gavin-james.github.io/docs/.vuepress/.temp/pages/more/index.html.js").then(({ data }) => data),
+  // path: /en/
+  "v-2d0a870d": () => import(/* webpackChunkName: "v-2d0a870d" */"/Users/mac/Documents/code/front/gavin-james.github.io/docs/.vuepress/.temp/pages/en/index.html.js").then(({ data }) => data),
+  // path: /en/home.html
+  "v-7c2196ed": () => import(/* webpackChunkName: "v-7c2196ed" */"/Users/mac/Documents/code/front/gavin-james.github.io/docs/.vuepress/.temp/pages/en/home.html.js").then(({ data }) => data),
+  // path: /en/slide.html
+  "v-50a4c495": () => import(/* webpackChunkName: "v-50a4c495" */"/Users/mac/Documents/code/front/gavin-james.github.io/docs/.vuepress/.temp/pages/en/slide.html.js").then(({ data }) => data),
   // path: /resource/
   "v-ef7dd9f0": () => import(/* webpackChunkName: "v-ef7dd9f0" */"/Users/mac/Documents/code/front/gavin-james.github.io/docs/.vuepress/.temp/pages/resource/index.html.js").then(({ data }) => data),
   // path: /tool/
@@ -45,6 +45,30 @@ export const pagesData = {
   "v-45b69bc4": () => import(/* webpackChunkName: "v-45b69bc4" */"/Users/mac/Documents/code/front/gavin-james.github.io/docs/.vuepress/.temp/pages/develop/algorithms-structures/algorithms.html.js").then(({ data }) => data),
   // path: /develop/algorithms-structures/structures.html
   "v-55057c70": () => import(/* webpackChunkName: "v-55057c70" */"/Users/mac/Documents/code/front/gavin-james.github.io/docs/.vuepress/.temp/pages/develop/algorithms-structures/structures.html.js").then(({ data }) => data),
+  // path: /develop/quality-assurance/code-style-alibaba.html
+  "v-72edcc3e": () => import(/* webpackChunkName: "v-72edcc3e" */"/Users/mac/Documents/code/front/gavin-james.github.io/docs/.vuepress/.temp/pages/develop/quality-assurance/code-style-alibaba.html.js").then(({ data }) => data),
+  // path: /develop/quality-assurance/code-style-google.html
+  "v-56af3e42": () => import(/* webpackChunkName: "v-56af3e42" */"/Users/mac/Documents/code/front/gavin-james.github.io/docs/.vuepress/.temp/pages/develop/quality-assurance/code-style-google.html.js").then(({ data }) => data),
+  // path: /develop/quality-assurance/code-style-name.html
+  "v-7c15438d": () => import(/* webpackChunkName: "v-7c15438d" */"/Users/mac/Documents/code/front/gavin-james.github.io/docs/.vuepress/.temp/pages/develop/quality-assurance/code-style-name.html.js").then(({ data }) => data),
+  // path: /develop/quality-assurance/code-style-static.html
+  "v-1d64c9ca": () => import(/* webpackChunkName: "v-1d64c9ca" */"/Users/mac/Documents/code/front/gavin-james.github.io/docs/.vuepress/.temp/pages/develop/quality-assurance/code-style-static.html.js").then(({ data }) => data),
+  // path: /develop/quality-assurance/code-style.html
+  "v-2c847d26": () => import(/* webpackChunkName: "v-2c847d26" */"/Users/mac/Documents/code/front/gavin-james.github.io/docs/.vuepress/.temp/pages/develop/quality-assurance/code-style.html.js").then(({ data }) => data),
+  // path: /develop/quality-assurance/quality-control-sonarlint.html
+  "v-ba136d28": () => import(/* webpackChunkName: "v-ba136d28" */"/Users/mac/Documents/code/front/gavin-james.github.io/docs/.vuepress/.temp/pages/develop/quality-assurance/quality-control-sonarlint.html.js").then(({ data }) => data),
+  // path: /develop/quality-assurance/unit-test-junit-idea.html
+  "v-51157dd4": () => import(/* webpackChunkName: "v-51157dd4" */"/Users/mac/Documents/code/front/gavin-james.github.io/docs/.vuepress/.temp/pages/develop/quality-assurance/unit-test-junit-idea.html.js").then(({ data }) => data),
+  // path: /develop/quality-assurance/unit-test-junit.html
+  "v-ea902450": () => import(/* webpackChunkName: "v-ea902450" */"/Users/mac/Documents/code/front/gavin-james.github.io/docs/.vuepress/.temp/pages/develop/quality-assurance/unit-test-junit.html.js").then(({ data }) => data),
+  // path: /develop/quality-assurance/unit-test-junit5.html
+  "v-55fde6b6": () => import(/* webpackChunkName: "v-55fde6b6" */"/Users/mac/Documents/code/front/gavin-james.github.io/docs/.vuepress/.temp/pages/develop/quality-assurance/unit-test-junit5.html.js").then(({ data }) => data),
+  // path: /develop/quality-assurance/unit-test-mockito.html
+  "v-07ea442c": () => import(/* webpackChunkName: "v-07ea442c" */"/Users/mac/Documents/code/front/gavin-james.github.io/docs/.vuepress/.temp/pages/develop/quality-assurance/unit-test-mockito.html.js").then(({ data }) => data),
+  // path: /develop/quality-assurance/unit-test-springboot2.html
+  "v-0995ea93": () => import(/* webpackChunkName: "v-0995ea93" */"/Users/mac/Documents/code/front/gavin-james.github.io/docs/.vuepress/.temp/pages/develop/quality-assurance/unit-test-springboot2.html.js").then(({ data }) => data),
+  // path: /develop/quality-assurance/unit-test.html
+  "v-595dbbce": () => import(/* webpackChunkName: "v-595dbbce" */"/Users/mac/Documents/code/front/gavin-james.github.io/docs/.vuepress/.temp/pages/develop/quality-assurance/unit-test.html.js").then(({ data }) => data),
   // path: /develop/design/adapter.html
   "v-9fc6e360": () => import(/* webpackChunkName: "v-9fc6e360" */"/Users/mac/Documents/code/front/gavin-james.github.io/docs/.vuepress/.temp/pages/develop/design/adapter.html.js").then(({ data }) => data),
   // path: /develop/design/bridge.html
@@ -99,46 +123,6 @@ export const pagesData = {
   "v-379fc8cc": () => import(/* webpackChunkName: "v-379fc8cc" */"/Users/mac/Documents/code/front/gavin-james.github.io/docs/.vuepress/.temp/pages/develop/design/uml-class-diagram.html.js").then(({ data }) => data),
   // path: /develop/design/visitor.html
   "v-6a6fd891": () => import(/* webpackChunkName: "v-6a6fd891" */"/Users/mac/Documents/code/front/gavin-james.github.io/docs/.vuepress/.temp/pages/develop/design/visitor.html.js").then(({ data }) => data),
-  // path: /develop/quality-assurance/code-style-alibaba.html
-  "v-72edcc3e": () => import(/* webpackChunkName: "v-72edcc3e" */"/Users/mac/Documents/code/front/gavin-james.github.io/docs/.vuepress/.temp/pages/develop/quality-assurance/code-style-alibaba.html.js").then(({ data }) => data),
-  // path: /develop/quality-assurance/code-style-google.html
-  "v-56af3e42": () => import(/* webpackChunkName: "v-56af3e42" */"/Users/mac/Documents/code/front/gavin-james.github.io/docs/.vuepress/.temp/pages/develop/quality-assurance/code-style-google.html.js").then(({ data }) => data),
-  // path: /develop/quality-assurance/code-style-name.html
-  "v-7c15438d": () => import(/* webpackChunkName: "v-7c15438d" */"/Users/mac/Documents/code/front/gavin-james.github.io/docs/.vuepress/.temp/pages/develop/quality-assurance/code-style-name.html.js").then(({ data }) => data),
-  // path: /develop/quality-assurance/code-style-static.html
-  "v-1d64c9ca": () => import(/* webpackChunkName: "v-1d64c9ca" */"/Users/mac/Documents/code/front/gavin-james.github.io/docs/.vuepress/.temp/pages/develop/quality-assurance/code-style-static.html.js").then(({ data }) => data),
-  // path: /develop/quality-assurance/code-style.html
-  "v-2c847d26": () => import(/* webpackChunkName: "v-2c847d26" */"/Users/mac/Documents/code/front/gavin-james.github.io/docs/.vuepress/.temp/pages/develop/quality-assurance/code-style.html.js").then(({ data }) => data),
-  // path: /develop/quality-assurance/quality-control-sonarlint.html
-  "v-ba136d28": () => import(/* webpackChunkName: "v-ba136d28" */"/Users/mac/Documents/code/front/gavin-james.github.io/docs/.vuepress/.temp/pages/develop/quality-assurance/quality-control-sonarlint.html.js").then(({ data }) => data),
-  // path: /develop/quality-assurance/unit-test-junit-idea.html
-  "v-51157dd4": () => import(/* webpackChunkName: "v-51157dd4" */"/Users/mac/Documents/code/front/gavin-james.github.io/docs/.vuepress/.temp/pages/develop/quality-assurance/unit-test-junit-idea.html.js").then(({ data }) => data),
-  // path: /develop/quality-assurance/unit-test-junit.html
-  "v-ea902450": () => import(/* webpackChunkName: "v-ea902450" */"/Users/mac/Documents/code/front/gavin-james.github.io/docs/.vuepress/.temp/pages/develop/quality-assurance/unit-test-junit.html.js").then(({ data }) => data),
-  // path: /develop/quality-assurance/unit-test-junit5.html
-  "v-55fde6b6": () => import(/* webpackChunkName: "v-55fde6b6" */"/Users/mac/Documents/code/front/gavin-james.github.io/docs/.vuepress/.temp/pages/develop/quality-assurance/unit-test-junit5.html.js").then(({ data }) => data),
-  // path: /develop/quality-assurance/unit-test-mockito.html
-  "v-07ea442c": () => import(/* webpackChunkName: "v-07ea442c" */"/Users/mac/Documents/code/front/gavin-james.github.io/docs/.vuepress/.temp/pages/develop/quality-assurance/unit-test-mockito.html.js").then(({ data }) => data),
-  // path: /develop/quality-assurance/unit-test-springboot2.html
-  "v-0995ea93": () => import(/* webpackChunkName: "v-0995ea93" */"/Users/mac/Documents/code/front/gavin-james.github.io/docs/.vuepress/.temp/pages/develop/quality-assurance/unit-test-springboot2.html.js").then(({ data }) => data),
-  // path: /develop/quality-assurance/unit-test.html
-  "v-595dbbce": () => import(/* webpackChunkName: "v-595dbbce" */"/Users/mac/Documents/code/front/gavin-james.github.io/docs/.vuepress/.temp/pages/develop/quality-assurance/unit-test.html.js").then(({ data }) => data),
-  // path: /java/basic/java-advanced-spi.html
-  "v-38bdd5fc": () => import(/* webpackChunkName: "v-38bdd5fc" */"/Users/mac/Documents/code/front/gavin-james.github.io/docs/.vuepress/.temp/pages/java/basic/java-advanced-spi.html.js").then(({ data }) => data),
-  // path: /java/basic/java-basic-lan-basic.html
-  "v-3c09b854": () => import(/* webpackChunkName: "v-3c09b854" */"/Users/mac/Documents/code/front/gavin-james.github.io/docs/.vuepress/.temp/pages/java/basic/java-basic-lan-basic.html.js").then(({ data }) => data),
-  // path: /java/basic/java-basic-lan-sum.html
-  "v-d23382d2": () => import(/* webpackChunkName: "v-d23382d2" */"/Users/mac/Documents/code/front/gavin-james.github.io/docs/.vuepress/.temp/pages/java/basic/java-basic-lan-sum.html.js").then(({ data }) => data),
-  // path: /java/basic/java-basic-oop.html
-  "v-29e9d384": () => import(/* webpackChunkName: "v-29e9d384" */"/Users/mac/Documents/code/front/gavin-james.github.io/docs/.vuepress/.temp/pages/java/basic/java-basic-oop.html.js").then(({ data }) => data),
-  // path: /java/basic/java-basic-x-annotation.html
-  "v-291e8560": () => import(/* webpackChunkName: "v-291e8560" */"/Users/mac/Documents/code/front/gavin-james.github.io/docs/.vuepress/.temp/pages/java/basic/java-basic-x-annotation.html.js").then(({ data }) => data),
-  // path: /java/basic/java-basic-x-exception.html
-  "v-63ce1cd4": () => import(/* webpackChunkName: "v-63ce1cd4" */"/Users/mac/Documents/code/front/gavin-james.github.io/docs/.vuepress/.temp/pages/java/basic/java-basic-x-exception.html.js").then(({ data }) => data),
-  // path: /java/basic/java-basic-x-generic.html
-  "v-189f4acc": () => import(/* webpackChunkName: "v-189f4acc" */"/Users/mac/Documents/code/front/gavin-james.github.io/docs/.vuepress/.temp/pages/java/basic/java-basic-x-generic.html.js").then(({ data }) => data),
-  // path: /java/basic/java-basic-x-reflection.html
-  "v-58387c38": () => import(/* webpackChunkName: "v-58387c38" */"/Users/mac/Documents/code/front/gavin-james.github.io/docs/.vuepress/.temp/pages/java/basic/java-basic-x-reflection.html.js").then(({ data }) => data),
   // path: /java/collection/java-collection-ArrayList.html
   "v-44ff8903": () => import(/* webpackChunkName: "v-44ff8903" */"/Users/mac/Documents/code/front/gavin-james.github.io/docs/.vuepress/.temp/pages/java/collection/java-collection-ArrayList.html.js").then(({ data }) => data),
   // path: /java/collection/java-collection-LinkedList.html
@@ -157,6 +141,22 @@ export const pagesData = {
   "v-7068a5d5": () => import(/* webpackChunkName: "v-7068a5d5" */"/Users/mac/Documents/code/front/gavin-james.github.io/docs/.vuepress/.temp/pages/java/collection/java-map-TreeMap_TreeSet.html.js").then(({ data }) => data),
   // path: /java/collection/java-map-WeakHashMap.html
   "v-e6e1587c": () => import(/* webpackChunkName: "v-e6e1587c" */"/Users/mac/Documents/code/front/gavin-james.github.io/docs/.vuepress/.temp/pages/java/collection/java-map-WeakHashMap.html.js").then(({ data }) => data),
+  // path: /java/basic/java-advanced-spi.html
+  "v-38bdd5fc": () => import(/* webpackChunkName: "v-38bdd5fc" */"/Users/mac/Documents/code/front/gavin-james.github.io/docs/.vuepress/.temp/pages/java/basic/java-advanced-spi.html.js").then(({ data }) => data),
+  // path: /java/basic/java-basic-lan-basic.html
+  "v-3c09b854": () => import(/* webpackChunkName: "v-3c09b854" */"/Users/mac/Documents/code/front/gavin-james.github.io/docs/.vuepress/.temp/pages/java/basic/java-basic-lan-basic.html.js").then(({ data }) => data),
+  // path: /java/basic/java-basic-lan-sum.html
+  "v-d23382d2": () => import(/* webpackChunkName: "v-d23382d2" */"/Users/mac/Documents/code/front/gavin-james.github.io/docs/.vuepress/.temp/pages/java/basic/java-basic-lan-sum.html.js").then(({ data }) => data),
+  // path: /java/basic/java-basic-oop.html
+  "v-29e9d384": () => import(/* webpackChunkName: "v-29e9d384" */"/Users/mac/Documents/code/front/gavin-james.github.io/docs/.vuepress/.temp/pages/java/basic/java-basic-oop.html.js").then(({ data }) => data),
+  // path: /java/basic/java-basic-x-annotation.html
+  "v-291e8560": () => import(/* webpackChunkName: "v-291e8560" */"/Users/mac/Documents/code/front/gavin-james.github.io/docs/.vuepress/.temp/pages/java/basic/java-basic-x-annotation.html.js").then(({ data }) => data),
+  // path: /java/basic/java-basic-x-exception.html
+  "v-63ce1cd4": () => import(/* webpackChunkName: "v-63ce1cd4" */"/Users/mac/Documents/code/front/gavin-james.github.io/docs/.vuepress/.temp/pages/java/basic/java-basic-x-exception.html.js").then(({ data }) => data),
+  // path: /java/basic/java-basic-x-generic.html
+  "v-189f4acc": () => import(/* webpackChunkName: "v-189f4acc" */"/Users/mac/Documents/code/front/gavin-james.github.io/docs/.vuepress/.temp/pages/java/basic/java-basic-x-generic.html.js").then(({ data }) => data),
+  // path: /java/basic/java-basic-x-reflection.html
+  "v-58387c38": () => import(/* webpackChunkName: "v-58387c38" */"/Users/mac/Documents/code/front/gavin-james.github.io/docs/.vuepress/.temp/pages/java/basic/java-basic-x-reflection.html.js").then(({ data }) => data),
   // path: /java/io/java-io-aio.html
   "v-3593583a": () => import(/* webpackChunkName: "v-3593583a" */"/Users/mac/Documents/code/front/gavin-james.github.io/docs/.vuepress/.temp/pages/java/io/java-io-aio.html.js").then(({ data }) => data),
   // path: /java/io/java-io-basic-category.html
@@ -183,6 +183,10 @@ export const pagesData = {
   "v-2ba59b36": () => import(/* webpackChunkName: "v-2ba59b36" */"/Users/mac/Documents/code/front/gavin-james.github.io/docs/.vuepress/.temp/pages/java/io/java-io-nio.html.js").then(({ data }) => data),
   // path: /java/io/java-io-overview.html
   "v-b17b64a2": () => import(/* webpackChunkName: "v-b17b64a2" */"/Users/mac/Documents/code/front/gavin-james.github.io/docs/.vuepress/.temp/pages/java/io/java-io-overview.html.js").then(({ data }) => data),
+  // path: /java/others/awesome-java.html
+  "v-5253f255": () => import(/* webpackChunkName: "v-5253f255" */"/Users/mac/Documents/code/front/gavin-james.github.io/docs/.vuepress/.temp/pages/java/others/awesome-java.html.js").then(({ data }) => data),
+  // path: /java/others/better-java.html
+  "v-a489f7dc": () => import(/* webpackChunkName: "v-a489f7dc" */"/Users/mac/Documents/code/front/gavin-james.github.io/docs/.vuepress/.temp/pages/java/others/better-java.html.js").then(({ data }) => data),
   // path: /java/javaup/java-8-up-overview.html
   "v-56bca9f0": () => import(/* webpackChunkName: "v-56bca9f0" */"/Users/mac/Documents/code/front/gavin-james.github.io/docs/.vuepress/.temp/pages/java/javaup/java-8-up-overview.html.js").then(({ data }) => data),
   // path: /java/javaup/java10.html
@@ -233,6 +237,8 @@ export const pagesData = {
   "v-76d5ebe5": () => import(/* webpackChunkName: "v-76d5ebe5" */"/Users/mac/Documents/code/front/gavin-james.github.io/docs/.vuepress/.temp/pages/java/javaup/java9-11.html.js").then(({ data }) => data),
   // path: /java/javaup/java9.html
   "v-b2739d00": () => import(/* webpackChunkName: "v-b2739d00" */"/Users/mac/Documents/code/front/gavin-james.github.io/docs/.vuepress/.temp/pages/java/javaup/java9.html.js").then(({ data }) => data),
+  // path: /java/spring/01.html
+  "v-2720156a": () => import(/* webpackChunkName: "v-2720156a" */"/Users/mac/Documents/code/front/gavin-james.github.io/docs/.vuepress/.temp/pages/java/spring/01.html.js").then(({ data }) => data),
   // path: /java/jvm/java-jvm-agent-arthas.html
   "v-526554b6": () => import(/* webpackChunkName: "v-526554b6" */"/Users/mac/Documents/code/front/gavin-james.github.io/docs/.vuepress/.temp/pages/java/jvm/java-jvm-agent-arthas.html.js").then(({ data }) => data),
   // path: /java/jvm/java-jvm-agent-usage.html
@@ -275,12 +281,6 @@ export const pagesData = {
   "v-c35eedb8": () => import(/* webpackChunkName: "v-c35eedb8" */"/Users/mac/Documents/code/front/gavin-james.github.io/docs/.vuepress/.temp/pages/java/jvm/java-jvm-x-introduce.html.js").then(({ data }) => data),
   // path: /java/jvm/java-jvm-x-overview.html
   "v-16edf7b6": () => import(/* webpackChunkName: "v-16edf7b6" */"/Users/mac/Documents/code/front/gavin-james.github.io/docs/.vuepress/.temp/pages/java/jvm/java-jvm-x-overview.html.js").then(({ data }) => data),
-  // path: /java/others/awesome-java.html
-  "v-5253f255": () => import(/* webpackChunkName: "v-5253f255" */"/Users/mac/Documents/code/front/gavin-james.github.io/docs/.vuepress/.temp/pages/java/others/awesome-java.html.js").then(({ data }) => data),
-  // path: /java/others/better-java.html
-  "v-a489f7dc": () => import(/* webpackChunkName: "v-a489f7dc" */"/Users/mac/Documents/code/front/gavin-james.github.io/docs/.vuepress/.temp/pages/java/others/better-java.html.js").then(({ data }) => data),
-  // path: /java/spring/01.html
-  "v-2720156a": () => import(/* webpackChunkName: "v-2720156a" */"/Users/mac/Documents/code/front/gavin-james.github.io/docs/.vuepress/.temp/pages/java/spring/01.html.js").then(({ data }) => data),
   // path: /java/thread/java-thread-x-juc-AtomicInteger.html
   "v-4014464e": () => import(/* webpackChunkName: "v-4014464e" */"/Users/mac/Documents/code/front/gavin-james.github.io/docs/.vuepress/.temp/pages/java/thread/java-thread-x-juc-AtomicInteger.html.js").then(({ data }) => data),
   // path: /java/thread/java-thread-x-juc-collection-BlockingQueue.html
@@ -337,6 +337,8 @@ export const pagesData = {
   "v-b7b80514": () => import(/* webpackChunkName: "v-b7b80514" */"/Users/mac/Documents/code/front/gavin-james.github.io/docs/.vuepress/.temp/pages/java/thread/java-thread-x-threadlocal.html.js").then(({ data }) => data),
   // path: /tool/docker/01.html
   "v-7ec73772": () => import(/* webpackChunkName: "v-7ec73772" */"/Users/mac/Documents/code/front/gavin-james.github.io/docs/.vuepress/.temp/pages/tool/docker/01.html.js").then(({ data }) => data),
+  // path: /tool/git/overview.html
+  "v-24ff8d05": () => import(/* webpackChunkName: "v-24ff8d05" */"/Users/mac/Documents/code/front/gavin-james.github.io/docs/.vuepress/.temp/pages/tool/git/overview.html.js").then(({ data }) => data),
   // path: /404.html
   "v-3706649a": () => import(/* webpackChunkName: "v-3706649a" */"/Users/mac/Documents/code/front/gavin-james.github.io/docs/.vuepress/.temp/pages/404.html.js").then(({ data }) => data),
   // path: /me/
@@ -345,30 +347,32 @@ export const pagesData = {
   "v-5bb56591": () => import(/* webpackChunkName: "v-5bb56591" */"/Users/mac/Documents/code/front/gavin-james.github.io/docs/.vuepress/.temp/pages/develop/algorithms-structures/index.html.js").then(({ data }) => data),
   // path: /develop/
   "v-1891b76b": () => import(/* webpackChunkName: "v-1891b76b" */"/Users/mac/Documents/code/front/gavin-james.github.io/docs/.vuepress/.temp/pages/develop/index.html.js").then(({ data }) => data),
-  // path: /develop/design/
-  "v-114ea066": () => import(/* webpackChunkName: "v-114ea066" */"/Users/mac/Documents/code/front/gavin-james.github.io/docs/.vuepress/.temp/pages/develop/design/index.html.js").then(({ data }) => data),
   // path: /develop/quality-assurance/
   "v-e867e24a": () => import(/* webpackChunkName: "v-e867e24a" */"/Users/mac/Documents/code/front/gavin-james.github.io/docs/.vuepress/.temp/pages/develop/quality-assurance/index.html.js").then(({ data }) => data),
-  // path: /java/basic/
-  "v-ffb97496": () => import(/* webpackChunkName: "v-ffb97496" */"/Users/mac/Documents/code/front/gavin-james.github.io/docs/.vuepress/.temp/pages/java/basic/index.html.js").then(({ data }) => data),
-  // path: /java/
-  "v-14c69af4": () => import(/* webpackChunkName: "v-14c69af4" */"/Users/mac/Documents/code/front/gavin-james.github.io/docs/.vuepress/.temp/pages/java/index.html.js").then(({ data }) => data),
+  // path: /develop/design/
+  "v-114ea066": () => import(/* webpackChunkName: "v-114ea066" */"/Users/mac/Documents/code/front/gavin-james.github.io/docs/.vuepress/.temp/pages/develop/design/index.html.js").then(({ data }) => data),
   // path: /java/collection/
   "v-16722c46": () => import(/* webpackChunkName: "v-16722c46" */"/Users/mac/Documents/code/front/gavin-james.github.io/docs/.vuepress/.temp/pages/java/collection/index.html.js").then(({ data }) => data),
+  // path: /java/
+  "v-14c69af4": () => import(/* webpackChunkName: "v-14c69af4" */"/Users/mac/Documents/code/front/gavin-james.github.io/docs/.vuepress/.temp/pages/java/index.html.js").then(({ data }) => data),
+  // path: /java/basic/
+  "v-ffb97496": () => import(/* webpackChunkName: "v-ffb97496" */"/Users/mac/Documents/code/front/gavin-james.github.io/docs/.vuepress/.temp/pages/java/basic/index.html.js").then(({ data }) => data),
   // path: /java/io/
   "v-9828af56": () => import(/* webpackChunkName: "v-9828af56" */"/Users/mac/Documents/code/front/gavin-james.github.io/docs/.vuepress/.temp/pages/java/io/index.html.js").then(({ data }) => data),
-  // path: /java/javaup/
-  "v-2b9e3a1e": () => import(/* webpackChunkName: "v-2b9e3a1e" */"/Users/mac/Documents/code/front/gavin-james.github.io/docs/.vuepress/.temp/pages/java/javaup/index.html.js").then(({ data }) => data),
-  // path: /java/jvm/
-  "v-6cec0ebc": () => import(/* webpackChunkName: "v-6cec0ebc" */"/Users/mac/Documents/code/front/gavin-james.github.io/docs/.vuepress/.temp/pages/java/jvm/index.html.js").then(({ data }) => data),
   // path: /java/others/
   "v-53c5f3b8": () => import(/* webpackChunkName: "v-53c5f3b8" */"/Users/mac/Documents/code/front/gavin-james.github.io/docs/.vuepress/.temp/pages/java/others/index.html.js").then(({ data }) => data),
+  // path: /java/javaup/
+  "v-2b9e3a1e": () => import(/* webpackChunkName: "v-2b9e3a1e" */"/Users/mac/Documents/code/front/gavin-james.github.io/docs/.vuepress/.temp/pages/java/javaup/index.html.js").then(({ data }) => data),
   // path: /java/spring/
   "v-211a2a4e": () => import(/* webpackChunkName: "v-211a2a4e" */"/Users/mac/Documents/code/front/gavin-james.github.io/docs/.vuepress/.temp/pages/java/spring/index.html.js").then(({ data }) => data),
+  // path: /java/jvm/
+  "v-6cec0ebc": () => import(/* webpackChunkName: "v-6cec0ebc" */"/Users/mac/Documents/code/front/gavin-james.github.io/docs/.vuepress/.temp/pages/java/jvm/index.html.js").then(({ data }) => data),
   // path: /java/thread/
   "v-48579df1": () => import(/* webpackChunkName: "v-48579df1" */"/Users/mac/Documents/code/front/gavin-james.github.io/docs/.vuepress/.temp/pages/java/thread/index.html.js").then(({ data }) => data),
   // path: /tool/docker/
   "v-27762a11": () => import(/* webpackChunkName: "v-27762a11" */"/Users/mac/Documents/code/front/gavin-james.github.io/docs/.vuepress/.temp/pages/tool/docker/index.html.js").then(({ data }) => data),
+  // path: /tool/git/
+  "v-3a02344a": () => import(/* webpackChunkName: "v-3a02344a" */"/Users/mac/Documents/code/front/gavin-james.github.io/docs/.vuepress/.temp/pages/tool/git/index.html.js").then(({ data }) => data),
   // path: /category/
   "v-5bc93818": () => import(/* webpackChunkName: "v-5bc93818" */"/Users/mac/Documents/code/front/gavin-james.github.io/docs/.vuepress/.temp/pages/category/index.html.js").then(({ data }) => data),
   // path: /tag/
@@ -393,12 +397,12 @@ export const pagesData = {
   "v-ad1708ba": () => import(/* webpackChunkName: "v-ad1708ba" */"/Users/mac/Documents/code/front/gavin-james.github.io/docs/.vuepress/.temp/pages/category/资源导航/index.html.js").then(({ data }) => data),
   // path: /tag/%E6%96%87%E7%AB%A0%E5%8A%A0%E5%AF%86/
   "v-1e447d61": () => import(/* webpackChunkName: "v-1e447d61" */"/Users/mac/Documents/code/front/gavin-james.github.io/docs/.vuepress/.temp/pages/tag/文章加密/index.html.js").then(({ data }) => data),
-  // path: /category/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/
-  "v-41590e77": () => import(/* webpackChunkName: "v-41590e77" */"/Users/mac/Documents/code/front/gavin-james.github.io/docs/.vuepress/.temp/pages/category/设计模式/index.html.js").then(({ data }) => data),
-  // path: /tag/markdown/
-  "v-484552dc": () => import(/* webpackChunkName: "v-484552dc" */"/Users/mac/Documents/code/front/gavin-james.github.io/docs/.vuepress/.temp/pages/tag/markdown/index.html.js").then(({ data }) => data),
   // path: /category/%E4%BB%A3%E7%A0%81%E8%A7%84%E8%8C%83/
   "v-791f1092": () => import(/* webpackChunkName: "v-791f1092" */"/Users/mac/Documents/code/front/gavin-james.github.io/docs/.vuepress/.temp/pages/category/代码规范/index.html.js").then(({ data }) => data),
+  // path: /tag/markdown/
+  "v-484552dc": () => import(/* webpackChunkName: "v-484552dc" */"/Users/mac/Documents/code/front/gavin-james.github.io/docs/.vuepress/.temp/pages/tag/markdown/index.html.js").then(({ data }) => data),
+  // path: /category/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/
+  "v-41590e77": () => import(/* webpackChunkName: "v-41590e77" */"/Users/mac/Documents/code/front/gavin-james.github.io/docs/.vuepress/.temp/pages/category/设计模式/index.html.js").then(({ data }) => data),
   // path: /tag/%E9%A1%B5%E9%9D%A2%E9%85%8D%E7%BD%AE/
   "v-a378ad66": () => import(/* webpackChunkName: "v-a378ad66" */"/Users/mac/Documents/code/front/gavin-james.github.io/docs/.vuepress/.temp/pages/tag/页面配置/index.html.js").then(({ data }) => data),
   // path: /category/java-%E5%9F%BA%E7%A1%80/
@@ -409,10 +413,10 @@ export const pagesData = {
   "v-5decfa84": () => import(/* webpackChunkName: "v-5decfa84" */"/Users/mac/Documents/code/front/gavin-james.github.io/docs/.vuepress/.temp/pages/en/category/index.html.js").then(({ data }) => data),
   // path: /tag/%E8%B5%84%E6%BA%90%E5%AF%BC%E8%88%AA/
   "v-6dd3fb2d": () => import(/* webpackChunkName: "v-6dd3fb2d" */"/Users/mac/Documents/code/front/gavin-james.github.io/docs/.vuepress/.temp/pages/tag/资源导航/index.html.js").then(({ data }) => data),
-  // path: /tag/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/
-  "v-05b88e01": () => import(/* webpackChunkName: "v-05b88e01" */"/Users/mac/Documents/code/front/gavin-james.github.io/docs/.vuepress/.temp/pages/tag/设计模式/index.html.js").then(({ data }) => data),
   // path: /tag/%E4%BB%A3%E7%A0%81%E8%A7%84%E8%8C%83/
   "v-3d7e901c": () => import(/* webpackChunkName: "v-3d7e901c" */"/Users/mac/Documents/code/front/gavin-james.github.io/docs/.vuepress/.temp/pages/tag/代码规范/index.html.js").then(({ data }) => data),
+  // path: /tag/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/
+  "v-05b88e01": () => import(/* webpackChunkName: "v-05b88e01" */"/Users/mac/Documents/code/front/gavin-james.github.io/docs/.vuepress/.temp/pages/tag/设计模式/index.html.js").then(({ data }) => data),
   // path: /tag/java-%E5%9F%BA%E7%A1%80/
   "v-20002c0c": () => import(/* webpackChunkName: "v-20002c0c" */"/Users/mac/Documents/code/front/gavin-james.github.io/docs/.vuepress/.temp/pages/tag/java-基础/index.html.js").then(({ data }) => data),
   // path: /en/tag/

@@ -215,7 +215,7 @@ export const zhNavbar = navbar([
       {
         text: '管理',
         children: [
-          { text: 'Git', icon: 'edit', link: 'base/01.md' },
+          { text: 'Git', icon: 'edit', link: 'git/overview.md' },
           { text: 'Maven', icon: 'edit', link: 'base/01.md' },
           { text: 'Gradle', icon: 'edit', link: 'base/01.md' },
         ]
