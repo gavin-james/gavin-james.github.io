@@ -1,11 +1,12 @@
 // 重写原本样式
 .vp-card {
-  max-width: 318px;
+  max-width: 285px;
+  margin: 0.5rem;
 
   & .vp-card-desc {
     display: -webkit-box;
     height: 3rem;
-    width: 254px;
+    width: 234px;
     overflow: hidden;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 2;
