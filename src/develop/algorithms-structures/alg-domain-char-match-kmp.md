@@ -1,0 +1,1 @@
+# 字符串匹配 - 模式预处理：KMP 算法（Knuth-Morris-Pratt） 

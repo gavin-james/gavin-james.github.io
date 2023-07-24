@@ -1,0 +1,1 @@
+# 创建型 - 简单工厂(Simple Factory) 

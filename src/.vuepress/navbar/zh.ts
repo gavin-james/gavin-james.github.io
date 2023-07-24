@@ -33,35 +33,28 @@ export const zhNavbar = navbar([
   },
   {
     text: '数据库',
-    icon: 'database',
-    prefix: '/database/',
+    icon: 'db',
+    prefix: '/db/',
     children: [
       {
         text: '数据库基础和原理',
-        prefix: 'design/thought',
         children: [
-          { text: '数据库原理', link: 'structures.md' },
-          { text: 'SQL语言', link: 'algorithms.md' }
-          // { text: 'SpringBoot', icon: 'edit', link: 'base/01' },
-          // { text: 'SpringCloud', icon: 'edit', link: 'base/01' }
+          { text: '数据库原理', link: 'sql/sql-db.md' },
+          { text: 'SQL语言', link: 'sql-lan/sql-lan.md' }
         ]
       },
       {
         text: 'SQL数据库',
-        prefix: 'algorithms-structures/',
         children: [
-          { text: 'MySQL', icon: 'mysql', link: 'structures.md' },
-          { text: 'Oracle', icon: 'oracle', link: 'algorithms.md' }
-          // { text: 'SpringBoot', icon: 'edit', link: 'base/01' },
-          // { text: 'SpringCloud', icon: 'edit', link: 'base/01' }
+          { text: 'MySQL', icon: 'mysql', link: 'sql-mysql/sql-mysql-overview.md' },
+          { text: 'Oracle', icon: 'oracle', link: 'sql-oracle/sql-oracle-overview.md' }
         ]
       }, {
         text: 'NOSQL数据库',
-        prefix: 'algorithms-structures/',
         children: [
-          { text: 'Redis', icon: 'redis', link: 'structures.md' },
-          { text: 'MongoDB', icon: 'mongodb', link: 'algorithms.md' },
-          { text: 'ElasticSearch', icon: 'elasticsearch', link: 'algorithms.md' }
+          { text: 'Redis', icon: 'redis', link: 'nosql-redis/db-redis-overview.md' },
+          { text: 'MongoDB', icon: 'mongodb', link: 'nosql-mongo/mongo.md' },
+          { text: 'ElasticSearch', icon: 'elasticsearch', link: 'nosql-es/elasticsearch.md' }
         ]
       }
     ]
@@ -72,31 +65,30 @@ export const zhNavbar = navbar([
     prefix: '/develop/',
     children: [
       {
-        text: '常用开发基础',
-        link: 'design/thought',
+        text: '开发理论与基础',
         children: [
-          { text: '开发原则(SOLID)', link: 'structures.md' },
-          { text: '分布式理论(CAP)', link: 'structures.md' },
-          { text: '分布式理论(BASE)', link: 'structures.md' },
-          { text: '事务理论(ACID)', link: 'structures.md' },
-          { text: '微服务基础(康威定律)', link: 'structures.md' },
-          { text: '常用类详解', link: 'structures.md' },
-          { text: '正则表达式', link: 'structures.md' },
-          { text: 'CRON表达式', link: 'structures.md' },
-          { text: '网络协议和工具', link: 'structures.md' },
-          { text: '安全相关', link: 'structures.md' },
+          { text: '开发原则(SOLID)', link: 'spec/dev-th-solid.md' },
+          { text: '分布式理论(CAP)', link: 'spec/dev-th-cap.md' },
+          { text: '分布式理论(BASE)', link: 'spec/dev-th-base.md' },
+          { text: '事务理论(ACID)', link: 'spec/dev-th-acid.md' },
+          { text: '微服务基础(康威定律)', link: 'spec/dev-microservice-kangwei.md' },
+          { text: '常用类详解', link: 'package/dev-package-x-overview.md' },
+          { text: '正则表达式', link: 'regex/dev-regex-all.md' },
+          { text: 'CRON表达式', link: 'cron/dev-cron-x-usage.md' },
+          { text: '网络协议和工具', link: 'protocol/dev-protocol-overview.md' },
+          { text: '安全相关', link: 'security/dev-security-overview.md' },
         ]
       },
       {
         text: '开发流程',
-        link: 'design/thought',
+        prefix: 'dev-agile/',
         children: [
-          { text: '软件生命周期与传统模式', link: 'structures.md' },
-          { text: '结合测试演化的过程模型', link: 'structures.md' },
-          { text: '敏捷开发项目管理理论', link: 'structures.md' },
-          { text: '敏捷之极限编程(XP)', link: 'structures.md' },
-          { text: '敏捷之Scrum & Kanban', link: 'structures.md' },
-          { text: '敏捷实践之测试驱动开发', link: 'structures.md' },
+          { text: '软件生命周期与传统模式', link: 'dev-th-waterfall-model.md' },
+          { text: '结合测试演化的过程模型', link: 'dev-th-waterfall-vwxh.md' },
+          { text: '敏捷开发项目管理理论', link: 'dev-th-agile.md' },
+          { text: '敏捷之极限编程(XP)', link: 'dev-th-agile-xp.md' },
+          { text: '敏捷之Scrum & Kanban', link: 'dev-th-agile-scrum.md' },
+          { text: '敏捷实践之测试驱动开发', link: 'dev-pratice-tdd.md' },
         ]
       },
       {
@@ -107,48 +99,48 @@ export const zhNavbar = navbar([
           { text: '统一风格', link: 'code-style.md' },
           { text: '质量管理', link: 'quality-control-sonarlint.md' },
           { text: '阿里巴巴 Java 开发手册', link: 'code-style-alibaba.md' },
-          { text: 'Google Java 编程风格指南', link: 'structures.md' },
-          { text: 'Twitter Java Style Guide', link: 'structures.md' },
-          // { text: 'SpringBoot', icon: 'edit', link: 'base/01' },
-          // { text: 'SpringCloud', icon: 'edit', link: 'base/01' }
+          { text: 'Google Java 编程风格指南', link: 'code-style-google.md' },
         ]
       },
       {
         text: '代码重构',
-        link: 'design/thought',
+        prefix:'refactor/',
         children: [
-          { text: '重构技巧相关', link: 'structures.md' },
+          { text: '重构技巧相关', link: 'dev-refactor-if-else.md' },
         ]
       },
       {
         text: '设计模式',
-        link: 'design/thought',
+        prefix: 'design/',
         children: [
-          { text: '设计模式详解', link: 'structures.md' },
+          { text: '设计模式详解', link: 'thought.md' },
         ]
       },
       {
         text: '算法和数据结构',
         prefix: 'algorithms-structures/',
         children: [
-          { text: '数据结构', link: 'structures.md' },
-          { text: '算法', link: 'algorithms.md' }
+          { text: '数据结构', link: 'alg-basic-overview.md' },
+          { text: '常见排序算法', link: 'alg-sort-overview.md' },
+          { text: '算法思想', link: 'alg-core-overview.md' },
+          { text: '领域算法', link: 'alg-domain-overview.md' },
+          { text: '其他相关', link: 'alg-other-mind.md' },
         ]
       }, {
         text: '开源协议',
-        prefix: 'algorithms-structures/',
+        prefix: 'opensource/',
         children: [
-          { text: '常见软件开源协议详解', link: 'structures.md' },
-          { text: '知识共享许可协议', link: 'structures.md' },
-          { text: '国产开源木兰协议', link: 'structures.md' },
+          { text: '常见软件开源协议详解', link: 'dev-opensource.md' },
+          { text: '知识共享许可协议', link: 'dev-knowledge.md' },
+          { text: '国产开源木兰协议', link: 'dev-mulan.md' },
         ]
       }, {
         text: '系统认证',
-        prefix: 'algorithms-structures/',
+        prefix: 'certificate/',
         children: [
-          { text: 'CMMI 认证', link: 'structures.md' },
-          { text: '等级保护认证', link: 'structures.md' },
-          { text: 'ISO27001认证', link: 'structures.md' },
+          { text: 'CMMI 认证', link: 'cert-cmm.md' },
+          { text: '等级保护认证', link: 'cert-dengbao.md' },
+          { text: 'ISO27001认证', link: 'cert-iso27001.md' },
         ]
       },
     ]

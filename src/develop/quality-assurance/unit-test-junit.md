@@ -124,7 +124,7 @@ import static org.junit.Assert.assertEquals;
 /**
  * Hello world test.
  *
- * @author pdai
+ * 
  */
 public class HelloWorldTest {
 

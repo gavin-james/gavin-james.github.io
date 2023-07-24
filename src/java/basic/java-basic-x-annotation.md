@@ -7,7 +7,7 @@ tag:
 ---
 # 注解机制详解
 
-> 注解是JDK1.5版本开始引入的一个特性，用于对代码进行说明，可以对包、类、接口、字段、方法参数、局部变量等进行注解。它是框架学习和设计者必须掌握的基础。@pdai
+> 注解是JDK1.5版本开始引入的一个特性，用于对代码进行说明，可以对包、类、接口、字段、方法参数、局部变量等进行注解。它是框架学习和设计者必须掌握的基础。
 
 ## 注解基础
 
@@ -568,7 +568,7 @@ public class TypeParameterAndTypeUseAnnotation<@MyNotEmpty T>{
 
 提示
 
-最后我们再看看实际开发中注解的一些应用场景。@pdai
+最后我们再看看实际开发中注解的一些应用场景。
 
 ### 配置化到注解化 - 框架的演进
 
@@ -938,5 +938,3 @@ public class DeptController extends BaseController {
 - https://www.runoob.com/w3cnote/java-annotation.html
 
 ------
-
-著作权归@pdai所有 原文链接：https://pdai.tech/md/java/basic/java-basic-x-annotation.html

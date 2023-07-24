@@ -1,0 +1,1 @@
+# ES详解 - 索引：索引模板(Index Template)详解 

@@ -1,0 +1,1 @@
+# 行为型 - 责任链(Chain Of Responsibility) 
