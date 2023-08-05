@@ -8,13 +8,13 @@
     "build": "vuepress build src",
     "baiduPush": "bash baiduPush.sh",
     "clean-dev": "vuepress dev src --clean-cache",
-    "update-package": "pnpm dlx vp-update"
+    "update": "pnpm dlx vp-update"
   },
   "devDependencies": {
     "@vuepress/client": "2.0.0-beta.66",
     "vue": "^3.3.4",
     "vuepress": "2.0.0-beta.66",
-    "vuepress-plugin-search-pro": "2.0.0-beta.233",
-    "vuepress-theme-hope": "2.0.0-beta.233"
+    "vuepress-plugin-search-pro": "2.0.0-beta.234",
+    "vuepress-theme-hope": "2.0.0-beta.234"
   }
 }
