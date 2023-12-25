@@ -206,7 +206,7 @@ size(), isEmpty(), get(), set()方法均能在常数时间内完成，add()方�
     }
 ```
 
-![ArrayList_add](/images/collection/ArrayList_add.png)
+![ArrayList_add](https://www.pdai.tech/images/collection/ArrayList_add.png)
 
 `add(int index, E e)`需要先对元素进行移动，然后完成插入操作，也就意味着该方法有着线性的时间复杂度。
 

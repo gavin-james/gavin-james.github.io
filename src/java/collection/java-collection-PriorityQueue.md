@@ -97,7 +97,7 @@ public E peek() {
 
 `remove()`和`poll()`方法的语义也完全相同，都是获取并删除队首元素，区别是当方法失败时前者抛出异常，后者返回`null`。由于删除操作会改变队列的结构，为维护小顶堆的性质，需要进行必要的调整。
 
-![PriorityQueue_poll.png](/images/collection/PriorityQueue_poll.png) 代码如下:
+![PriorityQueue_poll.png](https://www.pdai.tech/images/collection/PriorityQueue_poll.png) 代码如下:
 
 ```Java
 public E poll() {

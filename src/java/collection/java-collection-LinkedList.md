@@ -116,7 +116,7 @@ tag:
 
 `remove()`方法也有两个版本，一个是删除跟指定元素相等的第一个元素`remove(Object o)`，另一个是删除指定下标处的元素`remove(int index)`。
 
-![LinkedList_remove.png](/images/collection/LinkedList_remove.png)
+![LinkedList_remove.png](https://www.pdai.tech/images/collection/LinkedList_remove.png)
 
 删除元素 - 指的是删除第一次出现的这个元素, 如果没有这个元素，则返回false；判断的依据是equals方法， 如果equals，则直接unlink这个node；由于LinkedList可存放null元素，故也可以删除第一次出现null的元素；
 
