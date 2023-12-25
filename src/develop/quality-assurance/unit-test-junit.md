@@ -115,7 +115,7 @@ JUnit 是一个开放的资源框架，用于编写和运行测试。
 ```
 ### 测试:Hello World
 ```java
-package tech.pdai.junit4;
+package com.gavin.james.junit4;
 
 import org.junit.Test;
 
@@ -144,7 +144,7 @@ public class HelloWorldTest {
 * @AfterClass注解修饰的方法(该方法要用static修饰)会在所有方法执行结束后执行一次，且也只执行一次，通常用来对资源进行释放，比如数据库连接的关闭等，无论测试用例里的其他方法有没有抛出异常，该方法最终都会被执行。而且父类中的被@AfterClass注解方法修饰的方法会在子类的@AfterClass注解修饰的方法执行之后才会被执行。
 
 ```java
-package tech.pdai.junit4;
+package com.gavin.james.junit4;
 
 import org.junit.*;
 
@@ -189,7 +189,7 @@ public class StandardTest {
 ### 测试:禁用测试
 @Ignore：暂不执行该方法；
 ```java
-package tech.pdai.junit4;
+package com.gavin.james.junit4;
 
 import org.junit.Ignore;
 import org.junit.Test;
@@ -227,7 +227,7 @@ public class IgnoreTest {
 * 简单测试
 
 ```java
-package tech.pdai.junit4;
+package com.gavin.james.junit4;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -277,7 +277,7 @@ public class AssertionTest {
 * 更多测试，来自官网https://github.com/junit-team/junit4/wiki/Assertions
 
 ```java
-package tech.pdai.junit4;
+package com.gavin.james.junit4;
 
 import org.hamcrest.core.CombinableMatcher;
 import org.junit.Test;
@@ -369,7 +369,7 @@ public class Assertion2Test {
 Junit 用代码处理提供了一个追踪异常的选项。你可以测试代码是否它抛出了想要得到的异常。expected 参数和 @Test 注释一起使用。现在让我们看看 @Test(expected):
 
 ```java
-package tech.pdai.junit4;
+package com.gavin.james.junit4;
 
 import org.junit.Test;
 
@@ -417,7 +417,7 @@ java.lang.Exception: Unexpected exception, expected<java.lang.NullPointerExcepti
 	at com.intellij.rt.junit.JUnitStarter.prepareStreamsAndStart(JUnitStarter.java:230)
 	at com.intellij.rt.junit.JUnitStarter.main(JUnitStarter.java:58)
 Caused by: java.lang.ArithmeticException: / by zero
-	at tech.pdai.junit4.ExceptionTest.exceptionFailTest(ExceptionTest.java:21)
+	at com.gavin.james.junit4.ExceptionTest.exceptionFailTest(ExceptionTest.java:21)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -436,7 +436,7 @@ JUnit提供了一个暂停的方便选项，如果一个测试用例比起指定
 * 简单例子
 
 ```java
-package tech.pdai.junit4;
+package com.gavin.james.junit4;
 
 import org.junit.Test;
 
@@ -462,7 +462,7 @@ import java.util.concurrent.TimeUnit;
 	at java.lang.Thread.sleep(Native Method)
 	at java.lang.Thread.sleep(Thread.java:340)
 	at java.util.concurrent.TimeUnit.sleep(TimeUnit.java:386)
-	at tech.pdai.junit4.TimeoutTest.testCase1(TimeoutTest.java:14)
+	at com.gavin.james.junit4.TimeoutTest.testCase1(TimeoutTest.java:14)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -481,7 +481,7 @@ import java.util.concurrent.TimeUnit;
 应用到测试类的所有测试用例
 
 ```java
-package tech.pdai.junit4;
+package com.gavin.james.junit4;
 
 import org.junit.Rule;
 import org.junit.Test;
@@ -546,7 +546,7 @@ import java.util.concurrent.TimeUnit;
 待测试类
 
 ```java
-package tech.pdai.junit4;
+package com.gavin.james.junit4;
 
 /**
  * PrimeNumberChecker.
@@ -565,7 +565,7 @@ public class PrimeNumberChecker {
 ```
 测试类
 ```java
-package tech.pdai.junit4;
+package com.gavin.james.junit4;
 
 import org.junit.Assert;
 import org.junit.Before;
@@ -639,7 +639,7 @@ public class PrimeNumberCheckerTest {
 “套件测试”是指捆绑了几个单元测试用例并运行起来。在JUnit中，@RunWith 和 @Suite 这两个注解是用来运行套件测试。先来创建几个测试类
 测试类1
 ```java
-package tech.pdai.junit4.testsuite;
+package com.gavin.james.junit4.testsuite;
 
 import org.junit.Test;
 
@@ -653,7 +653,7 @@ public class JunitTest1 {
 ```
 测试类2
 ```java
-package tech.pdai.junit4.testsuite;
+package com.gavin.james.junit4.testsuite;
 
 import org.junit.Test;
 
@@ -667,7 +667,7 @@ public class JunitTest2 {
 ```
 测试套件
 ```java
-package tech.pdai.junit4.testsuite;
+package com.gavin.james.junit4.testsuite;
 
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
@@ -690,7 +690,7 @@ import org.junit.runners.Suite;
 ### 测试:测试顺序
 自定义测试方法的顺序，比如按照方法的名字顺序：
 ```java
-package tech.pdai.junit4;
+package com.gavin.james.junit4;
 
 import org.junit.FixMethodOrder;
 import org.junit.Test;

@@ -46,7 +46,7 @@ export default hopeTheme({
       // sidebar
       sidebar: zhSidebar,
 
-      footer: '默认页脚',
+      footer: '本文章大部分来自pdai:地址https://www.pdai.tech',
 
       displayFooter: true,
 
@@ -71,7 +71,7 @@ export default hopeTheme({
       // sidebar
       sidebar: enSidebar,
 
-      footer: 'Default footer',
+      footer: '本文章大部分来自pdai:地址https://www.pdai.tech',
 
       displayFooter: true,
 

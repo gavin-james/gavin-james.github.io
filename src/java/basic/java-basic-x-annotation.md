@@ -390,7 +390,7 @@ AnnotatedElement 接口是所有程序元素（Class、Method和Constructor）�
 - 定义自己的注解
 
 ```java
-package com.pdai.java.annotation;
+package com.gavin.james.java.annotation;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
@@ -411,7 +411,7 @@ public @interface MyMethodAnnotation {
 - 使用注解
 
 ```java
-package com.pdai.java.annotation;
+package com.gavin.james.java.annotation;
 
 import java.io.FileNotFoundException;
 import java.lang.annotation.Annotation;
@@ -452,7 +452,7 @@ public static void main(String[] args) {
     try {
         // 获取所有methods
         Method[] methods = TestMethodAnnotation.class.getClassLoader()
-                .loadClass(("com.pdai.java.annotation.TestMethodAnnotation"))
+                .loadClass(("com.gavin.james.java.annotation.TestMethodAnnotation"))
                 .getMethods();
 
         // 遍历
@@ -486,12 +486,12 @@ public static void main(String[] args) {
 - 测试的输出
 
 ```java
-Annotation in Method 'public static void com.pdai.java.annotation.TestMethodAnnotation.oldMethod()' : @java.lang.Deprecated()
-Annotation in Method 'public static void com.pdai.java.annotation.TestMethodAnnotation.oldMethod()' : @com.pdai.java.annotation.MyMethodAnnotation(title=old static method, description=deprecated old static method)
+Annotation in Method 'public static void com.gavin.james.java.annotation.TestMethodAnnotation.oldMethod()' : @java.lang.Deprecated()
+Annotation in Method 'public static void com.gavin.james.java.annotation.TestMethodAnnotation.oldMethod()' : @com.gavin.james.java.annotation.MyMethodAnnotation(title=old static method, description=deprecated old static method)
 old static method
-Annotation in Method 'public static void com.pdai.java.annotation.TestMethodAnnotation.genericsTest() throws java.io.FileNotFoundException' : @com.pdai.java.annotation.MyMethodAnnotation(title=test method, description=suppress warning static method)
+Annotation in Method 'public static void com.gavin.james.java.annotation.TestMethodAnnotation.genericsTest() throws java.io.FileNotFoundException' : @com.gavin.james.java.annotation.MyMethodAnnotation(title=test method, description=suppress warning static method)
 test method
-Annotation in Method 'public java.lang.String com.pdai.java.annotation.TestMethodAnnotation.toString()' : @com.pdai.java.annotation.MyMethodAnnotation(title=toStringMethod, description=override toString method)
+Annotation in Method 'public java.lang.String com.gavin.james.java.annotation.TestMethodAnnotation.toString()' : @com.gavin.james.java.annotation.MyMethodAnnotation(title=toStringMethod, description=override toString method)
 toStringMethod
 ```
 
