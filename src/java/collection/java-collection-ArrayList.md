@@ -167,7 +167,7 @@ size(), isEmpty(), get(), set()方法均能在常数时间内完成，add()方�
     }
 ```
 
-![ArrayList_grow](/images/collection/ArrayList_grow.png)
+![ArrayList_grow](https://www.pdai.tech/images/collection/ArrayList_grow.png)
 
 ### add(), addAll()
 
