@@ -42,3 +42,6 @@ footer: 自定义你的页脚文字
 ---
 替换文件
 \[#\]\((#.*)\) 
+
+(/images/
+(https://www.pdai.tech/images/
