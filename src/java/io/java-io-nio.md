@@ -176,7 +176,7 @@ public static final int OP_ACCEPT = 1 << 4;
 int interestSet = SelectionKey.OP_READ | SelectionKey.OP_WRITE;
 ```
 
-### [#](#_3-监听事件) 3. 监听事件
+### 3. 监听事件
 
 ```java
 int num = selector.select();
@@ -184,7 +184,7 @@ int num = selector.select();
 
 使用 select() 来监听到达的事件，它会一直阻塞直到有至少一个事件到达。
 
-### [#](#_4-获取到达的事件) 4. 获取到达的事件
+### 4. 获取到达的事件
 
 ```java
 Set<SelectionKey> keys = selector.selectedKeys();
