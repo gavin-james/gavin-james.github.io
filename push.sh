@@ -28,3 +28,9 @@ pause
 # git push $GITEE_REPO
 
 # source ./deploy.sh
+
+# 替换文件
+# \[#\]\((#.*)\) 
+
+# (/images/
+# (https://www.pdai.tech/images/
