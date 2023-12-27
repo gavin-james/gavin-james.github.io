@@ -5,7 +5,7 @@ category:
 tag:
   - 常用开发库
 ---
-# 常用开发库 - Spring常用工具类 
+# Spring常用工具类 
 
 > Spring作为常用的开发框架，在Spring框架应用中，排在ApacheCommon，Guava, Huool等通用库后，第二优先级可以考虑使用Spring-core-xxx.jar中的util包。（提醒读者：对于工具类，要站在高一点的角度知道有哪些，而不是只看到代码... 用的时候具体看下即可) 
 

@@ -1,1 +1,0 @@
-# Twitter Java Style Guide 

@@ -5,7 +5,7 @@ category:
 tag:
   - 常用开发库
 ---
-# 常用开发库 - 日志类库详解 
+# 日志类库详解 
 
 > Java日志库是最能体现Java库在进化中的渊源关系的，在理解时重点理解日志框架本身和日志门面，以及比较好的实践等。要关注其历史渊源和设计（比如桥接），而具体在使用时查询接口即可， 否则会陷入JUL(Java Util Log), JCL(Commons Logging), Log4j, SLF4J, Logback，Log4j2傻傻分不清楚的境地。
 

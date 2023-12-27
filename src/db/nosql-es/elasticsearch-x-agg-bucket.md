@@ -244,7 +244,7 @@ PUT /test-agg-logs/_bulk?refresh
 { "index" : { "_id" : 3 } }
 { "body" : "warning: connection timed out" }
 { "index" : { "_id" : 4 } }
-{ "body" : "info: hello pdai" }
+{ "body" : "info: hello root" }
 ```
 
 我们需要对包含不同日志类型的日志进行分组，这就需要filters:

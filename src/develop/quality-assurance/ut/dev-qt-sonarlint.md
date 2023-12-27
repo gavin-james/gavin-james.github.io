@@ -5,7 +5,7 @@ category:
 tag:
   - 代码质量
 ---
-# 代码质量 - 代码质量管理: Sonarlint插件详解 
+# Sonarlint插件详解 
 
 > 在提交代码前，为提升代码质量还需要使用一些静态代码工具检查代码质量，最为常用的是Sonar；在本地IDE中可以配置Sonarlint插件进行检查。
 
@@ -49,7 +49,7 @@ Sonar可以从以下七个维度检测代码质量，而作为开发人员至少
 /**
  * This class is for sonarlint util test.
  *
- * @author pdai
+ * @author
  * @version 2021/1/29 下午8:25
  */
 public class TestUtil {

@@ -142,10 +142,10 @@ GET /bar-test/_mapping
 
 ### 模拟某个索引结果
 
-比如上面的template_1, 我们不用创建bar*的索引(这里模拟bar-pdai-test)，也可以模拟计算出索引的配置：
+比如上面的template_1, 我们不用创建bar*的索引(这里模拟bar-root-test)，也可以模拟计算出索引的配置：
 
 ```bash
-POST /_index_template/_simulate_index/bar-pdai-test
+POST /_index_template/_simulate_index/bar-root-test
 ```
 
 执行结果如下

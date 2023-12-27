@@ -5,7 +5,7 @@ category:
 tag:
   - 常用开发库
 ---
-# 常用开发库 - JSON库详解 
+# JSON库详解 
 
 > JSON应用非常广泛，对于Java常用的JSON库要完全掌握; 其中考虑到FastJson代码质量，漏洞，坑等等，应该尽量避免使用。
 

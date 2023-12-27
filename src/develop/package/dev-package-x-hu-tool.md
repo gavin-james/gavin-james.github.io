@@ -5,7 +5,7 @@ category:
 tag:
   - 常用开发库
 ---
-# 常用开发库 - Hutool包 
+# Hutool包 
 
 > Hutool作为后起之秀，功能上也比较全。但是要注意一点，它的开源协议是：中国第一个开源协议[木兰宽松许可证, 第1版在新窗口打开](http://license.coscl.org.cn/MulanPSL)，对此在商业项目中需要谨慎些，在个人项目无所谓。
 

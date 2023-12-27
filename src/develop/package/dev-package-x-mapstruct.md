@@ -5,7 +5,7 @@ category:
 tag:
   - 常用开发库
 ---
-# 常用开发库 - MapStruct工具库详解 
+# MapStruct工具库详解 
 
 > MapStruct是一款非常实用Java工具，主要用于解决对象之间的拷贝问题，比如PO/DTO/VO/QueryParam之间的转换问题。区别于BeanUtils这种通过反射，它通过编译器编译生成常规方法，将可以很大程度上提升效率。全面的官方手册可以参考[官方文档PDF在新窗口打开](https://mapstruct.org/documentation/stable/reference/pdf/mapstruct-reference-guide.pdf)。
 

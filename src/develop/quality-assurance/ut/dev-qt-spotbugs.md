@@ -5,7 +5,7 @@ category:
 tag:
   - 代码质量
 ---
-# 代码质量 - 代码质量管理: SpotBugs插件详解 
+# SpotBugs插件详解 
 
 > SpotBugs是Findbugs的继任者（Findbugs已经于2016年后不再维护），用于对代码进行静态分析，查找相关的漏洞；在本地IDE中可以配置SpotBugs插件进行检查。
 

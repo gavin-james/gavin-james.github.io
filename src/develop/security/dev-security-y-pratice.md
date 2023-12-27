@@ -5,7 +5,7 @@ category:
 tag:
   - 安全相关
 ---
-# 开发安全实战 - Web安全测试平台(DVWA) 
+# Web安全测试平台(DVWA) 
 
 > DVWA（Damn Vulnerable Web Application）是一个用来进行安全脆弱性鉴定的PHP/MySQL Web应用，旨在为安全专业人员测试自己的专业技能和工具提供合法的环境，帮助web开发者更好的理解web应用安全防范的过程。
 

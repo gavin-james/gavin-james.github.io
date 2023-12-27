@@ -5,7 +5,7 @@ category:
 tag:
   - 网络协议
 ---
-# 网络协议 - DNS 相关详解 
+# DNS 相关详解 
 
 > DNS的核心工作就是将域名翻译成计算机IP地址, 它是基于UDP协议实现的，本文将具体阐述DNS相关的概念，解析，调度原理（负载均衡和区域调度）等DNS相关的所有知识点。 
 
@@ -23,8 +23,8 @@ tag:
 
 有域名结构还不行，还需要有一个东西去解析域名，手机通讯录是由通讯录软件解析的，域名需要由遍及全世界的域名服务器去解析，域名服务器实际上就是装有域名系统的主机。由高向低进行层次划分，可分为以下几大类：
 
-- **根域名服务器**：最高层次的域名服务器，也是最重要的域名服务器，本地域名服务器如果解析不了域名就会向根域名服务器求助。全球共有13个不同IP地址的根域名服务器，它们的名称用一个英文字母命名，从a一直到m。这些服务器由各种组织控制，并由 ICANN（互联网名称和数字地址分配公司）授权，由于每分钟都要解析的名称数量多得令人难以置信，所以实际上每个根服务器都有镜像服务器，每个根服务器与它的镜像服务器共享同一个 IP 地址，中国大陆地区内只有6组根服务器镜像（F，I（3台），J，L）。当你对某个根服务器发出请求时，请求会被路由到该根服务器离你最近的镜像服务器。所有的根域名服务器都知道所有的顶级域名服务器的域名和地址，如果向根服务器发出对 “pdai.tech” 的请求，则根服务器是不能在它的记录文件中找到与 “pdai.tech” 匹配的记录。但是它会找到 "tech" 的顶级域名记录，并把负责 "tech" 地址的顶级域名服务器的地址发回给请求者。
-- **顶级域名服务器**：负责管理在该顶级域名服务器下注册的二级域名。当根域名服务器告诉查询者顶级域名服务器地址时，查询者紧接着就会到顶级域名服务器进行查询。比如还是查询"pdai.tech"，根域名服务器已经告诉了查询者"tech"顶级域名服务器的地址，"tech"顶级域名服务器会找到 “pdai.tech”的域名服务器的记录，域名服务器检查其区域文件，并发现它有与 “pdai.tech” 相关联的区域文件。在此文件的内部，有该主机的记录。此记录说明此主机所在的 IP 地址，并向请求者返回最终答案。
+- **根域名服务器**：最高层次的域名服务器，也是最重要的域名服务器，本地域名服务器如果解析不了域名就会向根域名服务器求助。全球共有13个不同IP地址的根域名服务器，它们的名称用一个英文字母命名，从a一直到m。这些服务器由各种组织控制，并由 ICANN（互联网名称和数字地址分配公司）授权，由于每分钟都要解析的名称数量多得令人难以置信，所以实际上每个根服务器都有镜像服务器，每个根服务器与它的镜像服务器共享同一个 IP 地址，中国大陆地区内只有6组根服务器镜像（F，I（3台），J，L）。当你对某个根服务器发出请求时，请求会被路由到该根服务器离你最近的镜像服务器。所有的根域名服务器都知道所有的顶级域名服务器的域名和地址，如果向根服务器发出对 “root” 的请求，则根服务器是不能在它的记录文件中找到与 “root” 匹配的记录。但是它会找到 "tech" 的顶级域名记录，并把负责 "tech" 地址的顶级域名服务器的地址发回给请求者。
+- **顶级域名服务器**：负责管理在该顶级域名服务器下注册的二级域名。当根域名服务器告诉查询者顶级域名服务器地址时，查询者紧接着就会到顶级域名服务器进行查询。比如还是查询"root"，根域名服务器已经告诉了查询者"tech"顶级域名服务器的地址，"tech"顶级域名服务器会找到 “root”的域名服务器的记录，域名服务器检查其区域文件，并发现它有与 “root” 相关联的区域文件。在此文件的内部，有该主机的记录。此记录说明此主机所在的 IP 地址，并向请求者返回最终答案。
 - **权限域名服务器**：负责一个区的域名解析工作
 - **本地域名服务器**：当一个主机发出DNS查询请求的时候，这个查询请求首先就是发给本地域名服务器的。
 
@@ -77,7 +77,7 @@ DNS数据包不是那种大数据包，所以使用UDP不需要考虑分包，�
 - dig www.sina.com
 
 ```bash
-pdaiMbp:/ pdai$ dig www.sina.com
+rootMbp:/ root$ dig www.sina.com
 
 ; <<>> DiG 9.10.6 <<>> www.sina.com
 ;; global options: +cmd
@@ -102,7 +102,7 @@ spool.grid.sinaedge.com. 32	IN	A	115.238.190.240
 - dig +trace www.sina.com // 分级查询
 
 ```bash
-pdaiMbp:/ pdai$ dig +trace www.sina.com
+rootMbp:/ root$ dig +trace www.sina.com
 
 ; <<>> DiG 9.10.6 <<>> +trace www.sina.com
 ;; global options: +cmd
@@ -173,7 +173,7 @@ CNAME记录主要用于域名的内部跳转，为服务器配置提供灵活性
 ### host查询
 
 ```bash
-pdaiMbp:/ pdai$ host www.sina.com
+rootMbp:/ root$ host www.sina.com
 www.sina.com is an alias for us.sina.com.cn.
 us.sina.com.cn is an alias for spool.grid.sinaedge.com.
 spool.grid.sinaedge.com has address 115.238.190.240
@@ -183,7 +183,7 @@ spool.grid.sinaedge.com has IPv6 address 240e:f7:a000:221::75:71
 ### nslookup查询
 
 ```bash
-pdaiMbp:/ pdai$ nslookup
+rootMbp:/ root$ nslookup
 > www.sina.com
 Server:		192.168.3.1
 Address:	192.168.3.1#53
@@ -198,7 +198,7 @@ Address: 115.238.190.240
 ### whois查询
 
 ```bash
-pdaiMbp:/ pdai$ whois www.sina.com
+rootMbp:/ root$ whois www.sina.com
 % IANA WHOIS server
 % for more information on IANA, visit http://www.iana.org
 % This query returned 1 object

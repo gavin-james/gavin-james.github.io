@@ -1,3 +1,10 @@
+---
+date: 2019-04-29
+category:
+  - 开发
+tag:
+  - 随手记
+---
 # Windows 打包EXE部署 
 
 > 打包内容: Java，MySQL，Springboot JAR + 第三方dll组件。
@@ -49,9 +56,9 @@ AppPublisher={#MyAppPublisher}
 DefaultDirName=D:\khkj-store
 DefaultGroupName={#MyAppName}
 AllowNoIcons=yes
-OutputDir=C:\Users\pdai\Desktop\khkj_resources
+OutputDir=C:\Users\gavin\Desktop\khkj_resources
 OutputBaseFilename=Setup
-SetupIconFile=C:\Users\pdai\Desktop\khkj_resources\favicon.ico
+SetupIconFile=C:\Users\gavin\Desktop\khkj_resources\favicon.ico
 Password=khkj
 Compression=lzma
 SolidCompression=yes
@@ -60,7 +67,7 @@ SolidCompression=yes
 Name: "english"; MessagesFile: "compiler:Default.isl"
 
 [Files]
-Source: "C:\Users\pdai\Desktop\kjkj-store-install\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
+Source: "C:\Users\gavin\Desktop\kjkj-store-install\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 
 [Icons]

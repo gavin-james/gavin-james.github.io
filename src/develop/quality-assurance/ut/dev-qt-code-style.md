@@ -5,7 +5,7 @@ category:
 tag:
   - 代码质量
 ---
-# 代码质量 - 统一风格：统一代码格式化详解 
+# 统一代码格式化详解 
 
 > 项目的代码通常是一个团队共同完成的，要保障代码质量的首要前提就是统一代码的风格，本文将介绍常用的统一风格的措施之**统一代码格式化**。
 
@@ -59,7 +59,7 @@ File->Settings->Other Tools->Eclipse Code Formatter->Use the Eclipse Code Format
 /**
  * This class is for xxxx.
  *
- * @author pdai
+ * @author 
  * @version 2021/1/20
  */
 public class TestClass {

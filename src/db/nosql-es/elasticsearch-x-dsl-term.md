@@ -49,7 +49,7 @@ POST /test-dsl-term-level/_bulk
 { "index": { "_id": 2 }}
 {"name": "Jason Response", "programming_languages": [ "java", "php" ], "required_matches": 2}
 { "index": { "_id": 3 }}
-{"name": "Dave Pdai", "programming_languages": [ "java", "c++", "php" ], "required_matches": 3, "remarks": "hello world"}
+{"name": "Dave root", "programming_languages": [ "java", "c++", "php" ], "required_matches": 3, "remarks": "hello world"}
 ```
 
 ### 字段是否存在:exist

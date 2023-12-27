@@ -32,5 +32,5 @@ pause
 # 替换文件
 # \[#\]\((#.*)\) 
 
-# (https://www.pdai.tech/images/
+# (/images/
 # (https://www.pdai.tech/images/

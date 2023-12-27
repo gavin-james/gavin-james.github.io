@@ -269,23 +269,6 @@ export const zhSidebar = sidebar({
 			children: [
 				{
 					text: '单元测试',
-					collapsible: true,
-					children: [
-						'unit-test',
-						'unit-test-junit',
-						'unit-test-junit5',
-						'unit-test-mockito',
-						'unit-test-junit-idea',
-						'unit-test-springboot2',
-					],
-				},
-				{
-					text: '统一风格',
-					collapsible: true,
-					children: ['code-style', 'code-style-name', 'code-style-static'],
-				},
-				{
-					text: '代码质量',
 					prefix: 'ut/',
 					collapsible: true,
 					children: [
@@ -296,17 +279,30 @@ export const zhSidebar = sidebar({
 						'dev-ut-x-mockito',
 						'dev-ut-x-junit-idea',
 						'dev-ut-springboot2',
-						'dev-qt-code-style',
-						'dev-qt-code-style-2',
-						'dev-qt-code-style-1',
-						'dev-qt-sonarlint',
-						'dev-qt-spotbugs',
 					],
 				},
 				{
-					text: '企业级规范',
+					text: '统一风格',
+					prefix: 'ut/',
 					collapsible: true,
-					children: ['code-style-alibaba', 'code-style-google'],
+					children: ['dev-qt-code-style', 'dev-qt-code-style-2', 'dev-qt-code-style-1'],
+				},
+				{
+					text: '代码质量',
+					prefix: 'ut/',
+					collapsible: true,
+					children: ['dev-qt-sonarlint', 'dev-qt-spotbugs'],
+				},
+				{
+					text: '代码规范',
+					prefix: 'code-style/',
+					collapsible: true,
+					children: [
+						'dev-x-overview',
+						'code-style-alibaba',
+						'code-style-google',
+						'code-style-twitter',
+					],
 				},
 			],
 		},
@@ -356,6 +352,7 @@ export const zhSidebar = sidebar({
 			children: [
 				{
 					text: '数据结构基础',
+					prefix: 'alg-basic/',
 					collapsible: true,
 					children: [
 						'alg-basic-overview',
@@ -379,6 +376,7 @@ export const zhSidebar = sidebar({
 				},
 				{
 					text: '常见排序算法',
+					prefix: 'alg-sort/',
 					collapsible: true,
 					children: [
 						'alg-sort-overview',
@@ -395,6 +393,7 @@ export const zhSidebar = sidebar({
 				},
 				{
 					text: '算法思想',
+					prefix: 'alg-core/',
 					collapsible: true,
 					children: [
 						'alg-core-overview',
@@ -408,6 +407,7 @@ export const zhSidebar = sidebar({
 				},
 				{
 					text: '领域算法',
+					prefix: 'alg-domain/',
 					collapsible: true,
 					children: [
 						'alg-domain-overview',
@@ -440,6 +440,7 @@ export const zhSidebar = sidebar({
 				{
 					text: '其他算法相关',
 					collapsible: true,
+					prefix: 'alg-other/',
 					children: ['alg-other-mind'],
 				},
 			],
@@ -455,6 +456,21 @@ export const zhSidebar = sidebar({
 			collapsible: true,
 			prefix: 'certificate/',
 			children: ['dev-x-overview', 'cert-cmm', 'cert-dengbao', 'cert-iso27001'],
+		},
+		{
+			text: '随手记',
+			collapsible: true,
+			prefix: 'usage/',
+			children: [
+				'dev-usage-overview',
+				'dev-usage-newObj',
+				'dev-usage-exe-package',
+				'dev-usage-jar-readfile',
+				'dev-usage-input-password',
+				'dev-usage-export-pdf',
+				'dev-usage-flotjs',
+				'dev-usage-zkfinger',
+			],
 		},
 	],
 	'/db/': [

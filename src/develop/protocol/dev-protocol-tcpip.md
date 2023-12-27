@@ -5,7 +5,7 @@ category:
 tag:
   - 网络协议
 ---
-# 网络协议 - TCP 协议详解 
+# TCP 协议详解 
 
 > TCP是一个巨复杂的协议，关于TCP这个协议的细节，我还是推荐你去看W.Richard Stevens的[《TCP/IP 详解 卷1：协议》在新窗口打开](https://book.douban.com/subject/1088054/)。全网上讲TCP/IP的文章众多，多数是皮毛；本文梳理自 左耳朵耗子的文章[《TCP 的那些事儿》在新窗口打开](https://coolshell.cn/articles/11564.html)，来帮助大家理解TCP/IP, 其中引用的图片在[这里在新窗口打开](http://www.tcpipguide.com/buy.htm?free)。
 

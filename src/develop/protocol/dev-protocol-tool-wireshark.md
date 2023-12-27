@@ -5,7 +5,7 @@ category:
 tag:
   - 网络协议
 ---
-# 工具: Wireshark介绍及抓包分析 
+# Wireshark介绍及抓包分析 
 
 > Wireshark（前称Ethereal）是一个网络封包分析软件.网络管理员使用Wireshark来检测网络问题，网络安全工程师使用Wireshark来检查资讯安全相关问题，开发者使用Wireshark来为新的通讯协定除错，普通使用者使用Wireshark来学习网络协定的相关知识。
 

@@ -5,7 +5,7 @@ category:
 tag:
   - 代码质量
 ---
-# 单元测试 - SpringBoot2+H2+Mockito实战 
+# SpringBoot2+H2+Mockito实战 
 
 > 在真实的开发中，我们通常是使用SpringBoot的，目前SpringBoot是v2.4.x的版本（SpringBoot 2.2.2.RELEASE之前默认是使用 JUnit4，之后版本默认使用Junit5）；所以我们写个基于SpringBoot2.4+H2的内存库的简单例子，同时加点必要的单元测试。
 
@@ -113,7 +113,7 @@ Spring Boot 2.4.2 + H2 + Lombok + Spring Boot Test (默认包含了 Junit5 + Moc
         <version>2.4.2</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>tech.pdai</groupId>
+    <groupId>com.gavin.james</groupId>
     <artifactId>java-springboot-unit5</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>java-springboot-unit5</name>
@@ -181,8 +181,8 @@ spring:
     platform: h2
     driverClassName: org.h2.Driver
     url: jdbc:h2:mem:testdb;MODE=MYSQL;DB_CLOSE_DELAY=-1;DATABASE_TO_UPPER=false
-    username: pdai
-    password: pdai
+    username: root
+    password: root
     schema: classpath:db/schema/user-schema.sql
     data: classpath:db/data/user-data.sql
     initialization-mode: always
@@ -217,14 +217,14 @@ CREATE TABLE user (
 data
 
 ```sql
-insert into user(id,name,phone) values(1,'pdai','123456');
+insert into user(id,name,phone) values(1,'root','123456');
 insert into user(id,name,phone) values(2,'zhangsan','123456');
 ```
 
 - entity
 
 ```java
-package tech.pdai.springboot2unit5.entity;
+package com.gavin.james.springboot2unit5.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -259,11 +259,11 @@ public class User {
 - dao
 
 ```java
-package tech.pdai.springboot2unit5.dao;
+package com.gavin.james.springboot2unit5.dao;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-import tech.pdai.springboot2unit5.entity.User;
+import com.gavin.james.springboot2unit5.entity.User;
 
 /**
  * user dao.
@@ -276,9 +276,9 @@ public interface UserRepository extends JpaRepository<User, Integer> {
 - service
 
 ```java
-package tech.pdai.springboot2unit5.service;
+package com.gavin.james.springboot2unit5.service;
 
-import tech.pdai.springboot2unit5.entity.User;
+import com.gavin.james.springboot2unit5.entity.User;
 
 import java.util.List;
 
@@ -294,12 +294,12 @@ public interface IUserService {
      */
     List<User> findAll();
 }
-package tech.pdai.springboot2unit5.service.impl;
+package com.gavin.james.springboot2unit5.service.impl;
 
 import org.springframework.stereotype.Service;
-import tech.pdai.springboot2unit5.dao.UserRepository;
-import tech.pdai.springboot2unit5.entity.User;
-import tech.pdai.springboot2unit5.service.IUserService;
+import com.gavin.james.springboot2unit5.dao.UserRepository;
+import com.gavin.james.springboot2unit5.entity.User;
+import com.gavin.james.springboot2unit5.service.IUserService;
 
 import java.util.List;
 
@@ -338,13 +338,13 @@ public class UserServiceImpl implements IUserService {
 - Controller
 
 ```java
-package tech.pdai.springboot2unit5.controller;
+package com.gavin.james.springboot2unit5.controller;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
-import tech.pdai.springboot2unit5.entity.User;
-import tech.pdai.springboot2unit5.service.IUserService;
+import com.gavin.james.springboot2unit5.entity.User;
+import com.gavin.james.springboot2unit5.service.IUserService;
 
 import java.util.List;
 
@@ -387,7 +387,7 @@ public class UserController {
 - main
 
 ```java
-package tech.pdai.springboot2unit5;
+package com.gavin.james.springboot2unit5;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -396,7 +396,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.annotation.Profile;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
-import tech.pdai.springboot2unit5.service.IUserService;
+import com.gavin.james.springboot2unit5.service.IUserService;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
@@ -418,7 +418,7 @@ class JavaSpringbootUnit5ApplicationTests {
     @DisplayName("Integration test")
     void contextLoads() {
         assertFalse(userService.findAll().isEmpty());
-        assertEquals("pdai", userService.findAll().get(0).getName());
+        assertEquals("root", userService.findAll().get(0).getName());
     }
 
 }
@@ -429,7 +429,7 @@ class JavaSpringbootUnit5ApplicationTests {
 mockMvc
 
 ```java
-package tech.pdai.springboot2unit5.controller;
+package com.gavin.james.springboot2unit5.controller;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -442,8 +442,8 @@ import org.springframework.http.MediaType;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
-import tech.pdai.springboot2unit5.entity.User;
-import tech.pdai.springboot2unit5.service.IUserService;
+import com.gavin.james.springboot2unit5.entity.User;
+import com.gavin.james.springboot2unit5.service.IUserService;
 
 import java.util.Collections;
 
@@ -473,7 +473,7 @@ class UserControllerTest {
     @DisplayName("Test findAll()")
     public void list() throws Exception {
         Mockito.when(userService.findAll()).thenReturn(
-                Collections.singletonList(new User(1, "pdai.tech", "1221111")));
+                Collections.singletonList(new User(1, "com.gavin.james", "1221111")));
 
         mockMvc.perform(MockMvcRequestBuilders.get("/user/list")
                 .accept(MediaType.APPLICATION_JSON))
@@ -487,14 +487,14 @@ class UserControllerTest {
 - service
 
 ```java
-package tech.pdai.springboot2unit5.service.impl;
+package com.gavin.james.springboot2unit5.service.impl;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
-import tech.pdai.springboot2unit5.entity.User;
+import com.gavin.james.springboot2unit5.entity.User;
 
 import java.util.Collections;
 import java.util.List;
@@ -513,7 +513,7 @@ class UserServiceImplTest {
     public void findAll() {
         //Given
         Mockito.when(userService.findAll()).thenReturn(
-                Collections.singletonList(new User(1, "pdai.tech", "1221111")));
+                Collections.singletonList(new User(1, "com.gavin.james", "1221111")));
 
         //When
         List<User> userDtoList = userService.findAll();

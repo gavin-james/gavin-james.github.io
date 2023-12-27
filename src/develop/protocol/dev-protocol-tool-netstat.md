@@ -5,7 +5,7 @@ category:
 tag:
   - 网络协议
 ---
-# 工具: netstat查看服务及监听端口详解 
+# netstat查看服务及监听端口详解 
 
 > 在Linux使用过程中，需要了解当前系统开放了哪些端口，并且要查看开放这些端口的具体进程和用户，可以通过netstat命令进行简单查询. 
 
@@ -196,8 +196,8 @@ tcp        0      0 0.0.0.0:http            0.0.0.0:*               LISTEN
 tcp        0      0 0.0.0.0:us-srv          0.0.0.0:*               LISTEN     
 tcp        0      0 0.0.0.0:ssh             0.0.0.0:*               LISTEN     
 tcp        0      0 0.0.0.0:https           0.0.0.0:*               LISTEN     
-tcp        0      0 pdai-centos:https    125.85.238.55:7123      TIME_WAIT  
-tcp        0      0 pdai-centos:https    39.144.22.5:50742       ESTABLISHED
+tcp        0      0 root:https    125.85.238.55:7123      TIME_WAIT  
+tcp        0      0 root:https    39.144.22.5:50742       ESTABLISHED
 ...
 ```
 
@@ -212,9 +212,9 @@ tcp        0      0 0.0.0.0:http            0.0.0.0:*               LISTEN
 tcp        0      0 0.0.0.0:us-srv          0.0.0.0:*               LISTEN     
 tcp        0      0 0.0.0.0:ssh             0.0.0.0:*               LISTEN     
 tcp        0      0 0.0.0.0:https           0.0.0.0:*               LISTEN     
-tcp        0      0 pdai-centos:https    39.144.22.xx:50742       FIN_WAIT2  
-tcp        0      0 pdai-centos:https    59.71.243.xx:6994      ESTABLISHED
-tcp        0      0 pdai-centos:https    125.85.238.xx:7096      FIN_WAIT2  
+tcp        0      0 root:https    39.144.22.xx:50742       FIN_WAIT2  
+tcp        0      0 root:https    59.71.243.xx:6994      ESTABLISHED
+tcp        0      0 root:https    125.85.238.xx:7096      FIN_WAIT2  
 tcp6       0      0 [::]:mysql              [::]:*                  LISTEN     
 tcp6       0      0 [::]:distinct           [::]:*                  LISTEN     
 tcp6       0      0 [::]:ddi-tcp-1          [::]:*                  LISTEN     
@@ -230,10 +230,10 @@ tcp6       1      0 172.21.0.14:ddi-tcp-1   140.82.115.xx:55955    CLOSE_WAIT
 Active Internet connections (servers and established)
 Proto Recv-Q Send-Q Local Address           Foreign Address         State      
 udp        0      0 0.0.0.0:bootpc          0.0.0.0:*                          
-udp        0      0 pdai-centos:ntp      0.0.0.0:*                          
-udp        0      0 pdai-centos:ntp      0.0.0.0:*                          
-udp6       0      0 pdai-centos:ntp      [::]:*                             
-udp6       0      0 pdai-centos:ntp      [::]:*  
+udp        0      0 root:ntp      0.0.0.0:*                          
+udp        0      0 root:ntp      0.0.0.0:*                          
+udp6       0      0 root:ntp      [::]:*                             
+udp6       0      0 root:ntp      [::]:*  
 ```
 
 ### 列出所有监听TCP端口的socket
@@ -259,10 +259,10 @@ tcp6       0      0 [::]:ddi-tcp-1          [::]:*                  LISTEN
 Active Internet connections (only servers)
 Proto Recv-Q Send-Q Local Address           Foreign Address         State      
 udp        0      0 0.0.0.0:bootpc          0.0.0.0:*                          
-udp        0      0 pdai-centos:ntp      0.0.0.0:*                          
-udp        0      0 pdai-centos:ntp      0.0.0.0:*                          
-udp6       0      0 pdai-centos:ntp      [::]:*                             
-udp6       0      0 pdai-centos:ntp      [::]:*  
+udp        0      0 root:ntp      0.0.0.0:*                          
+udp        0      0 root:ntp      0.0.0.0:*                          
+udp6       0      0 root:ntp      [::]:*                             
+udp6       0      0 root:ntp      [::]:*  
 ```
 
 ### 找出程序运行的端口
@@ -272,11 +272,11 @@ udp6       0      0 pdai-centos:ntp      [::]:*
 ```bash
 [root@root ~]# netstat -ap | grep ssh 
 tcp        0      0 0.0.0.0:ssh             0.0.0.0:*               LISTEN      1120/sshd           
-tcp        0     64 pdai-centos:ssh      117.82.229.xx:41408    ESTABLISHED 28968/sshd: xx@pt 
-tcp        0      0 pdai-centos:ssh      xxx.122.15.xx:32966     TIME_WAIT   -                   
-tcp        0      0 pdai-centos:ssh      203.xxx.85.146:43730    ESTABLISHED 687/sshd: xx [pri 
-tcp        0      0 pdai-centos:ssh      134.xx.xx.36:54474     TIME_WAIT   -                   
-tcp        0      0 pdai-centos:ssh      64.xx.111.127:45444    TIME_WAIT   -                   
+tcp        0     64 root:ssh      117.82.229.xx:41408    ESTABLISHED 28968/sshd: xx@pt 
+tcp        0      0 root:ssh      xxx.122.15.xx:32966     TIME_WAIT   -                   
+tcp        0      0 root:ssh      203.xxx.85.146:43730    ESTABLISHED 687/sshd: xx [pri 
+tcp        0      0 root:ssh      134.xx.xx.36:54474     TIME_WAIT   -                   
+tcp        0      0 root:ssh      64.xx.111.127:45444    TIME_WAIT   -                   
 unix  3      [ ]         STREAM     CONNECTED     16580    1120/sshd            
 unix  2      [ ]         DGRAM                    113619201 28968/sshd: root@pt  
 ```

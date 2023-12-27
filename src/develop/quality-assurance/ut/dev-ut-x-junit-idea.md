@@ -5,7 +5,7 @@ category:
 tag:
   - 代码质量
 ---
-# 单元测试 - IDEA下单元测试详解 
+# IDEA下单元测试详解 
 
 > 工欲善其事必先利其器，我们在写单元测试一定要使用工具，这将能大幅度提升编码的效率。本文以IDEA为例，看看如何利用插件提升效率。
 
@@ -14,7 +14,7 @@ tag:
 准备一个待测试的类, 其中还包含着错误。
 
 ```java
-package tech.pdai.junit4.module;
+package com.gavin.james.junit4.module;
 
 public class Calculator {
 
@@ -84,7 +84,7 @@ public class Calculator {
 补充完整代码
 
 ```java
-package tech.pdai.junit4.module;
+package com.gavin.james.junit4.module;
 
 import org.junit.After;
 import org.junit.Before;

@@ -131,11 +131,10 @@ export const zhNavbar = navbar([
 				text: '质量保障',
 				prefix: 'quality-assurance/',
 				children: [
-					{ text: '单元测试', link: 'unit-test.md' },
-					{ text: '统一风格', link: 'code-style.md' },
-					{ text: '质量管理', link: 'quality-control-sonarlint.md' },
-					{ text: '阿里巴巴 Java 开发手册', link: 'code-style-alibaba.md' },
-					{ text: 'Google Java 编程风格指南', link: 'code-style-google.md' }
+					{ text: '单元测试', link: 'ut/dev-ut-unit-test.md' },
+					{ text: '统一风格', link: 'ut/dev-qt-code-style.md' },
+					{ text: '质量管理', link: 'ut/dev-qt-sonarlint.md' },
+					{ text: '代码规范', link: 'code-style/dev-x-overview.md' },
 				]
 			},
 			{
@@ -152,11 +151,11 @@ export const zhNavbar = navbar([
 				text: '算法和数据结构',
 				prefix: 'algorithms-structures/',
 				children: [
-					{ text: '数据结构', link: 'alg-basic-overview.md' },
-					{ text: '常见排序算法', link: 'alg-sort-overview.md' },
-					{ text: '算法思想', link: 'alg-core-overview.md' },
-					{ text: '领域算法', link: 'alg-domain-overview.md' },
-					{ text: '其他相关', link: 'alg-other-mind.md' }
+					{ text: '数据结构', link: 'alg-basic/alg-basic-overview.md' },
+					{ text: '常见排序算法', link: 'alg-sort/alg-sort-overview.md' },
+					{ text: '算法思想', link: 'alg-core/alg-core-overview.md' },
+					{ text: '领域算法', link: 'alg-domain/alg-domain-overview.md' },
+					{ text: '其他相关', link: 'alg-other/alg-other-mind.md' }
 				]
 			},
 			{

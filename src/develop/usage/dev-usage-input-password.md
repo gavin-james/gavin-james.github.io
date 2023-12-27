@@ -1,3 +1,10 @@
+---
+date: 2019-05-01
+category:
+  - 开发
+tag:
+  - 随手记
+---
 # Input Password防止自动填充 
 
 > 在项目中常需要修改或者填写密码，假设浏览器已经记住密码，常会通过autocomplete=off设置防止自动填充type=password的字段。但是大多数情况这样设置是无效的。 

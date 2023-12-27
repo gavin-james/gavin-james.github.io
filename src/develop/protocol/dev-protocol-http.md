@@ -5,7 +5,7 @@ category:
 tag:
   - 网络协议
 ---
-# 网络协议 - HTTP 协议详解 
+# HTTP 协议详解 
 
 > HTTP 协议详解，web开发必备。
 

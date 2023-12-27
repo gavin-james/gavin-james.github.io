@@ -5,7 +5,7 @@ category:
 tag:
   - 常用开发库
 ---
-# 常用开发库 - Google Guava包 
+# Google Guava包 
 
 > Google出品的common包，我比较常用的比如Guava缓存等。
 

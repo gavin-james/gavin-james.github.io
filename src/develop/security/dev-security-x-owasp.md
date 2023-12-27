@@ -5,7 +5,7 @@ category:
 tag:
   - 安全相关
 ---
-# 开发安全 - OWASP Top 10 
+# OWASP Top 10 
 
 > 在学习安全需要总体了解安全趋势和常见的Web漏洞，首推了解OWASP，因为它代表着业内Web安全漏洞的趋势。
 

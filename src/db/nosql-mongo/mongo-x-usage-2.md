@@ -351,7 +351,7 @@ db.artwork.aggregate( [
 ...                    )
 {
         "serverInfo" : {
-                "host" : "pdai",
+                "host" : "root",
                 "port" : 27017,
                 "version" : "3.6.19",
                 "gitVersion" : "41b289ff734a926e784d6ab42c3129f59f40d5b4"

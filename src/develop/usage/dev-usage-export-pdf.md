@@ -1,3 +1,10 @@
+---
+date: 2019-05-02
+category:
+  - 开发
+tag:
+  - 随手记
+---
 # Itext PDF 导出 
 
 > 给我的文档系统添加了导出，本文记录PDF填坑小结。
@@ -13,7 +20,7 @@ public void exportPdfNew(String mdContent, String type, HttpServletResponse resp
 	response.setContentType("multipart/form-data");
 
 	String title = "file";
-	String author = "pdai";
+	String author = "gavin";
 	String mdFileContent = "";
 
 	ServletOutputStream out = null;

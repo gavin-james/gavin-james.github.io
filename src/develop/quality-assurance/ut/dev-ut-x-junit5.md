@@ -5,7 +5,7 @@ category:
 tag:
   - 代码质量
 ---
-# 单元测试 - Junit5 详解 
+# Junit5 详解 
 
 > JUnit 5是JUnit的下一代。目标是为JVM上的开发人员端测试创建一个最新的基础。这包括专注于Java 8及更高版本，以及启用许多不同风格的测试。
 
@@ -88,7 +88,7 @@ https://github.com/junit-team
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>pdai.tech</groupId>
+    <groupId>com.gavin.james</groupId>
     <artifactId>java-junit5</artifactId>
     <version>1.0-SNAPSHOT</version>
 
@@ -134,7 +134,7 @@ https://github.com/junit-team
 第一个测试:
 
 ```java
-package tech.pdai.junit5;
+package com.gavin.james.junit5;
 
 import org.junit.jupiter.api.Test;
 
@@ -143,7 +143,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 /**
  * Hello world test.
  *
- * @author pdai
+ * @author 
  */
 public class HelloWorldTest {
 
@@ -177,7 +177,7 @@ public class HelloWorldTest {
 测试用例:
 
 ```java
-package tech.pdai.junit5;
+package com.gavin.james.junit5;
 
 import static org.junit.jupiter.api.Assertions.fail;
 import static org.junit.jupiter.api.Assumptions.assumeTrue;
@@ -193,7 +193,7 @@ import org.junit.jupiter.api.Test;
 /**
  * Standard Test.
  *
- * @author pdai
+ * @author
  */
 public class StandardTest {
 
@@ -334,7 +334,7 @@ class DisabledTest {
 定义一个Person实体类
 
 ```java
-package tech.pdai.junit5.entity;
+package com.gavin.james.junit5.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -342,7 +342,7 @@ import lombok.Data;
 /**
  * Person.
  *
- * @author pdai
+ * @author
  */
 @Data
 @AllArgsConstructor
@@ -357,10 +357,10 @@ public class Person {
 测试代码:
 
 ```java
-package tech.pdai.junit5;
+package com.gavin.james.junit5;
 
 import org.junit.jupiter.api.Test;
-import tech.pdai.junit5.entity.Person;
+import com.gavin.james.junit5.entity.Person;
 
 import static java.time.Duration.ofMillis;
 import static java.time.Duration.ofMinutes;
@@ -495,7 +495,7 @@ org.opentest4j.AssertionFailedError: execution timed out after 10 ms
 	at org.junit.jupiter.api.AssertTimeout.assertTimeoutPreemptively(AssertTimeout.java:101)
 	at org.junit.jupiter.api.AssertTimeout.assertTimeoutPreemptively(AssertTimeout.java:97)
 	at org.junit.jupiter.api.Assertions.assertTimeoutPreemptively(Assertions.java:3323)
-	at tech.pdai.junit5.AssertionsTest.timeoutExceededWithPreemptiveTermination(AssertionsTest.java:108)
+	at com.gavin.james.junit5.AssertionsTest.timeoutExceededWithPreemptiveTermination(AssertionsTest.java:108)
   // ...
 
 org.opentest4j.AssertionFailedError: execution exceeded timeout of 10 ms by 92 ms
@@ -506,7 +506,7 @@ org.opentest4j.AssertionFailedError: execution exceeded timeout of 10 ms by 92 m
 	at org.junit.jupiter.api.AssertTimeout.assertTimeout(AssertTimeout.java:52)
 	at org.junit.jupiter.api.AssertTimeout.assertTimeout(AssertTimeout.java:48)
 	at org.junit.jupiter.api.Assertions.assertTimeout(Assertions.java:3186)
-	at tech.pdai.junit5.AssertionsTest.timeoutExceeded(AssertionsTest.java:98)
+	at com.gavin.james.junit5.AssertionsTest.timeoutExceeded(AssertionsTest.java:98)
   // ...
 
 
@@ -518,7 +518,7 @@ Process finished with exit code 255
 我们代码中对于带有异常的方法通常都是使用 try-catch 方式捕获处理，针对测试这样带有异常抛出的代码，而 JUnit 5 提供方法 `Assertions#assertThrows(Class<T>, Executable)` 来进行测试，第一个参数为异常类型，第二个为函数式接口参数，跟 Runnable 接口相似，不需要参数，也没有返回，并且支持 Lambda表达式方式使用，具体使用方式可参考下方代码:
 
 ```java
-package tech.pdai.junit5;
+package com.gavin.james.junit5;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -564,12 +564,12 @@ org.opentest4j.AssertionFailedError: Unexpected exception type thrown ==> expect
 	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:65)
 	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:37)
 	at org.junit.jupiter.api.Assertions.assertThrows(Assertions.java:3007)
-	at tech.pdai.junit5.ExceptionTest.assertThrowsException2(ExceptionTest.java:26)
+	at com.gavin.james.junit5.ExceptionTest.assertThrowsException2(ExceptionTest.java:26)
   // ...
 Caused by: java.lang.NumberFormatException: null
 	at java.lang.Integer.parseInt(Integer.java:542)
 	at java.lang.Integer.valueOf(Integer.java:766)
-	at tech.pdai.junit5.ExceptionTest.lambda$assertThrowsException2$1(ExceptionTest.java:27)
+	at com.gavin.james.junit5.ExceptionTest.lambda$assertThrowsException2$1(ExceptionTest.java:27)
 	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:55)
 	... 68 more
 ```
@@ -581,7 +581,7 @@ Caused by: java.lang.NumberFormatException: null
 用于测试stack的嵌套测试套件:
 
 ```java
-package tech.pdai.junit5;
+package com.gavin.james.junit5;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -693,7 +693,7 @@ void repeatedTest() {
 测试例子
 
 ```java
-package tech.pdai.junit5;
+package com.gavin.james.junit5;
 
 import org.junit.jupiter.api.*;
 
@@ -925,7 +925,7 @@ static class MyArgumentsProvider implements ArgumentsProvider {
 DynamicTest是运行时生成的测试用例。它由显示名称和Executable组成。 Executable是@FunctionalInterface，这意味着动态测试的实现可以作为lambda表达式或方法引用来提供。
 
 ```java
-package tech.pdai.junit5;
+package com.gavin.james.junit5;
 
 import org.junit.jupiter.api.DynamicNode;
 import org.junit.jupiter.api.DynamicTest;

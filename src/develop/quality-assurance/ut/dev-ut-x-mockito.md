@@ -5,7 +5,7 @@ category:
 tag:
   - 代码质量
 ---
-# 单元测试 - Mockito 详解 
+# Mockito 详解 
 
 > Mock通常是指，在测试一个对象A时，我们构造一些假的对象来模拟与A之间的交互，而这些Mock对象的行为是我们事先设定且符合预期。通过这些Mock对象来测试A在正常逻辑，异常逻辑或压力情况下工作是否正常。而Mockito是最流行的Java mock框架之一。
 
@@ -72,7 +72,7 @@ https://github.com/powermock/powermock/
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>pdai.tech</groupId>
+    <groupId>com.gavin.james</groupId>
     <artifactId>java-mockito</artifactId>
     <version>1.0-SNAPSHOT</version>
     <dependencies>
@@ -100,9 +100,9 @@ https://github.com/powermock/powermock/
 待测试类DemoService
 
 ```java
-package tech.pdai.mockito.service;
+package com.gavin.james.mockito.service;
 
-import tech.pdai.mockito.dao.DemoDao;
+import com.gavin.james.mockito.dao.DemoDao;
 
 public class DemoService {
 
@@ -121,7 +121,7 @@ public class DemoService {
 依赖DemoDao
 
 ```java
-package tech.pdai.mockito.dao;
+package com.gavin.james.mockito.dao;
 
 import java.util.Random;
 
@@ -136,13 +136,13 @@ public class DemoDao {
 测试类
 
 ```java
-package tech.pdai.mockito;
+package com.gavin.james.mockito;
 
 import org.junit.Assert;
 import org.junit.Test;
 import org.mockito.Mockito;
-import tech.pdai.mockito.dao.DemoDao;
-import tech.pdai.mockito.service.DemoService;
+import com.gavin.james.mockito.dao.DemoDao;
+import com.gavin.james.mockito.service.DemoService;
 
 /**
  * Hello World Test.
@@ -176,7 +176,7 @@ public class HelloWorldTest {
 包含两块测试：一个是类测试，一个接口测试，具体如下：
 
 ```java
-package tech.pdai.mockito;
+package com.gavin.james.mockito;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -242,7 +242,7 @@ public class MockClassTest {
 比较优雅优雅的写法是用MockitoJUnitRunner，它可以自动执行MockitoAnnotations.initMocks 方法。
 
 ```java
-package tech.pdai.mockito;
+package com.gavin.james.mockito;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -276,7 +276,7 @@ public class MockAnnotationTest {
 如果参数匹配既申明了精确匹配，也声明了模糊匹配；又或者同一个值的精确匹配出现了两次，使用时会匹配符合匹配条件的最新声明的匹配。
 
 ```java
-package tech.pdai.mockito;
+package com.gavin.james.mockito;
 
 
 import org.junit.Assert;
@@ -350,7 +350,7 @@ anyInt 只是用来匹配参数的工具之一，目前 mockito 有多种匹配�
 如下代码中，包含两个例子：一个是单个异常，一个是多个异常。
 
 ```java
-package tech.pdai.mockito;
+package com.gavin.james.mockito;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -418,7 +418,7 @@ public class ThrowTest {
 > 对应返回类型是 void 的函数，thenThrow 是无效的，要使用 doThrow。
 
 ```java
-package tech.pdai.mockito;
+package com.gavin.james.mockito;
 
 import org.junit.Assert;
 import org.junit.Test;

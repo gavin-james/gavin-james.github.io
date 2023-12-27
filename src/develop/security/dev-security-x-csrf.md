@@ -5,7 +5,7 @@ category:
 tag:
   - 安全相关
 ---
-# 开发安全 - CSRF 详解 
+# CSRF 详解 
 
 > CSRF(Cross-site request forgery跨站请求伪造，也被称成为“one click attack”或者session riding，通常缩写为CSRF或者XSRF，是一种对网站的恶意利用。 
 
