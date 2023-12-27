@@ -9,34 +9,24 @@ heroFullScreen: true
 tagline: 如果一个人把生活兴趣全部建立在爱情那样暴风雨般的感情冲动上,那是会令人失望的。 —— 来自 Maria Curie
 projects:
   - icon: project
-    name: 项目名称
-    desc: 项目详细描述
-    link: https://你的项目链接
+    name: gavin-james-utils
+    desc: 个人工具库
+    link: https://github.com/gavin-james/gavin-james-utils
 
-  - icon: link
-    name: 链接名称
-    desc: 链接详细描述
+  - icon: project
+    name: gavin-boot-pro
+    desc: 基于工具库的后端项目
     link: https://链接地址
 
-  - icon: book
-    name: 书籍名称
-    desc: 书籍详细描述
+  - icon: project
+    name: gavin-web-admin
+    desc: 前端管理项目
     link: https://你的书籍链接
 
-  - icon: article
-    name: 文章名称
-    desc: 文章详细描述
+  - icon: project
+    name: gavin-james-docs
+    desc: 项目部署文档
     link: https://你的文章链接
 
-  - icon: friend
-    name: 伙伴名称
-    desc: 伙伴详细介绍
-    link: https://你的伙伴链接
-
-  - icon: /logo.svg
-    name: 自定义项目
-    desc: 自定义详细介绍
-    link: https://你的自定义链接
-
-footer: 自定义你的页脚文字
+footer: 路的尽头终会是温柔和月光。
 ---
