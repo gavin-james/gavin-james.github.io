@@ -110,3 +110,4 @@ footer: MIT Licensed | Copyright © 2019-present Mr.Hope
 
    "@anyfork/vuepress-plugin-cursor-effects-next": "^0.1.0-beta.0",
     // "@vuepress-denaro/vuepress-plugin-dynamic-title": "^1.0.2-alpha.0",
+

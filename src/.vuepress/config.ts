@@ -1,43 +1,37 @@
-// import path from 'path'
-import { searchProPlugin } from 'vuepress-plugin-search-pro'
+import { viteBundler } from '@vuepress/bundler-vite'
 import { defineUserConfig } from 'vuepress'
-import head from './config/head'
-import theme from './config/theme'
+import theme from './theme'
 
 export default defineUserConfig({
+	base: '/',
+	bundler: viteBundler(),
 	// 多语言配置
 	locales: {
 		'/': {
 			// 设置正在使用的语言
-			lang: 'zh-CN'
+			lang: 'zh-CN',
+			title: 'Gavin James',
+			description:
+				'Gavin James个人博客, VuePress搭建, 使用了 Vdoing 主题, 学习Java, Web, 框架, 微服务, 工具, 前端等相关知识, 记录生活和技术路程, 同时分享编程技巧。',
 		},
 		'/en/': {
 			// 设置正在使用的语言
-			lang: 'en-US'
-		}
+			lang: 'en-US',
+			title: 'Gavin James',
+			description:
+				"Gavin James' personal blog, built by VuePress, uses the Vdoing theme to learn Java, Web, frameworks, microservices, tools, front-end and other related knowledge, record life and technology journey, while sharing programming skills.",
+		},
 	},
-	// 插件
-	plugins: [
-		// 搜索插件
-		searchProPlugin({
-			// 索引全部内容
-			indexContent: true,
-			hotReload: true,
-			// 你的选项
-			locales: {
-				'/': {
-					placeholder: '搜索'
-				},
-				'/en/': {
-					placeholder: 'Search'
-				}
-			}
-		})
+	head: [
+		['meta', { name: 'baidu-site-verification', content: 'code-fLaULewlcT' }], // 百度统计的code
+		[
+			'meta',
+			{
+				name: 'keywords',
+				content:
+					'Gavin个人博客, VuePress搭建, 学习Java、Web、框架、微服务、工具、前端等相关知识, 记录生活和技术路程。',
+			},
+		],
 	],
-	title: 'Gavin James',
-	description:
-		'Gavin James个人博客, VuePress搭建, 使用了 Vdoing 主题, 学习Java, Web, 框架, 微服务, 工具, 前端等相关知识, 记录生活和技术路程, 同时分享编程技巧。',
-	base: '/',
-	head,
-	theme
+	theme,
 })

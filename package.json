@@ -4,17 +4,29 @@
   "description": "A project of vuepress-theme-hope",
   "license": "MIT",
   "scripts": {
-    "dev": "vuepress dev src",
-    "build": "vuepress build src",
+    "dev": "vuepress-vite dev src",
+    "build": "vuepress-vite build src",
     "baiduPush": "bash baiduPush.sh",
-    "clean-dev": "vuepress dev src --clean-cache",
+    "clean-dev": "vuepress-vite dev src --clean-cache",
     "update": "pnpm dlx vp-update"
   },
   "devDependencies": {
-    "@vuepress/client": "2.0.0-rc.0",
-    "vue": "^3.3.13",
-    "vuepress": "2.0.0-rc.0",
-    "vuepress-plugin-search-pro": "2.0.0-rc.7",
-    "vuepress-theme-hope": "2.0.0-rc.7"
+    "@vue/repl": "^4.7.2",
+    "@vuepress/bundler-vite": "2.0.0-rc.31",
+    "@vuepress/plugin-revealjs": "2.0.0-rc.134",
+    "@vuepress/plugin-slimsearch": "2.0.0-rc.134",
+    "chart.js": "^4.5.1",
+    "echarts": "^5.6.0",
+    "flowchart.ts": "^3.0.1",
+    "katex": "^0.16.47",
+    "markmap-lib": "^0.18.12",
+    "markmap-toolbar": "^0.18.12",
+    "markmap-view": "^0.18.12",
+    "mermaid": "^11.17.2",
+    "sass-embedded": "^1.104.1",
+    "twikoo": "^1.7.22",
+    "vue": "^3.5.42",
+    "vuepress": "2.0.0-rc.31",
+    "vuepress-theme-hope": "2.0.0-rc.109"
   }
 }

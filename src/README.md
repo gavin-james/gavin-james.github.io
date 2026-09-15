@@ -1,7 +1,8 @@
 ---
 home: true
-layout: BlogHome
+layout: Blog
 icon: home
+bgImage: /backimage.jpg
 title: 主页
 heroImage: /logo.svg
 heroText: Gavin James

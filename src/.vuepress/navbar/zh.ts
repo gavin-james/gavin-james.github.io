@@ -7,11 +7,6 @@ export const zhNavbar = navbar([
 		link: '/'
 	},
 	{
-		text: '导航',
-		icon: 'manage_fill',
-		link: '/resource/'
-	},
-	{
 		text: 'Java',
 		icon: 'java',
 		prefix: '/java/',
