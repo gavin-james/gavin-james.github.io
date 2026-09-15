@@ -3,6 +3,7 @@
   "version": "2.0.0",
   "description": "A project of vuepress-theme-hope",
   "license": "MIT",
+  "packageManager": "pnpm@10.32.1",
   "scripts": {
     "dev": "vuepress-vite dev src",
     "build": "vuepress-vite build src",

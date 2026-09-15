@@ -5,7 +5,7 @@ on:
     branches:
       # 确保这是你正在使用的分支名称
       - main
-      
+
 permissions:
   contents: write
 
@@ -14,19 +14,26 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: coldfusionjp/ghaction-checkout-plus@v3
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
           # 如果你文档需要 Git 子模块，取消注释下一行
           # submodules: true
 
-      - name: 设置 pnpm.js 环境
-        uses: pnpm/action-setup@v2
+      - name: 设置 pnpm
+        uses: pnpm/action-setup@v4
         with:
-          version: latest
+          # 固定版本，避免 latest 启用 minimumReleaseAge 导致刚发布依赖安装失败
+          version: 10.32.1
+
+      - name: 设置 Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
 
       - name: 安装依赖
-        run: pnpm i
+        run: pnpm install --frozen-lockfile
 
       - name: 构建文档
         env:
