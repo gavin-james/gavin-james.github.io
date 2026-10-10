@@ -5,288 +5,96 @@ category:
 tag:
   - NoSQL ElasticSearch
 ---
-# ES详解 - 资料：Awesome Elasticsearch 
+# Elasticsearch 进阶资源与最佳实践
 
-> 本文来自 [GitHub Awesome Elasticsearch 项目在新窗口打开](https://github.com/dzharii/awesome-elasticsearch), 搜集ElasticSearch相关的优秀资料。
+> 本页面向已经会用 Elasticsearch（ES）基础 DSL 的读者，汇总进阶方向、工程质量要点与常用工具资源。目标不是罗列链接，而是给出“**怎么用得好**”的实践清单，并串联本站 ES 专题的进阶文档。
 
-# General
+## 1. 进阶学习路径
 
-## Elastic Stack
+按“原理 → 查询 → 聚合 → 性能”的顺序推进：
 
-- [Elasticsearch在新窗口打开](https://www.elastic.co/) official website
-- [Logstash在新窗口打开](https://www.elastic.co/products/logstash) is a data pipeline that helps you process logs and other event data from a variety of systems
-- [Kibana在新窗口打开](https://www.elastic.co/products/kibana) is a data analysis tool that helps to visualize your data; [Kibana Manual docs在新窗口打开](https://www.elastic.co/guide/en/kibana/current/discover.html)
-- [beats在新窗口打开](https://www.elastic.co/products/beats) is the platform for building lightweight, open source data shippers for many types of data you want to enrich with Logstash, search and analyze in Elasticsearch, and visualize in Kibana.
+- [ES 入门](./elasticsearch-z-hello.md)：核心概念（索引、文档、分片、副本）与基本操作。
+- [索引与 Mapping](./elasticsearch-x-index-mapping.md)：字段类型、分词器、动态映射的取舍。
+- [DSL 查询](./elasticsearch-x-dsl-com.md) / [Term 查询](./elasticsearch-x-dsl-term.md) / [全文检索](./elasticsearch-x-dsl-full-text.md)：query context 与 filter context 的区别。
+- [指标聚合](./elasticsearch-x-agg-metric.md) / [桶聚合](./elasticsearch-x-agg-bucket.md)：聚合分析与分桶。
+- [性能优化](./elasticsearch-y-peformance.md)：写入与查询的调优手段。
 
-## Books
+## 2. 索引与 Mapping 最佳实践
 
-- [Deep Learning for Search在新窗口打开](https://www.manning.com/books/deep-learning-for-search) - teaches you how to leverage neural networks, NLP, and deep learning techniques to improve search performance. (2019)
-- [Relevant Search: with applications for Solr and Elasticsearch在新窗口打开](https://www.manning.com/books/relevant-search) - demystifies relevance work. Using Elasticsearch, it teaches you how to return engaging search results to your users, helping you understand and leverage the internals of Lucene-based search engines. (2016)
-- [Elasticsearch in Action在新窗口打开](https://www.manning.com/books/elasticsearch-in-action) - teaches you how to build scalable search applications using Elasticsearch (2015)
+- **显式定义 Mapping**，关闭不必要的动态映射（`dynamic: false` 或严格模式），避免字段类型被意外推断、映射爆炸（mapping explosion）。
+- **合理选择字段类型**：不需要全文检索、只做等值/聚合的字符串用 `keyword`；需要分词搜索的用 `text`。
+- **控制字段数量**：默认 Lucene 对单索引字段数有上限（`index.mapping.total_fields.limit`），宽表场景要收敛字段。
+- **关闭不需要的特性**：不搜索也不聚合的字段可设 `"index": false`；只关心排序/聚合数值时可用 `doc_values` 相关配置权衡。
 
-## lists
+## 3. 写入性能最佳实践
 
-- [frutik/awesome-search在新窗口打开](https://github.com/frutik/awesome-search) I am building e-commerce search now. Below are listed some of my build blocks
+- **批量写入**：单条写入开销大，用 `_bulk` 批量提交（经验值每条请求数 MB 级、数百到数千文档，需实测）。
+- **调大 refresh_interval**：默认 `1s` 刷新会产生大量小段。写入密集场景可临时调大（如 `30s`）甚至设为 `-1`，写完再刷回。
+- **translog 策略**：对可容忍少量丢失的场景可设 `translog.durability=async` 降低每次写盘开销；反之保持 `request`（默认，安全）。
+- **控制分片数**：分片过多会带来大量小段与集群元数据压力；分片过少则无法充分利用节点。单分片建议控制在几十 GB 以内，并结合节点数规划。
+- **副本与写入**：写入时副本越多确认成本越高；可在批量导入时先设 `number_of_replicas: 0`，导入完再调回。
 
-## Open-source and free products, based on Elasticsearch
+## 4. 查询性能最佳实践
 
-- [Fess在新窗口打开](https://fess.codelibs.org/index.html) is an open source full featured Enterprise Search, with a web-crawler
-- [Yelp/elastalert在新窗口打开](https://github.com/yelp/elastalert) is a modular flexible rules based alerting system written in Python
-- [etsy/411在新窗口打开](https://github.com/etsy/411) - an Alert Management Web Application https://demo.fouroneone.io (credentials: user/user)
-- [appbaseio/mirage在新窗口打开](https://github.com/appbaseio/mirage) is a 🔎 GUI for composing Elasticsearch queries
-- [exceptionless/Exceptionless在新窗口打开](https://github.com/exceptionless/Exceptionless) is an error (exceptions) collecting and reporting server with client bindings for a various programming languages
-- [searchkit/searchkit在新窗口打开](https://github.com/searchkit/searchkit) is a UI framework based on React to build awesome search experiences with Elasticsearch
-- [appbaseio/reactivemaps在新窗口打开](https://opensource.appbase.io/reactivemaps) is a React based UI components library for building Airbnb / Foursquare like Maps
-- [appbaseio/reactivesearch在新窗口打开](https://opensource.appbase.io/reactivesearch) is a library of beautiful React UI components for Elasticsearch
-- [appbaseio/dejavu在新窗口打开](https://github.com/appbaseio/dejavu/) The missing UI for Elasticsearch; [landing page在新窗口打开](https://opensource.appbase.io/dejavu/)
-- [Simple File Server在新窗口打开](https://github.com/pitchpoint-solutions/sfs) is an Openstack Swift compatible distributed object store that can serve and securely store billions of large and small files using minimal resources.
-- [logagent在新窗口打开](https://www.npmjs.com/package/@sematext/logagent) a log shipper to parse and ship logs to Elasticsearch including bulk indexing, disk buffers and log format detection.
-- [ItemsAPI在新窗口打开](https://github.com/itemsapi/itemsapi) simplified search API for web and mobile (based on Elasticsearch and Express.js)
-- [Kuzzle在新窗口打开](https://github.com/kuzzleio/kuzzle) - An open-source backend with advanced real-time features for Web, Mobile and IoT that uses ElasticSearch as a database. ([Website在新窗口打开](https://kuzzle.io/))
-- [SIAC在新窗口打开](https://github.com/citybasebrooks/SIAC) - SIAC is an enterprise SIEM built on the ELK stack and other open-source components.
-- [Sentinl在新窗口打开](https://github.com/sirensolutions/sentinl) - Sentinl is a Kibana alerting and reporting app.
-- [Praeco在新窗口打开](https://github.com/ServerCentral/praeco/) - Elasticsearch alerting made simple
+- **优先使用 filter context**：过滤条件不参与算分、可被缓存，比 `must` 更快；只有需要相关性打分时才用 query context。
+- **避免深分页**：`from + size` 在深分页时开销剧增（默认上限 `index.max_result_window`）。深分页/全量遍历应使用 `scroll` 或 `search_after`（配合排序字段）。
+- **聚合注意基数**：对高基数字段做 `terms` 聚合代价高，可先过滤再聚合，或使用 `composite` 聚合分页拉取。
+- **善用 `_source` 过滤与 `doc_values`**：只取需要的字段，减少 IO 与网络传输。
+- **理解缓存**：`query cache`、`request cache`、OS 文件系统缓存共同决定实际速度；ES 性能高度依赖内存与文件缓存。
 
-## Elasticsearch developer tools and utilities
+## 5. 集群与运维
 
-### Development and debugging
+- **分片规划**：根据数据量、节点数和增长预期确定主分片数（主分片数一旦创建不能直接修改，需 reindex）。
+- **避免脑裂**：正确配置 `discovery.seed_hosts` 与 `cluster.initial_master_nodes`（7.x 起）；生产至少 3 个专用主节点。
+- **监控核心指标**：集群健康（green/yellow/red）、JVM 堆与 GC、`thread_pool` 队列与拒绝、`segment` 数量、查询/索引延迟。
+- **容量与内存**：堆内存通常不超过物理内存的一半（给文件系统缓存留空间），单节点堆一般控制在 31GB 以下以避免压缩指针失效。
+- **只读与冷热分层**：按访问热度把索引放到不同规格节点（热-温-冷），降低存储成本。
 
-- [Sense (from Elastic)在新窗口打开](https://github.com/elastic/sense/#sense) A JSON aware developer console to Elasticsearch; official and very powerful
-- [ES-mode在新窗口打开](https://github.com/dakrone/es-mode) An Emacs major mode for interacting with Elasticsearch (similar to Sense)
-- [Elasticsearch Cheatsheet在新窗口打开](http://elasticsearch-cheatsheet.jolicode.com/) Examples for the most used queries, API and settings for all major version of Elasticsearch
-- [Elasticstat在新窗口打开](https://github.com/objectrocket/elasticstat) CLI tool displaying monitoring informations like htop
-- [Elastic for Visual Studio Code在新窗口打开](https://github.com/hsen-dev/vscode-elastic) An extension for developing Elasticsearch queries like Kibana and Sense extention in Visual Studio Code
-- [Elastic Builder在新窗口打开](https://github.com/sudo-suhas/elastic-builder) A Node.js implementation of the Elasticsearch DSL
-- [Bodybuilder在新窗口打开](https://github.com/danpaz/bodybuilder) A Node.js elasticsearch query body builder
-- [enju在新窗口打开](https://github.com/kelp404/enju) A Node.js elasticsearch ORM
-- [Peek在新窗口打开](https://github.com/ywangd/peek) An interactive CLI in Python that works like Kibana Console with additional features
+## 6. 常用工具与资源
 
-### Import and Export
+**客户端与运维工具**
 
-- [Knapsack plugin在新窗口打开](https://github.com/jprante/elasticsearch-knapsack) is an "swiss knife" export/import plugin for Elasticsearch
-- [Elasticsearch-Exporter在新窗口打开](https://github.com/mallocator/Elasticsearch-Exporter) is a command line script to import/export data from Elasticsearch to various other storage systems
-- [esbulk在新窗口打开](https://github.com/miku/esbulk) Parallel elasticsearch bulk indexing utility for the command line.
-- [elasticdump在新窗口打开](https://github.com/taskrabbit/elasticsearch-dump) - tools for moving and saving indices
-- [elasticsearch-loader在新窗口打开](https://github.com/moshe/elasticsearch_loader) - Tool for loading common file types to elasticsearch including csv, json, and parquet
+- **Kibana**：官方可视化与 Dev Tools 控制台，日常查询与图表首选。
+- **Cerebro**：开源集群管理面板，查看分片分布与集群状态。
+- **Elasticsearch-head / ElasticHQ**：轻量集群管理与监控界面。
 
-### Management
+**数据导入导出**
 
-- [Esctl在新窗口打开](https://github.com/jeromepin/esctl) - High-level command line interface to manage Elasticsearch clusters.
-- [Vulcanizer在新窗口打开](https://github.com/github/vulcanizer) - Github's open sourced cluster management library based on Elasticsearch's REST API. Comes with a high level CLI tool
+- **elasticdump**：节点实现的索引数据导入导出工具。
+- **Logstash / Beats**：官方数据采集管道，Logstash 负责加工，Filebeat 等轻量采集。
 
-## Elasticsearch plugins
+**查询辅助**
 
-### Cluster
+- **Elasticsearch-sql**：用类 SQL 语法查询 ES，便于过渡与临时分析。
 
-- [sscarduzio/elasticsearch-readonlyrest-plugin在新窗口打开](https://github.com/sscarduzio/elasticsearch-readonlyrest-plugin) Safely expose Elasticsearch REST API directly to the public
-- [mobz/elasticsearch-head在新窗口打开](https://github.com/mobz/elasticsearch-head) is a powerful and essential plugin for managing your cluster, indices and mapping
-- [Bigdesk在新窗口打开](http://bigdesk.org/) - Live charts and statistics for elasticsearch cluster
-- [Elastic HQ在新窗口打开](http://www.elastichq.org/) - Elasticsearch cluster management console with live monitoring and beautiful UI
-- [Cerebro在新窗口打开](https://github.com/lmenezes/cerebro) is an open source(MIT License) elasticsearch web admin tool. Supports ES 5.x
-- [Kopf在新窗口打开](https://github.com/lmenezes/elasticsearch-kopf) - Another management plugin that have REST console and *manual* shard allocation
-- [Search Guard在新窗口打开](https://github.com/floragunncom/search-guard) - Elasticsearch and elastic stack security and alerting for free
-- [ee-outliers在新窗口打开](https://github.com/NVISO-BE/ee-outliers) - ee-outliers is a framework to detect outliers in events stored in an Elasticsearch cluster.
-- [Elasticsearch Comrade在新窗口打开](https://github.com/moshe/elasticsearch-comrade) - Elasticsearch admin panel built for ops and monitoring
-- [elasticsearch-admin在新窗口打开](https://github.com/stephanediondev/elasticsearch-admin) - Web administration for Elasticsearch
-
-### Other
-
-- [SIREn Join Plugin for Elasticsearch在新窗口打开](https://github.com/sirensolutions/siren-join) This plugin extends Elasticsearch with new search actions and a filter query parser that enables to perform a "Filter Join" between two set of documents (in the same index or in different indexes).
-
-### Integrations and SQL support
-
-- [NLPchina/elasticsearch-sql在新窗口打开](https://github.com/NLPchina/elasticsearch-sql/) - Query elasticsearch using familiar SQL syntax. You can also use ES functions in SQL.
-- [elastic/elasticsearch-hadoop在新窗口打开](https://github.com/elastic/elasticsearch-hadoop) - Elasticsearch real-time search and analytics natively integrated with Hadoop (and Hive)
-- [jprante/elasticsearch-jdbc在新窗口打开](https://github.com/jprante/elasticsearch-jdbc) - JDBC importer for Elasticsearch
-- [pandasticsearch在新窗口打开](https://github.com/onesuper/pandasticsearch) - An Elasticsearch client exposing DataFrame API
-- [monstache在新窗口打开](https://github.com/rwynn/monstache) - Go daemon that syncs MongoDB to Elasticsearch in near realtime
+**学习与参考**
 
-### You know, for search
+- **官方文档**（elastic.co/guide）：版本相关行为的权威来源，遇到行为差异先查对应版本文档。
+- **《Elasticsearch: 权威指南》**：Lucene/ES 底层原理与实战的经典读物。
+- 社区论坛与 Stack Overflow 的 `elasticsearch` 标签：排查具体错误码的高频去处。
 
-- [jprante/elasticsearch-plugin-bundle在新窗口打开](https://github.com/jprante/elasticsearch-plugin-bundle) A plugin that consists of a compilation of useful Elasticsearch plugins related to indexing and searching documents
+## 7. 常见故障与排查资源
 
-## Kibana plugins and applications
-
-- [elastic/timelion在新窗口打开](https://github.com/elastic/timelion) time-series analyses application. Overview and installation guide: Timelion: [The time series composer for Kibana在新窗口打开](https://www.elastic.co/blog/timelion-timeline)
-- [Kibana Alert App for Elasticsearch在新窗口打开](https://github.com/elasticfence/kaae) - Kibana plugin with monitoring, alerting and reporting capabilities
-- [VulnWhisperer在新窗口打开](https://github.com/austin-taylor/VulnWhisperer) - VulnWhisperer is a vulnerability data and report aggregator.
-- [Wazuh Kibana App在新窗口打开](https://github.com/wazuh/wazuh-kibana-app) - A Kibana app for working with data generated by [Wazuh在新窗口打开](https://wazuh.com/).
-- [Datasweet Formula在新窗口打开](https://github.com/datasweet-fr/kibana-datasweet-formula) - A real time calculated metric plugin [Datasweet Formula在新窗口打开](http://www.datasweet.fr/datasweet-formula/).
-
-### Kibana Visualization plugins
-
-- [nbs-system/mapster在新窗口打开](https://github.com/nbs-system/mapster) - a visualization which allows to create live event 3d maps in Kibana
-- [Kibana Tag Cloud Plugin在新窗口打开](https://github.com/stormpython/tagcloud) - tag cloud visualization plugin based on d3-cloud plugin
-- [LogTrail在新窗口打开](https://github.com/sivasamyk/logtrail) - a plugin for Kibana to view, analyze, search and tail log events from multiple hosts in realtime with devops friendly interface inspired by Papertrail
-- [Analyze API在新窗口打开](https://github.com/johtani/analyze-api-ui-plugin) - Kibana 6 application to manipulate the `_analyze` API graphically
-- [kbn_network在新窗口打开](https://github.com/dlumbrer/kbn_network) - This is a plugin developed for Kibana that displays a network node that link two fields that have been previously selected.
-
-## Discussions and social media
-
-- [/r/elasticsearch在新窗口打开](https://www.reddit.com/r/elasticsearch)
-- [Elasticsearch forum在新窗口打开](https://discuss.elastic.co/)
-- [Stackoverflow在新窗口打开](http://stackoverflow.com/tags/elasticsearch/hot)
-- [Books on Amazon在新窗口打开](http://www.amazon.com/s/ref=nb_sb_noss_1?url=search-alias%3Daps&field-keywords=elasticsearch) does not fit well into this category, but worth checking out!
-- TODO: Put some good twitter accounts
+- **集群变 yellow**：多为副本未分配，检查节点数与副本设置；单节点集群把 `number_of_replicas` 设为 0 可消除。
+- **集群变 red**：存在主分片未分配，先查 `_cluster/allocation/explain` 定位原因（磁盘水位、分片损坏等）。
+- **写入被拒**：`thread_pool` 队列满，通常是写入过快或分片过少，需降速、扩容或调整分片。
+- **查询超时**：排查是否全集合扫描、深分页或高基数聚合，逐一收敛。
+- **脑裂**：多因主节点选举配置不当，检查 `discovery` 相关配置与专用主节点数量。
 
-## Tutorials
+排查时优先看**集群健康、`_cat` 系列接口（indices/shards/nodes）以及各节点日志**；定位具体错误码，官方文档与社区论坛是首选去处。
 
-- [Centralized Logging with Logstash and Kibana On Ubuntu 14.04在新窗口打开](https://www.digitalocean.com/community/tutorial_series/centralized-logging-with-logstash-and-kibana-on-ubuntu-14-04) everything you need to now when you are creating your first Elasticsearch+Logstash+Kibana instance
-- [dwyl/learn-elasticsearch在新窗口打开](https://github.com/dwyl/learn-elasticsearch) a getting started tutorial with a pack of valuable references
-- [Make Sense of your Logs: From Zero to Hero in less than an Hour! by Britta Weber在新窗口打开](https://www.youtube.com/watch?v=8vgTBIoF8zs) demonstrates how you can build Elasticsearch + Logstash + Kibana stack to collect and discover your data
-- [$$ Elasticsearch 7 and Elastic Stack在新窗口打开](https://www.manning.com/livevideo/elasticsearch-7-and-elastic-stack) - liveVideo course that teaches you to search, analyze, and visualize big data on a cluster with Elasticsearch, Logstash, Beats, Kibana, and more.
-
-## Articles
-
-## System configuration
-
-- [A Useful Elasticsearch Cheat Sheet in Times of Trouble在新窗口打开](http://logz.io/blog/elasticsearch-cheat-sheet/)
-- [The definitive guide for Elasticsearch on Windows Azure在新窗口打开](http://code972.com/blog/2014/07/74-the-definitive-guide-for-elasticsearch-on-windows-azure)
-- [Elasticsearch pre-flight checklist在新窗口打开](https://asquera.de/blog/2012-11-25/elasticsearch-pre-flight-checklist/)
-- [9 Tips on Elasticsearch Configuration for High Performance在新窗口打开](https://www.loggly.com/blog/nine-tips-configuring-elasticsearch-for-high-performance/)
-- [Best Practices in AWS在新窗口打开](https://www.elastic.co/guide/en/elasticsearch/plugins/master/cloud-aws-best-practices.html)
-- [How to Secure Elasticsearch and Kibana在新窗口打开](https://www.mapr.com/blog/how-secure-elasticsearch-and-kibana) with NGINX, LDAP and SSL 🔒
-- [Elasticsearch server on Webfaction using NGINX with basic authorization and HTTPS protocol在新窗口打开](http://joanswork.com/webfaction-elasticsearch-server-tutorial/)
-- [Elasticsearch Guides在新窗口打开](https://opster.com/elasticsearch-guides/) Useful Elasticsearch guides with best practices, troubleshooting instructions for errors, tips, examples of code snippets and more.
-
-### Docker and Elasticsearch
-
-- [Running an Elasticsearch cluster with Docker在新窗口打开](https://stefanprodan.com/2016/elasticsearch-cluster-with-docker/)
-
-## Java tuning
-
-- [Elasticsearch Java Virtual Machine settings explained在新窗口打开](http://jprante.github.io/2012/11/28/Elasticsearch-Java-Virtual-Machine-settings-explained.html)
-- [Tuning Garbage Collection for Mission-Critical Java Applications在新窗口打开](https://live.mgm-tp.com/en/tuning-garbage-collection-for-mission-critical-java-applications-tuning-guidelines-for-java-garbage-collection-part-1/)
-- [G1: One Garbage Collector To Rule Them All在新窗口打开](http://www.infoq.com/articles/G1-One-Garbage-Collector-To-Rule-Them-All)
-- [Use Lucene’s MMapDirectory on 64bit platforms, please!在新窗口打开](http://blog.thetaphi.de/)
-- [Black Magic cookbook在新窗口打开](http://product.hubspot.com/blog/g1gc-tuning-your-hbase-cluster)
-- [G1GC Fundamentals: Lessons from Taming Garbage Collection在新窗口打开](http://product.hubspot.com/blog/g1gc-fundamentals-lessons-from-taming-garbage-collection)
-- [JVM Garbage Collector settings investigation在新窗口打开](https://tigase.tech/attachments/download/4808/GC-result.pdf) PDF Comparison of JVM GC
-- [Garbage Collection Settings for Elasticsearch Master Nodes在新窗口打开](https://dzone.com/articles/garbage-collection-settings-for-elasticsearch-mast) Fine tunine your garbage collector
-- [Understanding G1 GC Log Format在新窗口打开](https://dzone.com/articles/understanding-g1-gc-log-format) To tune and troubleshoot G1 GC enabled JVMs, one must have a proper understanding of G1 GC log format. This article walks through key things that one should know about the G1 GC log format.
-
-How to start using G1
-
-```text
-#ES_JAVA_OPTS=""
-ES_JAVA_OPTS="-XX:-UseParNewGC -XX:-UseConcMarkSweepGC -XX:+UseG1GC"
-```
-
-## Scalable Infrastructure and performance
+## 8. 版本与生态选择
 
-- [The Authoritative Guide to Elasticsearch Performance Tuning (Part 1)在新窗口打开](https://qbox.io/blog/authoritative-guide-elasticsearch-performance-tuning-part-1) [Part 2在新窗口打开](https://qbox.io/blog/elasticsearch-performance-tuning-part-2-zen) [Part 3在新窗口打开](https://qbox.io/index.php?p=blog/authoritative-guide-elasticsearch-performance-tuning-part-3)
-- [Tuning data ingestion performance for Elasticsearch on Azure在新窗口打开](https://azure.microsoft.com/en-us/documentation/articles/guidance-elasticsearch-tuning-data-ingestion-performance/) - and not only for Azure. That's a great article about Elasticsearch Performance testing by example
-- [Elasticsearch Indexing Performance Cheatsheet在新窗口打开](https://blog.codecentric.de/en/2014/05/elasticsearch-indexing-performance-cheatsheet/) - when you plan to index large amounts of data in Elasticsearch (by Patrick Peschlow)
-- [Elasticsearch for Logging在新窗口打开](http://edgeofsanity.net/article/2012/12/26/elasticsearch-for-logging.html) Elasticsearch configuration tips and tricks from Sanity
-- [Scaling Elasticsearch to Hundreds of Developers在新窗口打开](http://engineeringblog.yelp.com/2014/11/scaling-elasticsearch-to-hundreds-of-developers.html) by Joseph Lynch @yelp
-- [10 Elasticsearch metrics to watch在新窗口打开](http://radar.oreilly.com/2015/04/10-elasticsearch-metrics-to-watch.html)
-- [Understanding Elasticsearch Performance在新窗口打开](https://joshrendek.com/2015/11/understanding-elasticsearch-performance/)
-- [Our Experience of Creating Large Scale Log Search System Using Elasticsearch在新窗口打开](http://www.cubrid.org/blog/dev-platform/our-experience-creating-large-scale-log-search-system-using-elasticsearch/) - topology, separate master, data and search balancers nodes
-- 📂 [Elasticsearch on Azure Guidance在新窗口打开](https://github.com/Azure/azure-content/blob/master/articles/guidance/guidance-elasticsearch.md) it is 10% on Azure and 90% of a very valuable general information, tips and tricks about Elasticsearch
-- [How to avoid the split-brain problem in Elasticsearch在新窗口打开](http://blog.trifork.com/2013/10/24/how-to-avoid-the-split-brain-problem-in-elasticsearch/)
-- Datadog's series about monitoring Elasticsearch performance: 
-  - [How to monitor Elasticsearch performance在新窗口打开](https://www.datadoghq.com/blog/monitor-elasticsearch-performance-metrics/)
-  - [How to collect Elasticsearch metrics在新窗口打开](https://www.datadoghq.com/blog/collect-elasticsearch-metrics/)
-  - [How to monitor Elasticsearch with Datadog在新窗口打开](https://www.datadoghq.com/blog/monitor-elasticsearch-datadog/)
-  - [How to solve 5 Elasticsearch performance and scaling problems在新窗口打开](https://www.datadoghq.com/blog/elasticsearch-performance-scaling-problems/)
-- [Performance Monitoring Essentials - Elasticsearch Edition在新窗口打开](https://sematext.com/publications/performance-monitoring-essentials-elasticsearch-edition.pdf)
-- [Operator for running Elasticsearch in Kubernetes在新窗口打开](https://github.com/zalando-incubator/es-operator)
-
-### Integrations
-
-- [Apache Hive integration在新窗口打开](https://www.elastic.co/guide/en/elasticsearch/hadoop/current/hive.html)
-- [Connecting Tableau to Elasticsearch (READ: How to query Elasticsearch with Hive SQL and Hadoop)在新窗口打开](http://ryrobes.com/systems/connecting-tableau-to-elasticsearch-read-how-to-query-elasticsearch-with-hive-sql-and-hadoop/)
-- [mradamlacey/elasticsearch-tableau-connector在新窗口打开](https://github.com/mradamlacey/elasticsearch-tableau-connector)
-
-### Logging
-
-- [5 Logstash Alternatives在新窗口打开](https://sematext.com/blog/2016/09/13/logstash-alternatives/) and typical use cases
-
-### Alerts
-
-- [ElastAlert: Alerting At Scale With Elasticsearch, Part 1在新窗口打开](http://engineeringblog.yelp.com/2015/10/elastalert-alerting-at-scale-with-elasticsearch.html) by engineeringblog.yelp.com
-- [ElastAlert: Alerting At Scale With Elasticsearch, Part 2在新窗口打开](http://engineeringblog.yelp.com/2016/03/elastalert-part-two.html) by engineeringblog.yelp.com
-- [Elastalert: implementing rich monitoring with Elasticsearch在新窗口打开](https://alexandreesl.com/2016/04/15/elastalert-implementing-rich-monitoring-with-elasticsearch/)
-
-### Time series
-
-- [Elasticsearch as a Time Series Data Store在新窗口打开](https://www.elastic.co/blog/elasticsearch-as-a-time-series-data-store) by Felix Barnsteiner
-- [Running derivatives on Voyager velocity data在新窗口打开](https://www.elastic.co/blog/out-of-this-world-aggregations) By Colin Goodheart-Smithe
-- Shewhart Control Charts via Moving Averages: [Part 1在新窗口打开](https://www.elastic.co/blog/staying-in-control-with-moving-averages-part-1) - [Part 2在新窗口打开](https://www.elastic.co/blog/staying-in-control-with-moving-averages-part-2) by Zachary Tong
-- Implementing a Statistical Anomaly Detector: [Part 1在新窗口打开](https://www.elastic.co/blog/implementing-a-statistical-anomaly-detector-part-1) - [Part 2在新窗口打开](https://www.elastic.co/blog/implementing-a-statistical-anomaly-detector-part-2) - [Part 3在新窗口打开](https://www.elastic.co/blog/implementing-a-statistical-anomaly-detector-part-3) by Zachary Tong
-
-### Machine Learning
-
-- [Classifying images into Elasticsearch with DeepDetect在新窗口打开](http://www.deepdetect.com/tutorials/es-image-classifier/) ([forum thread with discussion在新窗口打开](https://discuss.elastic.co/t/categorizing-images-with-deep-learning-into-elasticsearch/33217)) by Emmanuel Benazera
-- [Elasticsearch with Machine Learning在新窗口打开](https://medium.com/hello-elasticsearch/elasticsearch-amazon-machine-learning-7d7b979c328d#.s50a6d5mn) ([English translation在新窗口打开](https://translate.googleusercontent.com/translate_c?depth=1&hl=en&prev=search&rurl=translate.google.com&sl=ja&u=https://medium.com/hello-elasticsearch/elasticsearch-amazon-machine-learning-7d7b979c328d&usg=ALkJrhioEPGsVRglGPFTa6w2ZfM-ydSoeg)) by Kunihiko Kido
-- [Recommender System with Mahout and Elasticsearch在新窗口打开](https://www.mapr.com/products/mapr-sandbox-hadoop/tutorials/recommender-tutorial)
-
-### Use cases for Elasticsearch
-
-- [Data Infrastructure at IFTTT在新窗口打开](http://engineering.ifttt.com/data/2015/10/14/data-infrastructure/) Elasticsearch, Kafka, Apache Spark, Redhsift, other AWS services
-- [OFAC compliance with Elasticsearch在新窗口打开](https://israelwebdev.wordpress.com/2015/01/19/ofac-compliance-with-elasticsearch/) using AWS
-- [Building a Streaming Search Platform在新窗口打开](https://blog.insightdatascience.com/building-a-streaming-search-platform-61a0d5a323a8#.f4b0rvae5) - Streaming Search on Tweets: Storm, Elasticsearch, and Redis
-
-## Other
-
-- [LogZoom, a fast and lightweight substitute for Logstash在新窗口打开](https://packetzoom.com/blog/logzoom-a-fast-and-lightweight-substitute-for-logstash.html)
-- [Graylog2/graylog2-server在新窗口打开](https://github.com/Graylog2/graylog2-server) - Free and open source log management (based on ES)
-- [Fluentd vs. Logstash for OpenStack Log Management在新窗口打开](http://www.slideshare.net/td-nttcom/fluentd-vs-logstash-for-openstack-log-management)
-- [Building a Directory Map With ELK在新窗口打开](http://david.pilato.fr/blog/2015/12/10/building-a-directory-map-with-elk/)
-- [Structured logging with ELK - part 1在新窗口打开](http://engineering.laterooms.com/structured-logging-with-elk-part-1/)
-- [Search for 😋 Emoji with Elasticsearch 🔎在新窗口打开](http://jolicode.com/blog/search-for-emoji-with-elasticsearch)
-- [Complete Guide to the ELK Stack在新窗口打开](http://logz.io/learn/complete-guide-elk-stack/)
-- [logiq在新窗口打开](https://github.com/sloniki/logiq) - Simple WebUI Monitoring Tool for Logstash ver. 5.0 and up
-- [ElasticSearch Report Engine在新窗口打开](https://malike.github.io/elasticsearch-report-engine/) - An ElasticSearch plugin to return query results as either PDF,HTML or CSV.
-- [Elasticsearch Glossary在新窗口打开](https://opster.com/elasticsearch-glossary/) - explanations of Elasticsearch terminology, including examples, common best practices and troubleshooting guides for various issues.
-
-## Videos
-
-### Overviews
-
-- [Elasticsearch for logs and metrics: A deep dive – Velocity 2016在新窗口打开](https://www.youtube.com/watch?v=44QQEI9CJQQ) by Sematext Developers
-- [Elasticsearch in action Thijs Feryn在新窗口打开](https://www.youtube.com/watch?v=oPObRc8tHgQ) a beginner overview
-- [Getting Down and Dirty with ElasticSearch by Clinton Gormley 在新窗口打开](https://www.youtube.com/watch?v=7FLXjgB0PQI)
-- [How we scaled Raygun在新窗口打开](https://raygun.io/blog/2014/05/talk-how-we-scaled-raygun-using-technologies-like-elastic-search-featuring-iron-man/)
-- [Getting started with Elasticsearch在新窗口打开](https://www.youtube.com/watch?v=60UsHHsKyN4&list=PLw5h0DiJ-9PDStvJYc1LOZiEm1ehlEKLP)
-- [Speed is a Key: Elasticsearch under the Hood在新窗口打开](https://www.youtube.com/watch?v=vruklYSW4jg) introduction + basic performance optimization
-- [$$ Pluralsight: Getting Started With Elasticsearch for .NET Developers在新窗口打开](http://www.pluralsight.com/courses/elasticsearch-for-dotnet-developers) this course will introduce users to Elasticsearch, how it works, and how to use it with .NET projects.
-- [$$ Complete Guide to Elasticsearch在新窗口打开](https://www.udemy.com/elasticsearch-complete-guide/) Comprehensive guide to Elasticsearch, the popular search engine built on Apache Lucene
-- [How Elasticsearch powers the Guardian's newsroom在新窗口打开](http://www.infoq.com/presentations/elasticsearch-guardian)
-- [Elasticsearch Query Editor in Grafana在新窗口打开](https://www.youtube.com/watch?v=hEztaMtobXw)
-- [Scale Your Metrics with Elasticsearch在新窗口打开](https://www.youtube.com/watch?v=pZJLlOCuPpg) 2019 by Philipp Krenn (Elastic) optimization tips and tricks
-
-### Advanced
-
-- [#bbuzz 2015: Adrien Grand – Algorithms and data-structures that power Lucene and Elasticsearch在新窗口打开](https://www.youtube.com/watch?v=eQ-rXP-D80U)
-- [Rafał Kuć - Running High Performance Fault-tolerant Elasticsearch Clusters on Docker在新窗口打开](https://www.youtube.com/watch?list=PLq-odUc2x7i_-qsarQo7MNsrYz3rlXGMu&v=D2zR-6Tke8o) and [slides在新窗口打开](https://sematext.com/blog/2016/06/08/elasticsearch-in-docker/)
-- [Working with Elasticsearch - Search, Aggregate, Analyze, and Scale Large Volume Datastores在新窗口打开](http://shop.oreilly.com/product/0636920043898.do) - O'Reilly Media
-- [End-to-end Recommender System with Spark and Elasticsearch在新窗口打开](https://www.youtube.com/watch?v=sa_Y488vj0M) by Nick Pentreath & Jean-François Puget. [Slide deck在新窗口打开](http://www.slideshare.net/sparktc/spark-ml-meedup-pentreath-puget)
-
-### Code, configuration file samples and other gists
-
-- [Elasticsearch config for a write-heavy cluster在新窗口打开](https://gist.github.com/reyjrar/4364063) - reyjrar/elasticsearch.yml
-- [chenryn/ESPL - Elastic Search Processing Language在新窗口打开](https://github.com/chenryn/ESPL) PEG parser sample for SPL to Elasticsearch DSL
-- [thomaspatzke/EQUEL在新窗口打开](https://github.com/thomaspatzke/EQUEL) an Elasticsearch QUEry Language, based on G4 grammar parser
-
-## Who is using elasticsearch?
-
-[Yelp在新窗口打开](http://engineeringblog.yelp.com/2015/10/how-we-use-deep-learning-to-classify-business-photos-at-yelp.html), [IFTTT在新窗口打开](http://engineering.ifttt.com/data/2015/10/14/data-infrastructure/), [StackExchange在新窗口打开](http://stackexchange.com/performance), [Raygun在新窗口打开](https://raygun.io/blog/2014/02/search-improvements-at-raygun/), [Mozilla在新窗口打开](https://www.youtube.com/watch?v=lWKEphKIG8U), [Spotify在新窗口打开](https://labs.spotify.com/2015/11/17/monitoring-at-spotify-introducing-heroic/), [CERN在新窗口打开](https://medium.com/@ghoranyi/needle-in-a-haystack-873c97a99983), [NASA在新窗口打开](https://www.elastic.co/elasticon/2015/sf/unlocking-interplanetary-datasets-with-real-time-search)[Zalando在新窗口打开](https://www.elastic.co/fr/videos/creating-the-fashion-experience-of-the-future-with-elasticsearch-at-zalando)
-
-## I want more! (Elasticsearch related resources)
-
-- [Technology Explained Blog在新窗口打开](https://alexandreesl.com/)
-- [EagerElk在新窗口打开](http://blog.eagerelk.com/)
-- [Tim Roes Blog在新窗口打开](https://www.timroes.de/)
-
-# Contributing
-
-- Make sure you are about to post a valuable resource that belongs to this list
-- Do NOT group ++Add and --Remove changes in same PR. Make them separate pull requests
-- Use spellchecker
-- All spelling and grammar corrections are welcome (except for the rule above)
-- Fork this repo, do your edits, send the pull request
-- Feel free to create any new sections
-- Do not even try to add this repo to any awesome-awesome-* lists
-
-#### -= Awesome Elasticsearch =-
+- **主版本升级**：ES 各主版本间常有破坏性变更（Mapping 类型、查询语法、安全模块等），升级前务必读对应版本的 Upgrade 指南并充分测试。
+- **理解底层 Lucene**：ES 的能力与限制多源自 Lucene，理解倒排索引、段（segment）合并与 `doc_values`，能帮你判断行为边界。
+- **许可证与合规**：许可证变更带来开源分支选择，选型时要确认许可证满足业务合规要求。
+- **客户端匹配**：各语言客户端要与 ES 主版本匹配，避免协议不兼容。
+
+## 9. 小结
+
+- 用好 ES 的关键在“写入工程”与“查询工程”：批量写入、调 refresh、控制分片；filter 优先、避免深分页、控制聚合基数。
+- 显式 Mapping 并收敛字段，避免映射爆炸；分片数规划要一次到位，因为主分片数不可直接改。
+- 集群层面关注脑裂防护、堆内存与监控指标，按冷热分层控制成本。
+- 资源的学习路径是“官方文档定行为、权威指南懂原理、工具提效率”，遇到版本差异以对应版本官方文档为准。
+
+延伸阅读：[ES 入门](./elasticsearch-z-hello.md)、[索引与 Mapping](./elasticsearch-x-index-mapping.md)、[性能优化](./elasticsearch-y-peformance.md)、[备份与恢复](./elasticsearch-backup.md)。

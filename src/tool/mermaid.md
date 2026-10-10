@@ -1,3 +1,9 @@
+---
+title: Mermaid 流程图语法
+category: [工具]
+tag: [Mermaid, 图表]
+---
+
 # 流程图
 
 ### 默认节点

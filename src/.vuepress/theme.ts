@@ -20,12 +20,6 @@ export default hopeTheme({
 
 	pageInfo: ['Author', 'Original', 'Date', 'Category', 'Tag', 'ReadingTime'],
 
-	encrypt: {
-		config: {
-			'/guide/encrypt.html': ['1234'],
-		},
-	},
-
 	blog: {
 		medias: {
 			BiliBili: 'https://space.bilibili.com/442466482',

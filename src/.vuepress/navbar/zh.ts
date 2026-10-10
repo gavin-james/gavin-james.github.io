@@ -179,58 +179,42 @@ export const zhNavbar = navbar([
 		prefix: '/framework/',
 		children: [
 			{
-				text: 'Spring生态',
+				text: 'Spring 生态',
 				icon: 'spring',
 				children: [
-					{
-						text: 'Spring-Framework',
-						icon: 'bxl-spring-boot',
-						link: 'spring/01.md'
-					},
-					{ text: 'SpringBoot', icon: 'bxl-spring-boot', link: 'spring/01' },
-					{ text: 'SpringCloud', icon: 'bxl-spring-boot', link: 'spring/01' }
-				]
+					{ text: '生态总览', icon: 'bxl-spring-boot', link: 'spring/overview.md' },
+					{ text: 'IoC', icon: 'bxl-spring-boot', link: 'spring/ioc.md' },
+					{ text: 'AOP', icon: 'bxl-spring-boot', link: 'spring/aop.md' },
+					{ text: 'Spring MVC', icon: 'bxl-spring-boot', link: 'spring/mvc.md' },
+					{ text: 'Spring Boot', icon: 'bxl-spring-boot', link: 'spring/spring-boot.md' },
+					{ text: 'Spring Cloud', icon: 'bxl-spring-boot', link: 'spring/spring-cloud.md' },
+					{ text: 'Security', icon: 'bxl-spring-boot', link: 'spring/security.md' },
+				],
 			},
 			{
-				text: '管理',
+				text: '其他框架',
 				children: [
-					{ text: 'Git', icon: 'edit', link: 'base/01.md' },
-					{ text: 'Maven', icon: 'edit', link: 'base/01.md' },
-					{ text: 'Gradle', icon: 'edit', link: 'base/01.md' }
-				]
+					{ text: 'MyBatis', link: 'orm/mybatis.md' },
+					{ text: 'Kafka', link: 'mq/kafka.md' },
+					{ text: 'Tomcat', link: 'web/tomcat.md' },
+					{ text: 'Netty', link: 'web/netty.md' },
+				],
 			},
-			{
-				text: '部署',
-				children: [
-					{ text: 'Linux', icon: '', link: 'spring/01.md' },
-					{ text: 'Docker', icon: '', link: 'docker/01.md' },
-					{ text: 'Jenkins', icon: '', link: 'spring/01.md' }
-				]
-			}
-		]
+		],
 	},
 	{
 		text: '架构',
 		icon: 'jiagousheji',
-		prefix: '/framework/',
+		prefix: '/architecture/',
 		children: [
-			{
-				text: '管理',
-				children: [
-					{ text: 'Git', icon: 'edit', link: 'base/01.md' },
-					{ text: 'Maven', icon: 'edit', link: 'base/01.md' },
-					{ text: 'Gradle', icon: 'edit', link: 'base/01.md' }
-				]
-			},
-			{
-				text: '部署',
-				children: [
-					{ text: 'Linux', icon: '', link: 'spring/01.md' },
-					{ text: 'Docker', icon: '', link: 'docker/01.md' },
-					{ text: 'Jenkins', icon: '', link: 'spring/01.md' }
-				]
-			}
-		]
+			{ text: '架构总览', link: 'README.md' },
+			{ text: 'CAP/BASE', link: 'distributed/cap-base.md' },
+			{ text: '分布式锁', link: 'distributed/distributed-lock.md' },
+			{ text: '分布式事务', link: 'distributed/distributed-transaction.md' },
+			{ text: '服务拆分', link: 'microservice/split.md' },
+			{ text: '缓存架构', link: 'high-concurrency/cache.md' },
+			{ text: '秒杀设计', link: 'high-concurrency/seckill.md' },
+		],
 	},
 	{
 		text: '工具',
@@ -238,122 +222,45 @@ export const zhNavbar = navbar([
 		prefix: '/tool/',
 		children: [
 			{
-				text: '管理',
+				text: '研发工具',
 				children: [
 					{ text: 'Git', icon: 'edit', link: 'git/overview.md' },
-					{ text: 'Maven', icon: 'edit', link: 'base/01.md' },
-					{ text: 'Gradle', icon: 'edit', link: 'gradle/01.md' }
-				]
+					{ text: 'Maven', icon: 'edit', link: 'maven/overview.md' },
+					{ text: 'Gradle', icon: 'edit', link: 'gradle/01.md' },
+					{ text: 'IDE', icon: 'edit', link: 'ide/overview.md' },
+				],
 			},
 			{
-				text: '部署',
+				text: '部署运维',
 				children: [
-					{ text: 'Linux', icon: '', link: 'spring/01.md' },
-					{ text: 'Docker', icon: '', link: 'docker/01.md' },
-					{ text: 'Jenkins', icon: '', link: 'spring/01.md' }
-				]
-			}
-		]
+					{ text: 'Linux', link: 'linux/overview.md' },
+					{ text: 'Docker', link: 'docker/overview.md' },
+					{ text: 'Jenkins', link: 'jenkins/overview.md' },
+				],
+			},
+		],
 	},
 	{
 		text: '前端',
 		icon: 'web3',
 		prefix: '/front/',
 		children: [
-			{
-				text: 'Html',
-				children: [
-					{ text: 'Git', icon: 'edit', link: 'base/01.md' },
-					{ text: 'Maven', icon: 'edit', link: 'base/01.md' },
-					{ text: 'Gradle', icon: 'edit', link: 'base/01.md' }
-				]
-			},
-			{
-				text: 'JavaScript',
-				children: [
-					{ text: 'Linux', icon: '', link: 'spring/01.md' },
-					{ text: 'Docker', icon: '', link: 'docker/01.md' },
-					{ text: 'Jenkins', icon: '', link: 'spring/01.md' }
-				]
-			},
-			{
-				text: 'CSS',
-				children: [
-					{ text: 'Linux', icon: '', link: 'spring/01.md' },
-					{ text: 'Docker', icon: '', link: 'docker/01.md' },
-					{ text: 'Jenkins', icon: '', link: 'spring/01.md' }
-				]
-			},
-			{
-				text: 'React',
-				children: [
-					{ text: 'Linux', icon: '', link: 'spring/01.md' },
-					{ text: 'Docker', icon: '', link: 'docker/01.md' },
-					{ text: 'Jenkins', icon: '', link: 'spring/01.md' }
-				]
-			},
-			{
-				text: 'Vue',
-				children: [
-					{ text: 'Linux', icon: '', link: 'spring/01.md' },
-					{ text: 'Docker', icon: '', link: 'docker/01.md' },
-					{ text: 'Jenkins', icon: '', link: 'spring/01.md' }
-				]
-			},
-			{
-				text: 'UniApp',
-				children: [
-					{ text: 'Linux', icon: '', link: 'spring/01.md' },
-					{ text: 'Docker', icon: '', link: 'docker/01.md' },
-					{ text: 'Jenkins', icon: '', link: 'spring/01.md' }
-				]
-			}
-		]
+			{ text: '前端总览', link: 'README.md' },
+			{ text: 'HTML', link: 'html/overview.md' },
+			{ text: 'CSS', link: 'css/overview.md' },
+			{ text: 'JavaScript', link: 'js/overview.md' },
+			{ text: 'Vue', link: 'vue/overview.md' },
+			{ text: 'React', link: 'react/overview.md' },
+		],
 	},
 	{
 		text: '更多',
 		icon: 'more',
-		prefix: '/more/',
-		children: [
-			{
-				text: '管理',
-				children: [
-					{ text: 'Git', icon: 'edit', link: 'base/01.md' },
-					{ text: 'Maven', icon: 'edit', link: 'base/01.md' },
-					{ text: 'Gradle', icon: 'edit', link: 'base/01.md' }
-				]
-			},
-			{
-				text: '部署',
-				children: [
-					{ text: 'Linux', icon: '', link: 'spring/01.md' },
-					{ text: 'Docker', icon: '', link: 'docker/01.md' },
-					{ text: 'Jenkins', icon: '', link: 'spring/01.md' }
-				]
-			}
-		]
+		link: '/more/',
 	},
 	{
 		text: '关于',
 		icon: 'people',
-		prefix: '/about/',
-		children: [
-			{
-				text: '管理',
-				children: [
-					{ text: 'Git', icon: 'edit', link: 'base/01.md' },
-					{ text: 'Maven', icon: 'edit', link: 'base/01.md' },
-					{ text: 'Gradle', icon: 'edit', link: 'base/01.md' }
-				]
-			},
-			{
-				text: '部署',
-				children: [
-					{ text: 'Linux', icon: '', link: 'spring/01.md' },
-					{ text: 'Docker', icon: '', link: 'docker/01.md' },
-					{ text: 'Jenkins', icon: '', link: 'spring/01.md' }
-				]
-			}
-		]
-	}
+		link: '/about/',
+	},
 ])

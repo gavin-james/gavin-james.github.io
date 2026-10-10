@@ -7,6 +7,22 @@ tag:
 ---
 # Twitter Java Style Guide 
 
+## 要点速览
+
+Twitter 的 Java 规范以「可读性优先」为总原则：当严格遵守规范反而写出更难读的代码时，可读性优先。落地时可先抓住以下要点：
+
+- **格式**：不使用 tab，统一空格缩进；单行不超过 100 列；类型用 `CamelCase`、变量用 `camelCase`、常量用 `UPPER_SNAKE_CASE`；不留行尾空格。
+- **变量命名**：极短名字（如 `i`）只用于循环下标；变量名包含单位（如 `timeoutMs`）；不要把元数据（如 `typed`）嵌入名字。
+- **声明**：每行只声明一个变量；字段尽量 `private final`，遵循最小可见性原则。
+- **运算符**：运算符与等号两侧加空格；复合表达式用括号显式表达优先级。
+- **注释与文档**：写「为什么」而不是「是什么」；对类与公开方法写 Javadoc；覆写方法通常不必重复文档。
+- **导入**：禁止通配符导入，保持顺序一致。
+- **注解**：慎用 `@Nullable`、`@VisibleForTesting` 等，让意图显式。
+- **可测试性**：用 Fake / Mock 隔离依赖，避免测试依赖时间、随机数与线程睡眠（不要 `Thread.sleep()`）。
+- **最佳实践**：优先不可变；少暴露可见性；用 `finally` 或 try-with-resources 清理资源；及时删除死代码；避免可变静态状态。
+
+完整规范与正反例见下文。
+
 > 本文是Twitter的Java代码规范。 
 
 The intention of this guide is to provide a set of conventions that encourage good code. It is the distillation of many combined man-years of software engineering and Java development experience. While some suggestions are more strict than others, you should always practice good judgement.

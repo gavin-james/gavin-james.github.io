@@ -5,347 +5,155 @@ category:
 tag:
   - 领域算法
 ---
-# 安全算法 - 摘要算法 
+# 安全算法 - 摘要算法
 
-> 本文主要介绍安全算法 - 摘要算法相关的内容。消息摘要算法的主要特征是加密过程不需要密钥，并且经过加密的数据无法被解密，目前可以解密逆向的只有CRC32算法，只有输入相同的明文数据经过相同的消息摘要算法才能得到相同的密文。消息摘要算法不存在密钥的管理与分发问题，适合于分布式网络上使用。
+> 消息摘要（Message Digest）算法把任意长度的输入数据压缩成固定长度的输出串，是一个**单向函数**：计算过程不需要密钥，也无法从摘要反推出原文；只有输入完全相同，输出才完全相同。它是数字签名、口令存储和数据完整性校验的基石。
 
-## 摘要算法简介
+## 1. 为什么需要摘要算法
 
-- 消息摘要算法的主要特征是加密过程不需要密钥，并且经过加密的数据无法被解密
-- 只有输入相同的明文数据经过相同的消息摘要算法才能得到相同的密文
-- 消息摘要算法主要应用在“数字签名”领域，作为对明文的摘要算法
-- 著名的摘要算法有RSA公司的MD5算法和SHA-1算法及其大量的变体
+数据在存储与传输过程中随时可能被损坏或篡改。如果每次校验都拿原文逐字节比对，既笨重又会把原文暴露出去。摘要算法提供了一种轻量的"数字指纹"：把任意大小的数据映射成一段定长的短串，比较指纹即可判断数据有没有被改动，而指纹本身无法反推出内容。
 
-## 摘要算法特点
+- 输出短且定长，便于比较、存储和传输；
+- 单向不可逆，无法从摘要恢复原文；
+- 输入发生任何细微变化，输出都会大幅改变（雪崩效应）。
 
-- 无论输入的消息有多长，计算出来的消息摘要的长度总是固定的
-- 消息摘要看起来是“伪随机的”。也就是说对相同的信息求摘要结果相同
-- 消息轻微改变生成的摘要变化会很大
-- 只能进行正向的信息摘要，而无法从摘要中恢复出任何的消息，甚至根本就找不到任何与原信息相关的信息
+因此摘要算法天然适合三类场景：**完整性校验**（文件、数据块是否被改）、**口令存储**（不存明文密码）、**数字签名**（对摘要而非全文签名）。
 
-## 摘要算法应用
+## 2. 核心特性
 
-消息摘要算法最常用的场景就是数字签名以及数据(密码)加密了。(一般平时做项目用的比较多的就是使用MD5对用户密码进行加密)
+| 特性 | 含义 | 工程意义 |
+| --- | --- | --- |
+| 定长输出 | 无论输入多长，摘要长度固定 | 便于统一存储与比较 |
+| 确定性 | 相同输入必得相同摘要 | 可用于重复校验 |
+| 单向性 | 由摘要无法推出原文 | 保护原文信息 |
+| 雪崩效应 | 改动 1 个比特，输出约一半比特翻转 | 篡改必被发现 |
+| 抗碰撞 | 难以找到两个不同输入得到同一摘要 | 防止伪造 |
 
-## 何谓数字签名
+::: warning 已被淘汰的算法
+MD5 与 SHA-1 已被证实可在可接受成本内构造**碰撞**——即找到两个不同的输入得到完全相同的摘要。因此它们**不能再用于数字签名、证书等安全场景**。SM3、SHA-256 及更长的 SHA-2 系列才是当前安全的选择。
+:::
 
-数字签名主要用到了非对称密钥加密技术与数字摘要技术。数字签名技术是将摘要信息用发送者的私钥加密，与原文一起传送给接收者。接收者只有用发送者的公钥才能解密被加密的摘要信息，然后用HASH函数对收到的原文产生一个摘要信息，与解密的摘要信息对比。 如果相同，则说明收到的信息是完整的，在传输过程中没有被修改，否则说明信息被修改过.
+## 3. 常见摘要算法对比
 
-因此数字签名能够验证信息的完整性。 数字签名是个加密的过程，数字签名验证是个解密的过程。
+| 算法 | 摘要长度 | 分组长度 | 现状 |
+| --- | --- | --- | --- |
+| MD5 | 128 bit（32 位十六进制） | 512 bit | 已被碰撞攻击破解，仅可做非安全校验 |
+| SHA-1 | 160 bit（40 位十六进制） | 512 bit | 已被破解，淘汰 |
+| SHA-256 | 256 bit | 512 bit | 安全，主流选择 |
+| SHA-512 | 512 bit | 1024 bit | 安全，输出更长 |
+| SM3 | 256 bit | 512 bit | 国密标准，安全 |
+| CRC32 | 32 bit | — | 仅用于检错，非安全摘要 |
 
-## 常见消息/数字摘要算法
+国密算法（SM2/SM3/SM4）的定位与用法见 [安全算法 - 国密算法](./alg-domain-security-sm.md)。
 
-### [MD5在新窗口打开](https://baike.baidu.com/item/MD5/212708?fr=aladdin)
+## 4. MD5 详解与实现
 
-#### 简介:
+MD5（Message-Digest Algorithm 5）把报文按 512 bit 分组，对每组做 4 轮共 64 步的非线性变换，最后输出 128 bit 摘要。它的特点是**压缩性、易计算、抗修改、强抗碰撞**（在未被破解前）。虽然已不适合安全用途，但作为理解摘要算法结构的经典样本仍值得一看。
 
-MD5的作用是让大容量信息在用数字签名软件签署私人密钥前被"压缩"成一种保密的格式 (也就是把一个任意长度的字节串变换成一定长的十六进制数字串)。
-
-#### 特点:
-
-1. **压缩性** : 任意长度的数据，算出的MD5值长度都是固定的。
-2. **容易计算** : 从原数据计算出MD5值很容易。
-3. **抗修改性** : 对原数据进行任何改动，哪怕只修改1个字节，所得到的MD5值都有很大区别。
-4. **强抗碰撞** : 已知原数据和其MD5值，想找到一个具有相同MD5值的数据(即伪造数据)是非常困难的。
-
-#### 代码实现:
-
-利用JDK提供java.security.MessageDigest类实现MD5算法:
+JDK 通过 `java.security.MessageDigest` 提供了所有标准摘要算法：
 
 ```java
-package com.snailclimb.ks.securityAlgorithm;
-
 import java.security.MessageDigest;
+import java.util.HexFormat;
 
-public class MD5Demo {
-
-    // test
-    public static void main(String[] args) {
-        System.out.println(getMD5Code("你若安好，便是晴天"));
+public class DigestDemo {
+    // 计算十六进制摘要，algorithm 可取 "MD5" / "SHA-1" / "SHA-256"
+    public static String digest(String algorithm, String message) throws Exception {
+        MessageDigest md = MessageDigest.getInstance(algorithm);
+        byte[] bytes = md.digest(message.getBytes("UTF-8"));
+        // Java 17+ 可直接用 HexFormat 转十六进制；低版本可用循环自行拼接
+        return HexFormat.of().formatHex(bytes);
     }
 
-    private MD5Demo() {
-    }
-
-    // md5加密
-    public static String getMD5Code(String message) {
-        String md5Str = "";
-        try {
-        	//创建MD5算法消息摘要
-            MessageDigest md = MessageDigest.getInstance("MD5");
-            //生成的哈希值的字节数组
-            byte[] md5Bytes = md.digest(message.getBytes());
-            md5Str = bytes2Hex(md5Bytes);
-        }catch(Exception e) {
-            e.printStackTrace();
-        }
-        return md5Str;
-    }
-
-    // 2进制转16进制
-    public static String bytes2Hex(byte[] bytes) {
-        StringBuffer result = new StringBuffer();
-        int temp;
-        try {
-            for (int i = 0; i < bytes.length; i++) {
-                temp = bytes[i];
-                if(temp < 0) {
-                    temp += 256;
-                }
-                if (temp < 16) {
-                    result.append("0");
-                }
-                result.append(Integer.toHexString(temp));
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return result.toString();
+    public static void main(String[] args) throws Exception {
+        System.out.println(digest("MD5", "你若安好，便是晴天"));
+        System.out.println(digest("SHA-256", "你若安好，便是晴天"));
     }
 }
 ```
 
-结果
+`MessageDigest` 的两个核心方法：
 
-```text
-6bab82679914f7cb480a120b532ffa80
-```
+- `getInstance(String algorithm)`：返回实现指定摘要算法的对象；
+- `digest(byte[] input)`：使用指定字节数组完成摘要计算，返回摘要字节数组。多段数据可先多次 `update(...)` 再调用无参 `digest()` 收尾。
 
-**注意MessageDigest类的几个方法** :
+::: tip 关于十六进制转换
+早期示例常手写 `bytes2Hex`（逐字节取高 4 位与低 4 位映射到字符）。Java 9 起可用 `java.util.HexFormat`，或引入 Apache Commons Codec 的 `Hex.encodeHexString`，避免重复造轮子。
+:::
+
+## 5. SHA 家族
+
+安全散列算法（Secure Hash Algorithm, SHA）由 NSA 设计、NIST 发布，主要有三代：
+
+- **SHA-1**：输出 160 bit。理论碰撞概率极低，但 2017 年 Google 与 CWI 已构造出实际的碰撞样本（SHAttered），故已淘汰。
+- **SHA-2**：包括 SHA-224/256/384/512，输出越长越安全。SHA-256 是 TLS 证书、代码签名、Git 对象等的实际标准。
+- **SHA-3**：基于 Keccak 海绵结构，与 SHA-2 结构完全不同，作为"备份标准"存在，即使 SHA-2 未来被攻破也有可用替代。
+
+SHA-1 的用法与 MD5 完全一致，只是算法名换成 `"SHA-1"`；生产环境应直接使用 `"SHA-256"`：
 
 ```java
-static MessageDigest getInstance(String algorithm)//返回实现指定摘要算法的MessageDigest对象
-byte[] digest(byte[] input)//使用指定的字节数组对摘要执行最终更新，然后完成摘要计算。 
+MessageDigest md = MessageDigest.getInstance("SHA-256");
+byte[] digest = md.digest(data.getBytes("UTF-8")); // 32 字节
 ```
 
-#### 不利用Java提供的java.security.MessageDigest类实现MD5算法:
+## 6. HMAC：带密钥的摘要
+
+普通摘要任何人都能计算，因此无法证明"消息来自持有密钥的一方"。**HMAC**（Hash-based Message Authentication Code，基于哈希的消息认证码）在摘要基础上引入一个共享密钥，同时提供**完整性**与**真实性**：
+
+$$\mathrm{HMAC}(K, m) = H\big((K \oplus opad)\ \|\ H((K \oplus ipad)\ \|\ m)\big)$$
+
+它不要求底层哈希本身抗碰撞（即使 MD5/SHA-1 被弱化，HMAC-MD5/HMAC-SHA1 仍相对安全），因此广泛用于 API 签名、Webhook 校验等场景。
 
 ```java
-package com.snailclimb.ks.securityAlgorithm;
+import javax.crypto.Mac;
+import javax.crypto.spec.SecretKeySpec;
+import java.util.HexFormat;
 
-public class MD5{
-    /*
-    *四个链接变量
-    */
-    private final int A=0x67452301;
-    private final int B=0xefcdab89;
-    private final int C=0x98badcfe;
-    private final int D=0x10325476;
-    /*
-    *ABCD的临时变量
-    */
-    private int Atemp,Btemp,Ctemp,Dtemp;
-     
-    /*
-    *常量ti
-    *公式:floor(abs(sin(i+1))×(2pow32)
-    */
-    private final int K[]={
-        0xd76aa478,0xe8c7b756,0x242070db,0xc1bdceee,
-        0xf57c0faf,0x4787c62a,0xa8304613,0xfd469501,0x698098d8,
-        0x8b44f7af,0xffff5bb1,0x895cd7be,0x6b901122,0xfd987193,
-        0xa679438e,0x49b40821,0xf61e2562,0xc040b340,0x265e5a51,
-        0xe9b6c7aa,0xd62f105d,0x02441453,0xd8a1e681,0xe7d3fbc8,
-        0x21e1cde6,0xc33707d6,0xf4d50d87,0x455a14ed,0xa9e3e905,
-        0xfcefa3f8,0x676f02d9,0x8d2a4c8a,0xfffa3942,0x8771f681,
-        0x6d9d6122,0xfde5380c,0xa4beea44,0x4bdecfa9,0xf6bb4b60,
-        0xbebfbc70,0x289b7ec6,0xeaa127fa,0xd4ef3085,0x04881d05,
-        0xd9d4d039,0xe6db99e5,0x1fa27cf8,0xc4ac5665,0xf4292244,
-        0x432aff97,0xab9423a7,0xfc93a039,0x655b59c3,0x8f0ccc92,
-        0xffeff47d,0x85845dd1,0x6fa87e4f,0xfe2ce6e0,0xa3014314,
-        0x4e0811a1,0xf7537e82,0xbd3af235,0x2ad7d2bb,0xeb86d391};
-    /*
-    *向左位移数,计算方法未知
-    */
-    private final int s[]={7,12,17,22,7,12,17,22,7,12,17,22,7,
-        12,17,22,5,9,14,20,5,9,14,20,5,9,14,20,5,9,14,20,
-        4,11,16,23,4,11,16,23,4,11,16,23,4,11,16,23,6,10,
-        15,21,6,10,15,21,6,10,15,21,6,10,15,21};
-     
-     
-    /*
-    *初始化函数
-    */
-    private void init(){
-        Atemp=A;
-        Btemp=B;
-        Ctemp=C;
-        Dtemp=D;
-    }
-    /*
-    *移动一定位数
-    */
-    private    int    shift(int a,int s){
-        return(a<<s)|(a>>>(32-s));//右移的时候，高位一定要补零，而不是补充符号位
-    }
-    /*
-    *主循环
-    */
-    private void MainLoop(int M[]){
-        int F,g;
-        int a=Atemp;
-        int b=Btemp;
-        int c=Ctemp;
-        int d=Dtemp;
-        for(int i = 0; i < 64; i ++){
-            if(i<16){
-                F=(b&c)|((~b)&d);
-                g=i;
-            }else if(i<32){
-                F=(d&b)|((~d)&c);
-                g=(5*i+1)%16;
-            }else if(i<48){
-                F=b^c^d;
-                g=(3*i+5)%16;
-            }else{
-                F=c^(b|(~d));
-                g=(7*i)%16;
-            }
-            int tmp=d;
-            d=c;
-            c=b;
-            b=b+shift(a+F+K[i]+M[g],s[i]);
-            a=tmp;
-        }
-        Atemp=a+Atemp;
-        Btemp=b+Btemp;
-        Ctemp=c+Ctemp;
-        Dtemp=d+Dtemp;
-     
-    }
-    /*
-    *填充函数
-    *处理后应满足bits≡448(mod512),字节就是bytes≡56(mode64)
-    *填充方式为先加一个0,其它位补零
-    *最后加上64位的原来长度
-    */
-    private int[] add(String str){
-        int num=((str.length()+8)/64)+1;//以512位，64个字节为一组
-        int strByte[]=new int[num*16];//64/4=16，所以有16个整数
-        for(int i=0;i<num*16;i++){//全部初始化0
-            strByte[i]=0;
-        }
-        int    i;
-        for(i=0;i<str.length();i++){
-            strByte[i>>2]|=str.charAt(i)<<((i%4)*8);//一个整数存储四个字节，小端序
-        }
-        strByte[i>>2]|=0x80<<((i%4)*8);//尾部添加1
-        /*
-        *添加原长度，长度指位的长度，所以要乘8，然后是小端序，所以放在倒数第二个,这里长度只用了32位
-        */
-        strByte[num*16-2]=str.length()*8;
-            return strByte;
-    }
-    /*
-    *调用函数
-    */
-    public String getMD5(String source){
-        init();
-        int strByte[]=add(source);
-        for(int i=0;i<strByte.length/16;i++){
-        int num[]=new int[16];
-        for(int j=0;j<16;j++){
-            num[j]=strByte[i*16+j];
-        }
-        MainLoop(num);
-        }
-        return changeHex(Atemp)+changeHex(Btemp)+changeHex(Ctemp)+changeHex(Dtemp);
-     
-    }
-    /*
-    *整数变成16进制字符串
-    */
-    private String changeHex(int a){
-        String str="";
-        for(int i=0;i<4;i++){
-            str+=String.format("%2s", Integer.toHexString(((a>>i*8)%(1<<8))&0xff)).replace(' ', '0');
- 
-        }
-        return str;
-    }
-    /*
-    *单例
-    */
-    private static MD5 instance;
-    public static MD5 getInstance(){
-        if(instance==null){
-            instance=new MD5();
-        }
-        return instance;
-    }
-     
-    private MD5(){};
-     
-    public static void main(String[] args){
-        String str=MD5.getInstance().getMD5("你若安好，便是晴天");
-        System.out.println(str);
+public class HmacDemo {
+    public static String hmacSha256(String secret, String message) throws Exception {
+        Mac mac = Mac.getInstance("HmacSHA256");
+        mac.init(new SecretKeySpec(secret.getBytes("UTF-8"), "HmacSHA256"));
+        return HexFormat.of().formatHex(mac.doFinal(message.getBytes("UTF-8")));
     }
 }
 ```
 
-### [SHA1在新窗口打开](https://baike.baidu.com/item/MD5/212708?fr=aladdin)
+::: important 为什么不是 hash(key + message)
+直接把密钥拼在消息前面再哈希（如 `SHA256(key + msg)`）会遭受**长度扩展攻击**：攻击者无需知道密钥，就能在已知 `hash(key+msg)` 的情况下推算出 `hash(key+msg+填充+追加数据)`。HMAC 的双重哈希结构正是为抵御该攻击而设计。
+:::
 
-对于长度小于2^64位的消息，SHA1会产生一个160位(40个字符)的消息摘要。当接收到消息的时候，这个消息摘要可以用来验证数据的完整性。在传输的过程中，数据很可能会发生变化，那么这时候就会产生不同的消息摘要。
+## 7. 数字签名
 
-SHA1有如下特性:
+数字签名把**摘要**与**非对称加密**结合起来，同时解决完整性、真实性和不可否认性：
 
-- 不可以从消息摘要中复原信息；
-- 两个不同的消息不会产生同样的消息摘要,(但会有1x10 ^ 48分之一的机率出现相同的消息摘要,一般使用时忽略)。
+1. 发送方对原文计算摘要，再用**自己的私钥**加密这段摘要，得到签名；
+2. 原文与签名一起发送；
+3. 接收方用发送方的**公钥**解密签名，得到摘要 A；同时对收到的原文独立计算摘要 B；
+4. A 与 B 相同则说明原文完整且确实由私钥持有者发出，否则说明被篡改。
 
-#### 代码实现:
+签名过程是"私钥加密摘要"，验签过程是"公钥解密摘要并比对"。其中摘要算法保证了长报文也能被高效签名，加密算法则提供了身份绑定。
 
-利用JDK提供java.security.MessageDigest类实现SHA1算法:
+## 8. 应用与常见坑
 
-```java
-package com.snailclimb.ks.securityAlgorithm;
+**典型应用**
 
-import java.io.UnsupportedEncodingException;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
+- 文件完整性 / 秒传：先比对摘要再决定是否传输，见 [大数据处理 - 布隆过滤器](./alg-domain-bigdata-bloom-filter.md) 等去重方案；
+- 口令存储：数据库中只存口令摘要（切勿明文）；
+- 缓存 Key：用业务键的摘要做缓存键，长度可控；
+- 接口签名：HMAC + 时间戳防重放。
 
-public class SHA1Demo {
+**常见坑**
 
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		System.out.println(getSha1("你若安好，便是晴天"));
-	
-	}
+- **用 MD5 直接存密码**：彩虹表可秒破。正确做法是加随机盐 + 慢哈希（bcrypt / scrypt / Argon2 / PBKDF2）。
+- **口令存储叫"加密"**：术语上应叫摘要/哈希，摘要不可逆，与"可解密的加密"是两回事。
+- **单次快哈希迭代次数不足**：明文口令熵低，必须用刻意设计得慢的算法拉高爆破成本。
+- **误解"抗碰撞"**：摘要相同不代表原文相同（理论存在碰撞），安全场景要用抗碰撞强的算法。
 
-	public static String getSha1(String str) {
-		if (null == str || 0 == str.length()) {
-			return null;
-		}
-		char[] hexDigits = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f' };
-		try {
-			//创建SHA1算法消息摘要对象
-			MessageDigest mdTemp = MessageDigest.getInstance("SHA1");
-			//使用指定的字节数组更新摘要。
-			mdTemp.update(str.getBytes("UTF-8"));
-			//生成的哈希值的字节数组
-			byte[] md = mdTemp.digest();
-			//SHA1算法生成信息摘要关键过程
-			int j = md.length;
-		    char[] buf = new char[j * 2];
-			int k = 0;
-			for (int i = 0; i < j; i++) {
-				byte byte0 = md[i];
-				buf[k++] = hexDigits[byte0 >>> 4 & 0xf];
-				buf[k++] = hexDigits[byte0 & 0xf];
-			}
-			return new String(buf);
-		} catch (NoSuchAlgorithmException e) {
-			e.printStackTrace();
-		} catch (UnsupportedEncodingException e) {
-			e.printStackTrace();
-		}
-		return "0";
-		
-	}
-}
-```
+## 9. 小结
 
-**结果** :
-
-```text
-8ce764110a42da9b08504b20e26b19c9e3382414
-```
+- 摘要算法是**无密钥的单向压缩**，产出定长"指纹"，用于完整性校验、口令存储和数字签名。
+- 特性可归纳为定长、确定、单向、雪崩、抗碰撞五点。
+- MD5/SHA-1 已被碰撞攻击攻破，新系统一律使用 SHA-256 及以上或国密 SM3。
+- 需要认证来源时用 **HMAC**，不要用 `hash(key + msg)`。
+- 数字签名 = 摘要 + 非对称加密，同时保证完整性、真实性与不可否认性。
+- 口令存储必须加盐并用慢哈希，摘要不是加密。
