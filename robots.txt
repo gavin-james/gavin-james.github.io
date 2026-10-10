@@ -1,4 +1,4 @@
 User-agent:*
 Disallow:
 
-Sitemap: http://www.gavin-james.com/sitemap.xml
+Sitemap: https://gavin-james.github.io/sitemap.xml
