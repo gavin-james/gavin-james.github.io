@@ -1,4 +1,5 @@
 ---
+date: 2026-10-11
 title: JavaScript 基础
 category: [前端]
 tag: [JavaScript, ES6]

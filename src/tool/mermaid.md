@@ -1,4 +1,5 @@
 ---
+date: 2026-10-11
 title: Mermaid 流程图语法
 category: [工具]
 tag: [Mermaid, 图表]

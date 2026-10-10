@@ -1,4 +1,5 @@
 ---
+date: 2026-10-11
 title: Spring IoC 容器详解
 category: [框架]
 tag: [Spring, IoC]

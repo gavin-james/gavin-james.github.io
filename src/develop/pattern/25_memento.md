@@ -1,4 +1,5 @@
 ---
+date: 2026-10-11
 title: 备忘录（Memento）
 category: [设计模式]
 tag: [设计模式]

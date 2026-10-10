@@ -1,4 +1,5 @@
 ---
+date: 2026-10-11
 title: Sentinel 流量治理
 category: [框架]
 tag: [Spring Cloud, Sentinel]

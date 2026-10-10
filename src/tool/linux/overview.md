@@ -1,4 +1,5 @@
 ---
+date: 2026-10-11
 title: Linux 基础
 category: [工具]
 tag: [Linux]

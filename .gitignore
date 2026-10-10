@@ -81,3 +81,6 @@ urls.txt
 src/.vuepress/.cache/
 src/.vuepress/.temp/
 src/.vuepress/dist/
+
+# 私人笔记：仅在本地保留，不提交、不主动公开
+src/notes/

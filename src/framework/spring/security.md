@@ -1,4 +1,5 @@
 ---
+date: 2026-10-11
 title: Spring Security
 category: [框架]
 tag: [Spring, Security, 认证]

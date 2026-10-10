@@ -1,4 +1,5 @@
 ---
+date: 2026-10-11
 title: 装饰器（Decorator）
 category: [设计模式]
 tag: [设计模式]

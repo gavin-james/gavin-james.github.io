@@ -1,4 +1,5 @@
 ---
+date: 2026-10-11
 title: 建造者（Builder）
 category: [设计模式]
 tag: [设计模式]

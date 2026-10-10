@@ -1,4 +1,5 @@
 ---
+date: 2026-10-11
 title: Vue 3 基础
 category: [前端]
 tag: [Vue, 组合式API]

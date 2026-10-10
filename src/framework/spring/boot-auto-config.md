@@ -1,4 +1,5 @@
 ---
+date: 2026-10-11
 title: Spring Boot 自动配置
 category: [框架]
 tag: [Spring Boot]

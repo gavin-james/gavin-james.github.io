@@ -1,4 +1,5 @@
 ---
+date: 2026-10-11
 title: 架构知识体系
 icon: structure
 index: false

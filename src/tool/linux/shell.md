@@ -1,4 +1,5 @@
 ---
+date: 2026-10-11
 title: Shell 与常用命令
 category: [工具]
 tag: [Linux, Shell]

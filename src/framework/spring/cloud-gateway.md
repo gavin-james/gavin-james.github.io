@@ -1,4 +1,5 @@
 ---
+date: 2026-10-11
 title: Spring Cloud Gateway
 category: [框架]
 tag: [Spring Cloud, Gateway]

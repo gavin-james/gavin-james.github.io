@@ -1,4 +1,5 @@
 ---
+date: 2026-10-11
 title: Nacos 注册与配置中心
 category: [框架]
 tag: [Spring Cloud, Nacos]

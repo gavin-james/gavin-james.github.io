@@ -1,4 +1,5 @@
 ---
+date: 2026-10-11
 title: Git 详解
 category: [工具]
 tag: [Git]

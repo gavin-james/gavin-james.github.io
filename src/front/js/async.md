@@ -1,4 +1,5 @@
 ---
+date: 2026-10-11
 title: JavaScript 异步编程
 category: [前端]
 tag: [JavaScript, 异步]

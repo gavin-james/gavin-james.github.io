@@ -1,4 +1,5 @@
 ---
+date: 2026-10-11
 title: CAP 与 BASE
 category: [架构]
 tag: [分布式, CAP, BASE]

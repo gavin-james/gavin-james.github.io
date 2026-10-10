@@ -1,4 +1,5 @@
 ---
+date: 2026-10-11
 title: ORM 总览
 category: [框架]
 tag: [ORM]

@@ -256,7 +256,14 @@ export const zhNavbar = navbar([
 	{
 		text: '更多',
 		icon: 'more',
-		link: '/more/',
+		children: [
+			{ text: '扩展阅读', link: '/more/' },
+			{ text: '文章列表', link: '/article/' },
+			{ text: '归档', link: '/timeline/' },
+			{ text: '分类', link: '/category/' },
+			{ text: '标签', link: '/tag/' },
+			{ text: '资源导航', link: '/resource/' },
+		],
 	},
 	{
 		text: '关于',
