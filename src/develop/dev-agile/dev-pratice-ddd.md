@@ -1,4 +1,5 @@
 ---
+date: 2026-10-11
 title: DDD 实践入门
 category: [开发]
 tag: [DDD]

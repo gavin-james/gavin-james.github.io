@@ -1,3 +1,10 @@
+---
+date: 2022-05-06
+category:
+  - Java JVM
+tag:
+  - Java JVM
+---
 # JVM 基础 - Java 类加载机制 
 
 > 这篇文章将带你深入理解Java 类加载机制。 

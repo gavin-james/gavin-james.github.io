@@ -1,4 +1,5 @@
 ---
+date: 2026-10-11
 title: RabbitMQ 详解
 category: [框架]
 tag: [RabbitMQ]

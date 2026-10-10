@@ -1,4 +1,5 @@
 ---
+date: 2026-10-11
 title: IDE 与开发效率
 category: [工具]
 tag: [IDE, IDEA]

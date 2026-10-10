@@ -1,4 +1,5 @@
 ---
+date: 2026-10-11
 title: Jenkins 持续集成
 category: [工具]
 tag: [Jenkins, CI]

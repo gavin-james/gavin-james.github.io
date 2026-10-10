@@ -516,6 +516,7 @@ export const zhSidebar = sidebar({
 				'dev-usage-export-pdf',
 				'dev-usage-flotjs',
 				'dev-usage-zkfinger',
+				'dev-usage-zuosi',
 			],
 		},
 	],
@@ -537,6 +538,12 @@ export const zhSidebar = sidebar({
 			prefix: 'sql-lan/',
 			collapsible: true,
 			children: ['sql-lan', 'sql-lan-pratice', 'sql-lan-leetcode', 'sql-lan-optimize'],
+		},
+		{
+			text: 'SQL-Oracle',
+			prefix: 'sql-oracle/',
+			collapsible: true,
+			children: ['sql-oracle-overview'],
 		},
 		{
 			text: 'SQL-MySQL',
@@ -745,6 +752,7 @@ export const zhSidebar = sidebar({
 				'maven/overview',
 				'gradle/01',
 				'ide/overview',
+				'mermaid',
 			],
 		},
 		{

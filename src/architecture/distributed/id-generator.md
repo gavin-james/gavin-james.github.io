@@ -1,4 +1,5 @@
 ---
+date: 2026-10-11
 title: 分布式 ID 生成
 category: [架构]
 tag: [分布式, 分布式ID]

@@ -1,4 +1,5 @@
 ---
+date: 2026-10-11
 title: Spring 事务管理
 category: [框架]
 tag: [Spring, 事务]

@@ -1,4 +1,5 @@
 ---
+date: 2026-10-11
 title: Java 代码作死小技巧
 category: [开发]
 tag: [随手记, Java]

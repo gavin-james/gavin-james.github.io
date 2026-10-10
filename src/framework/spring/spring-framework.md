@@ -1,4 +1,5 @@
 ---
+date: 2026-10-11
 title: Spring Framework 核心
 category: [框架]
 tag: [Spring]

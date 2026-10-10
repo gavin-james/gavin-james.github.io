@@ -1203,7 +1203,7 @@ For a more long-winded discussion on this topic, read [here在新窗口打开](h
 
 When spawning a thread, either directly or with a thread pool, you need to take special care that you properly manage the lifecycle. Please familiarize yourself with the concept of daemon and non-daemon threads (and their effect on the JVM lifecycle) by reading the documentation for [Thread在新窗口打开](http://docs.oracle.com/javase/7/docs/api/java/lang/Thread.html). Failing to understand these concepts can cause your application to hang at shutdown.
 
-Shutting down an [ExecutorService在新窗口打开](http://docs.oracle.com/javase/7/docs/api/java/util/concurrent/ExecutorService.html) properly is a slightly tricky process (see javadoc). If your code manages an executor service with non-daemon threads, you need to follow this procedure. [ExecutorServiceShutdown]([ExecutorService](http://docs.oracle.com/javase/7/docs/api/java/util/concurrent/ExecutorService.html)) very nicely contains this behavior for you.
+Shutting down an [ExecutorService在新窗口打开](http://docs.oracle.com/javase/7/docs/api/java/util/concurrent/ExecutorService.html) properly is a slightly tricky process (see javadoc). If your code manages an executor service with non-daemon threads, you need to follow this procedure. [ExecutorServiceShutdown](http://docs.oracle.com/javase/7/docs/api/java/util/concurrent/ExecutorService.html) very nicely contains this behavior for you.
 
 If you want to automatically perform cleanup like this when the VM is shutting down, consider registering with [ShutdownRegistry在新窗口打开](https://github.com/twitter/commons/blob/master/src/java/com/twitter/common/application/ShutdownRegistry.java).
 

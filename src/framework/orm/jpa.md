@@ -1,4 +1,5 @@
 ---
+date: 2026-10-11
 title: JPA 与 Hibernate
 category: [框架]
 tag: [JPA, Hibernate]

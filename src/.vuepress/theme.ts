@@ -1,13 +1,14 @@
 import { hopeTheme } from 'vuepress-theme-hope'
-import { enNavbar, zhNavbar } from './navbar'
-import { enSidebar, zhSidebar } from './sidebar'
+import { zhNavbar } from './navbar'
+import { zhSidebar } from './sidebar'
+import { collectNotePaths } from './utils'
 
 export default hopeTheme({
-	hostname: 'http://www.gavin-james.com',
+	hostname: 'https://gavin-james.github.io',
 
 	author: {
-		name: 'gavin-james',
-		url: 'http://www.gavin-james.xyz',
+		name: 'Gavin James',
+		url: 'https://github.com/gavin-james',
 	},
 
 	logo: '/logo.svg',
@@ -38,42 +39,16 @@ export default hopeTheme({
 			// sidebar
 			sidebar: zhSidebar,
 
-			footer: '本文章大部分来自pdai:地址https://www.pdai.tech',
+			footer: '© 2022-2026 Gavin James · 个人技术知识库 · 部分内容整理自 pdai.tech',
 
 			displayFooter: true,
 
 			blog: {
 				description: '编程之八字真言：1、专2、静3、谦4、筹5、悟6、慎7、透8、恒。',
-				intro: '/intro.html',
 			},
 
 			metaLocales: {
 				editLink: '在 GitHub 上编辑此页',
-			},
-		},
-
-		/**
-		 * Chinese locale config
-		 */
-		'/en/': {
-			// navbar
-			navbar: enNavbar,
-
-			// sidebar
-			sidebar: enSidebar,
-
-			footer: '本文章大部分来自pdai:地址https://www.pdai.tech',
-
-			displayFooter: true,
-
-			blog: {
-				description: '编程之八字真言：1、专2、静3、谦4、筹5、悟6、慎7、透8、恒。',
-				intro: '/intro.html',
-			},
-
-			// page meta
-			metaLocales: {
-				editLink: 'Edit this page on GitHub',
 			},
 		},
 	},
@@ -159,5 +134,9 @@ export default hopeTheme({
 		},
 		// search-pro 已停止维护，改用官方 slimsearch
 		slimsearch: true,
+		// 私人笔记留在站内但不主动公开：排除出 sitemap（不被搜索引擎收录）
+		sitemap: {
+			excludePaths: ['/404.html', ...collectNotePaths()],
+		},
 	},
 })

@@ -1,4 +1,5 @@
 ---
+date: 2026-10-11
 title: 前端知识体系
 icon: chrome
 index: false
